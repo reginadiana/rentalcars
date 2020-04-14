@@ -1,0 +1,12 @@
+
+<%= link_to 'Registrar novo fabricante', new_manufacturer_path %>
+
+<% if @manufacturers.empty? %>
+   <%= 'Nenhum fabricante cadastrado' %>
+<% end %>
+
+<% @manufacturers.each do |manu| %>
+	<%= link_to manu.name, manu %>
+<% end %>
+
+<%= link_to 'Voltar', root_path%>
