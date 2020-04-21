@@ -20,7 +20,7 @@ feature 'Admin view car categories' do
 		CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 		
 		visit root_path
-		click_on 'Categoria de Carros'
+		click_on 'Categorias de Carros'
 		click_on 'Categoria A'
 
 		expect(page).to have_content 'Categoria A'

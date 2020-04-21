@@ -7,7 +7,7 @@ feature 'Admin deletes manufacturer' do
     visit root_path
     click_on 'Fabricantes'
     click_on 'Fiat'
-    click_on 'Apagar fabricante'
+    click_on 'Apagar'
 
     expect(current_path).to eq manufacturers_path
     expect(page).to have_content('Nenhum fabricante cadastrado')
@@ -20,7 +20,7 @@ feature 'Admin deletes manufacturer' do
     visit root_path
     click_on 'Fabricantes'
     click_on 'Fiat'
-    click_on 'Apagar fabricante'
+    click_on 'Apagar'
 
     expect(current_path).to eq manufacturers_path
     expect(page).not_to have_content('Fiat')
