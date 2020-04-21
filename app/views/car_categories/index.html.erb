@@ -1,0 +1,12 @@
+<h1>Categorias de Carros</h1>
+
+<%= @car_categories.each do |c| %>
+	<div>
+		<h2><%= link_to "Categoria #{c.name}", c %></h2>
+		
+		<dl>
+			<dt>Valor da diaria</dt>
+			<dd><%= number_to_currency c.daily_rate %></dd>
+		</sdl>
+	</div>
+<% end %>
