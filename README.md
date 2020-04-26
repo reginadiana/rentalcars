@@ -3,9 +3,9 @@
 ## Description
 
 ## Table of contents
-* [General info](#database)
 * [Technologies](#technologies)
-* [Setup](#configuration)
+* [How to run](#how-to-run)
+* [How to run the test suite](#how-to-run-the-test-suite)
 
 ## Technologies 
 
@@ -13,9 +13,9 @@
 
 ### Ruby version
 
-## System dependencies
+### System dependencies
 
-## Configuration
+### Configuration
 
 ## Database 
 
