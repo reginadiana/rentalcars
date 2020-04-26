@@ -81,9 +81,20 @@ $ rspec
 
 ## Database :floppy_disk:
 
+|  Manufacturer | type |
+| ------------------- | ------------------- |
+|  Célula de conteúdo |  Célula de conteúdo |
+|  Célula de conteúdo |  Célula de conteúdo |
+
 ### CRUD
 
 Each function of CRUD was made using the routes of rails to:
+
+For to see this routes in prompt, run: 
+
+```
+$ rails routes -g <name of controller>
+```
 
 #### Manufacturers Routes
 
@@ -100,11 +111,55 @@ Each function of CRUD was made using the routes of rails to:
 
 #### Car Category Routes
 
+| Preflix  |  Verb  | URI Pattern | Controller#Action |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+|  car_categories |  GET | /car_categories(.:format) | car_categories#index |
+|   |  POST | /car_categories(.:format) | car_categories#create |
+|  new_car_category |  GET | /car_categories/new(.:format) | car_categories#new |
+|  edit_car_category |  GET | /car_categories/:id/edit(.:format) | car_categories#edit |
+|  car_category |  GET | /car_categories/:id(.:format) | car_categories#show |
+|   |  PATCH | /car_categories/:id(.:format) | car_categories#update |
+|   |  PUT | /car_categories/:id(.:format) | car_categories#update |
+|   |  DELETE | /car_categories/:id(.:format) | car_categories#destroy |
+
 #### Car Model Routes
+
+| Preflix  |  Verb  | URI Pattern | Controller#Action |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+|  car_models |  GET | /car_models(.:format) | car_models#index |
+|   |  POST | /car_models(.:format) | car_models#create |
+|  new_car_model |  GET | /car_models/new(.:format) | car_models#new |
+|  edit_car_model|  GET | /car_models/:id/edit(.:format) | car_models#edit |
+|  car_model |  GET | /car_models/:id(.:format) | car_models#show |
+|   |  PATCH | /car_models/:id(.:format) | car_models#update |
+|   |  PUT | /car_models/:id(.:format) | car_models#update |
+|   |  DELETE | /car_models/:id(.:format) | car_models#destroy |
 
 #### Subsidiary Routes
 
+| Preflix  |  Verb  | URI Pattern | Controller#Action |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+|  subsidiaries |  GET | /subsidiaries(.:format) | subsidiaries#index |
+|   |  POST | /subsidiaries(.:format) | subsidiaries#create |
+|  new_subsidiary |  GET | /subsidiaries/new(.:format) | subsidiaries#new |
+|  edit_subsidiary |  GET | /subsidiaries/:id/edit(.:format) | subsidiaries#edit |
+|  car_subsidiary |  GET | /subsidiaries/:id(.:format) | subsidiaries#show |
+|   |  PATCH | /subsidiaries/:id(.:format) | subsidiaries#update |
+|   |  PUT | /subsidiaries/:id(.:format) | subsidiaries#update |
+|   |  DELETE | /subsidiaries/:id(.:format) | subsidiaries#destroy |
+
 #### Custumer Routes
+
+| Preflix  |  Verb  | URI Pattern | Controller#Action |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+|  custumers |  GET | /custumers(.:format) | custumers#index |
+|   |  POST | /custumers(.:format) | custumers#create |
+|  new_custumer |  GET | /custumers/new(.:format) | custumers#new |
+|  edit_custumer |  GET | /custumers/:id/edit(.:format) | custumers#edit |
+|  car_custumer |  GET | /custumers/:id(.:format) | custumers#show |
+|   |  PATCH | /custumers/:id(.:format) | custumers#update |
+|   |  PUT | /custumers/:id(.:format) | custumers#update |
+|   |  DELETE | /custumers/:id(.:format) | custumers#destroy |
 
 ## Licence :trident:
 
