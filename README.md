@@ -1,24 +1,28 @@
-# README
+<h1 align="center">Rental Cars</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+## Table of contents
+* [General info](#database)
+* [Technologies](#technologies)
+* [Setup](#configuration)
 
-* Ruby version
+## Technologies 
 
-* System dependencies
+## How to run
 
-* Configuration
+### Ruby version
 
-* Database creation
+## System dependencies
 
-* Database initialization
+## Configuration
 
-* How to run the test suite
+## Database 
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database creation
 
-* Deployment instructions
+### Database initialization
 
-* ...
+## How to run the test suite
+
+
