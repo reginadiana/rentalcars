@@ -52,7 +52,7 @@ $ yarn -v
 
 ### System dependencies :package:
 
-For install dependencies of this project, do you need to have this (Gemfile)[https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile]. Before, run in prompt:
+For install dependencies of this project, do you need to have this [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile). Before, run in prompt:
 
 ```
 $ bundle install or bin/setup
