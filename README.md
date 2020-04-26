@@ -87,6 +87,17 @@ Each function of CRUD was made using the routes of rails to:
 
 #### Manufacturers Routes
 
+| Preflix  |  Verb  | URI Pattern | Controller#Action |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+|  manufacturers |  GET | /manufacturers(.:format) | manufacturers#index |
+|   |  POST | /manufacturers(.:format) | manufacturers#create |
+|  new_manufacturer |  GET | /manufacturers/new(.:format) | manufacturers#new |
+|  edit_manufacturer |  GET | /manufacturers/:id/edit(.:format) | manufacturers#edit |
+|  manufacturer |  GET | /manufacturers/:id(.:format) | manufacturers#show |
+|   |  PATCH | /manufacturers/:id(.:format) | manufacturers#update |
+|   |  PUT | /manufacturers/:id(.:format) | manufacturers#update |
+|   |  DELETE | /manufacturers/:id(.:format) | manufacturers#destroy |
+
 #### Car Category Routes
 
 #### Car Model Routes
