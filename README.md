@@ -17,22 +17,30 @@
 
 ## Technologies 
 
-## How to run
+## How to run :arrow_forward:
 
 ### Ruby version
 
-### System dependencies
+### System dependencies :package:
 
 ### Configuration
 
-## Database 
+## Database :floppy_disk:
 
-## CRUD
+### CRUD
+
+#### Manufacturers
 
 ### Database creation
 
 ### Database initialization
 
 ## How to run the test suite
+
+## Licence :trident:
+
+The MIT License (MIT)
+
+Copyright :copyright: 2020 Rental Cars
 
 
