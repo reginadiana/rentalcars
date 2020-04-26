@@ -81,10 +81,44 @@ $ rspec
 
 ## Database :floppy_disk:
 
-|  Manufacturer | type |
+|  manufacturer | Type |
 | ------------------- | ------------------- |
-|  Célula de conteúdo |  Célula de conteúdo |
-|  Célula de conteúdo |  Célula de conteúdo |
+|  name |  string |
+|  id_manufacturer |  integrer |
+
+|  car_category | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  daily_rate |  string |
+|  car_insurance |  string |
+|  third_party_insurance |  string |
+|  id_car_category |  integrer |
+
+|  car_model | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  year |  integrer |
+|  **manufacturer** |  **object** |
+|  motorization |  string |
+|  **car_category** |   **object** |
+|  fuel_type | string |
+|  id_car_model |  integrer |
+|  id_manufacturer |  integrer |
+|  id_car_category |  integrer |
+
+|  subsidiary | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  CNPJ |  string |
+|  address |  string |
+|  id_subsidiary |  integrer |
+
+|  customer | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  CPF |  string |
+|  email |  string |
+|  id_customer |  integrer |
 
 ### CRUD
 
