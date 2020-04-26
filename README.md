@@ -7,7 +7,7 @@
 - [How to run](#how-to-run)
   - [Ruby version](#ruby-version)
   - [System dependencies](#system-dependencies)
-- [Database](#database)
+- [Database](#database-floppy_disk)
   - [CRUD](#crud)
   - [Database creation](#database-creation)
   - [Database initialization](#database-initialization)
@@ -15,7 +15,12 @@
 
 ## Description :checkered_flag:
 
+An application backend with Ruby on Rails for rental cars. The customers can register itself and choice a model car. 
+
 ## Technologies 
+
+- Ruby on Rails 
+- Node
 
 ## How to run :arrow_forward:
 
@@ -31,11 +36,26 @@
 
 #### Manufacturers
 
+*Routes*
+
+#### Car Category 
+
+#### Car Model
+
+#### Subsidiary
+
+#### Custumer
+
 ### Database creation
 
 ### Database initialization
 
 ## How to run the test suite
+
+```
+$ cd rental_cars
+$ rspec 
+```
 
 ## Licence :trident:
 
