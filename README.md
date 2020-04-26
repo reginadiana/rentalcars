@@ -2,29 +2,59 @@
 
 ## Table of contents
 
-- [Description](#description)
-- [Technologies](#technologies)
+- [Description](#description-checkered_flag)
 - [How to run](#how-to-run)
-  - [Ruby version](#ruby-version)
-  - [System dependencies](#system-dependencies)
+  - [Technologies and your Versions](#technologies-and-your-versions)
+  - [System dependencies](#system-dependencies-package)
 - [Database](#database-floppy_disk)
   - [CRUD](#crud)
   - [Database creation](#database-creation)
   - [Database initialization](#database-initialization)
-- [How to run the test suite](#how-to-run-the-test-suite)
+- [How to run the test suite](#how-to-run-the-test-suite-memo)
 
 ## Description :checkered_flag:
 
 An application backend with Ruby on Rails for rental cars. The customers can register itself and choice a model car. 
 
-## Technologies 
-
-- Ruby on Rails 
-- Node
-
 ## How to run :arrow_forward:
 
-### Ruby version
+### Technologies and your Versions
+
+Ruby 
+```
+$ ruby -v 
+```
+> 2.6.3
+
+Ruby on Rails 
+```
+$ rails -v 
+```
+> 6.0.2.2
+
+Node
+```
+$ node -v
+```
+> 12.16.2
+
+Gem
+```
+$ gem -v 
+```
+> 3.1.2
+
+Bundle
+```
+$ bundle -v
+```
+> 2.1.2
+
+Yarn
+```
+$ yarn -v
+```
+> 1.22.4
 
 ### System dependencies :package:
 
@@ -33,6 +63,8 @@ An application backend with Ruby on Rails for rental cars. The customers can reg
 ## Database :floppy_disk:
 
 ### CRUD
+
+Each function of CRUD was made using the routes of rails to:
 
 #### Manufacturers
 
@@ -50,7 +82,7 @@ An application backend with Ruby on Rails for rental cars. The customers can reg
 
 ### Database initialization
 
-## How to run the test suite
+## How to run the test suite :memo:
 
 ```
 $ cd rental_cars
