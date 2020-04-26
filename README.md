@@ -16,7 +16,7 @@
 
 ## Description :checkered_flag:
 
-An application backend with Ruby on Rails for rental cars. The customers can register itself and choice a model car. 
+A backend application with Ruby on Rails for rental cars. The customers can register itself and choose a model car. 
 
 ## How to run :arrow_forward:
 
@@ -54,7 +54,7 @@ $ yarn -v
 
 ### System dependencies :package:
 
-For install dependencies of this project, do you need to have this [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile). Before, run in prompt:
+For install dependencies of this project, you need to have this [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile). Before, run in prompt:
 
 ```
 $ bundle install or bin/setup
@@ -71,7 +71,7 @@ $ rails db:migrate
 > For to see the application in localhost, run this commands and acess http://localhost:3000
 
 ```
-$ rails server or rails r
+$ rails server or rails s
 ```
 
 ### How to run the test suite :memo:
@@ -124,7 +124,7 @@ $ rspec
 
 ### CRUD
 
-Each function of CRUD was made using the routes of rails to:
+For each function of CRUD, we have a router for him:
 
 For to see this routes in prompt, run: 
 
