@@ -20,45 +20,64 @@ An application backend with Ruby on Rails for rental cars. The customers can reg
 
 ### Technologies and your Versions
 
-Ruby 
+Ruby 2.6.3
 ```
 $ ruby -v 
 ```
-> 2.6.3
 
-Ruby on Rails 
+Ruby on Rails  6.0.2.2
 ```
 $ rails -v 
 ```
-> 6.0.2.2
 
-Node
+Node 12.16.2
 ```
 $ node -v
 ```
-> 12.16.2
 
-Gem
+Gem 3.1.2
 ```
 $ gem -v 
-```
-> 3.1.2
+``` 
 
-Bundle
+Bundle 2.1.2
 ```
 $ bundle -v
 ```
-> 2.1.2
 
-Yarn
+Yarn 1.22.4
 ```
 $ yarn -v
 ```
-> 1.22.4
 
 ### System dependencies :package:
 
-### Configuration
+For install dependencies of this project, do you need to have this (Gemfile)[https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile]. Before, run in prompt:
+
+```
+$ bundle install or bin/setup
+```
+
+### Database initialization
+
+```
+$ rails db:migrate
+```
+
+### Run in server 
+
+> For to see the application in localhost, run this commands and acess http://localhost:3000
+
+```
+$ rails server or rails r
+```
+
+### How to run the test suite :memo:
+
+```
+$ cd rental_cars
+$ rspec 
+```
 
 ## Database :floppy_disk:
 
@@ -66,33 +85,18 @@ $ yarn -v
 
 Each function of CRUD was made using the routes of rails to:
 
-#### Manufacturers
+#### Manufacturers Routes
 
-*Routes*
+#### Car Category Routes
 
-#### Car Category 
+#### Car Model Routes
 
-#### Car Model
+#### Subsidiary Routes
 
-#### Subsidiary
-
-#### Custumer
-
-### Database creation
-
-### Database initialization
-
-## How to run the test suite :memo:
-
-```
-$ cd rental_cars
-$ rspec 
-```
+#### Custumer Routes
 
 ## Licence :trident:
 
 The MIT License (MIT)
 
 Copyright :copyright: 2020 Rental Cars
-
-
