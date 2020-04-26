@@ -6,11 +6,13 @@
 - [How to run](#how-to-run)
   - [Technologies and your Versions](#technologies-and-your-versions)
   - [System dependencies](#system-dependencies-package)
+  - [Database initialization](#database-initialization)
+  - [Run in server](#run-in-server)
+  - [How to run the test suite](#how-to-run-the-test-suite-memo)
 - [Database](#database-floppy_disk)
   - [CRUD](#crud)
-  - [Database creation](#database-creation)
   - [Database initialization](#database-initialization)
-- [How to run the test suite](#how-to-run-the-test-suite-memo)
+- [Licence](#licence)
 
 ## Description :checkered_flag:
 
