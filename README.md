@@ -12,7 +12,7 @@
 - [Database](#database-floppy_disk)
   - [CRUD](#crud)
   - [Database initialization](#database-initialization)
-- [Licence](#licence)
+- [Licence](#licence-trident)
 
 ## Description :checkered_flag:
 
