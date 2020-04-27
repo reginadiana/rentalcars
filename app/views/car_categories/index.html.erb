@@ -1,5 +1,11 @@
 <h1>Categorias de Carros</h1>
 
+<%= link_to 'Registrar nova Categoria', new_car_category_path %>
+
+<% if @car_categories.empty? %>
+	<%= 'Nenhuma categoria cadastrada' %>
+<% end %>
+
 <%= @car_categories.each do |c| %>
 	<div>
 		<h2><%= link_to "Categoria #{c.name}", c %></h2>

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Admin view car categories' do
 	scenario 'successfully' do
-		CarCategory.create!(name: 'A', daily_rate: 50)
-		CarCategory.create!(name: 'B', daily_rate: 70)
+		CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
+		CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
 		
 
 		visit root_path
@@ -63,6 +63,10 @@ feature 'Admin view car categories' do
 
 	end
 
-	xscenario 'empty list' do
+	scenario 'empty list' do
+	    visit root_path
+	    click_on 'Categorias de Carros'
+
+	    expect(page).to have_content('Nenhuma categoria cadastrada')
 	end
 end

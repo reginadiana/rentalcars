@@ -1,0 +1,22 @@
+<h1>Registre uma nova categoria:</h1>
+
+<% @car_category.errors.full_messages.each do |message| %>
+	<p><%= message %></p>
+<% end %>
+
+<%= form_with model: @car_category, local: true do |f| %>
+	<%= f.label :name, 'Nome' %>
+	<%= f.text_field :name %>
+
+	<%= f.label :name, 'Daily Rate' %>
+	<%= f.text_field :daily_rate %>
+
+	<%= f.label :name, 'Car Insurance' %>
+	<%= f.text_field :car_insurance %>
+
+	<%= f.label :name, 'Third Part Insurance' %>
+	<%= f.text_field :third_part_insurance %>
+
+
+	<%= f.submit 'Enviar'%>
+<% end %>
