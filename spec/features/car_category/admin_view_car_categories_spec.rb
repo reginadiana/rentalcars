@@ -16,6 +16,17 @@ feature 'Admin view car categories' do
 		expect(page).to have_content '$70.00'
 	end
 
+	scenario 'and return to home page' do
+	    CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
+	    CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
+
+	    visit root_path
+	    click_on 'Categorias de Carros'
+	    click_on 'Voltar'
+
+	    expect(current_path).to eq root_path
+	end
+
 	scenario 'view car category details' do
 		car_category = CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 		manufacturer = Manufacturer.create!(name: 'Fiat')

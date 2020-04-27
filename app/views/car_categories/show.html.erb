@@ -13,6 +13,9 @@
 
 			<dt>Seguro para Terceiros:</dt>
 			<dd><%= number_to_currency @car_category.third_part_insurance %></dd>
+			
+			<dt>Editar categoria</dt>
+			<dd><%= link_to 'Editar', edit_car_category_path(@car_category) %></dd>
 
 		</dl>
 
