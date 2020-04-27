@@ -1,24 +1,144 @@
-# README
+<h1 align="center">Rental Cars</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of contents
 
-Things you may want to cover:
+- [Description](#description-checkered_flag)
+- [How to run](#how-to-run)
+  - [Technologies and your Versions](#technologies-and-your-versions)
+  - [System dependencies](#system-dependencies-package)
+  - [Database initialization](#database-initialization)
+  - [Run in server](#run-in-server)
+  - [How to run the test suite](#how-to-run-the-test-suite-memo)
+- [Database](#database-floppy_disk)
+  - [CRUD](#crud)
+  - [Database initialization](#database-initialization)
+- [Solving problems](#solving-problems)
+- [Licence](#licence-trident)
 
-* Ruby version
+## Description :checkered_flag:
 
-* System dependencies
+A backend application with Ruby on Rails for rental cars. The customers can register itself and choose a model car. 
 
-* Configuration
+## How to run :arrow_forward:
 
-* Database creation
+### Technologies and your Versions
 
-* Database initialization
+Ruby 2.6.3
+```
+$ ruby -v 
+```
 
-* How to run the test suite
+Ruby on Rails  6.0.2.2
+```
+$ rails -v 
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Node 12.16.2
+```
+$ node -v
+```
 
-* Deployment instructions
+Gem 3.1.2
+```
+$ gem -v 
+``` 
 
-* ...
+Bundle 2.1.2
+```
+$ bundle -v
+```
+
+Yarn 1.22.4
+```
+$ yarn -v
+```
+
+### System dependencies :package:
+
+For install dependencies of this project, you need to have this [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile). Before, run in prompt:
+
+```
+$ bundle install or bin/setup
+```
+
+### Database initialization
+
+```
+$ rails db:migrate
+```
+
+### Run in server 
+
+> For to see the application in localhost, run this commands and acess http://localhost:3000
+
+```
+$ rails server or rails s
+```
+
+### How to run the test suite :memo:
+
+```
+$ cd rental_cars
+$ rspec 
+```
+
+## Database :floppy_disk:
+
+|  manufacturer | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  id_manufacturer |  integrer |
+
+|  car_category | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  daily_rate |  string |
+|  car_insurance |  string |
+|  third_party_insurance |  string |
+|  id_car_category |  integrer |
+
+|  car_model | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  year |  integrer |
+|  **manufacturer** |  **object** |
+|  motorization |  string |
+|  **car_category** |   **object** |
+|  fuel_type | string |
+|  id_car_model |  integrer |
+|  id_manufacturer |  integrer |
+|  id_car_category |  integrer |
+
+|  subsidiary | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  CNPJ |  string |
+|  address |  string |
+|  id_subsidiary |  integrer |
+
+|  customer | Type |
+| ------------------- | ------------------- |
+|  name |  string |
+|  CPF |  string |
+|  email |  string |
+|  id_customer |  integrer |
+
+### CRUD
+
+For each function of CRUD, we have a router for him:
+
+For to see this routes in prompt, run: 
+
+```
+$ rails routes -g <name of controller>
+```
+
+## Solving problems
+
+Go to my [issues](https://github.com/Diana-ops/treina-dev-turma-3/issues) for to see how I resolved some problems in development project.
+
+## Licence :trident:
+
+The MIT License (MIT)
+
+Copyright :copyright: 2020 Rental Cars
