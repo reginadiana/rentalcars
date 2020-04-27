@@ -1,0 +1,7 @@
+<%= @car_model.name %>
+<h4>Fabricante: <%= @car_model.manufacturer.name %></h4>
+<h4>Ano: <%= @car_model.year %></h4>
+<h4>Motor: <%= @car_model.motorization %></h4>
+<h4>Combustivel: <%= @car_model.fuel_type %></h4>
+<h4>Categoria: <%= @car_model.car_category.name %></h4>
+<h4>Diaria: <%= number_to_currency @car_model.car_category.daily_rate %></h4>

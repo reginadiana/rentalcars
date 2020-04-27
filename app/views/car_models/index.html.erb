@@ -1,0 +1,22 @@
+
+<h1>Modelo de Carros</h1>
+<table>
+	<head>
+		<tr>
+			<th>Nome:</th>
+			<th>Ano:</th>
+			<th>Modelo:</th>
+			<th></th>
+		</tr>
+	</head>
+	<tbody>
+		<% @car_models.each do |model| %>
+			<tr>			
+				<td><%= model.name %></td>	
+				<td><%= model.year %></td>
+				<td><%= model.manufacturer.name %></td>
+				<td><%= link_to 'Ver detalhes', model, id: "details-#{model.id}" %></td>
+			</tr>		
+			<% end %>
+	</tbody>
+</table>
