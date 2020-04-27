@@ -12,7 +12,7 @@
 - [Database](#database-floppy_disk)
   - [CRUD](#crud)
   - [Database initialization](#database-initialization)
-- [Resolving problems](#resolving-problems)
+- [Solving problems](#solving-problems)
 - [Licence](#licence-trident)
 
 ## Description :checkered_flag:
@@ -133,7 +133,7 @@ For to see this routes in prompt, run:
 $ rails routes -g <name of controller>
 ```
 
-## Resolving problems
+## Solving problems
 
 Go to my [issues](https://github.com/Diana-ops/treina-dev-turma-3/issues) for to see how I resolved some problems in development project.
 
