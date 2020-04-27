@@ -135,7 +135,7 @@ $ rails routes -g <name of controller>
 
 ## Resolving problems during the project 
 
-Go to my (issues)[https://github.com/Diana-ops/treina-dev-turma-3/issues] for to see how I resolved some problems in development project.
+Go to my [issues](https://github.com/Diana-ops/treina-dev-turma-3/issues) for to see how I resolved some problems in development project.
 
 ## Licence :trident:
 
