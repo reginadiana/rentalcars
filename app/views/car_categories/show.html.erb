@@ -1,5 +1,7 @@
 
 	<div>
+		<%= link_to 'Voltar', car_categories_path %>
+		
 		<h2>Categoria <%= @car_category.name %></h2>
 		
 		<dl>
@@ -13,5 +15,11 @@
 			<dd><%= number_to_currency @car_category.third_part_insurance %></dd>
 
 		</dl>
+
+		<h3>Modelos de Carros</h3>
+		<%= @car_category.car_models.each do |car_model|%>
+			<%= link_to car_model.name, car_model%>		
+		<% end %>
+		
 	</div>
 
