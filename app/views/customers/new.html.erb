@@ -5,13 +5,13 @@
 <% end %>
 
 <%= form_with model: @customer, local: true do |f| %>
-	<%= f.label :name, 'Nome' %>
+	<%= f.label :name %>
 	<%= f.text_field :name %>
 
-	<%= f.label :name, 'Documento' %>
+	<%= f.label :document %>
 	<%= f.text_field :document %>
 
-	<%= f.label :name, 'Email' %>
+	<%= f.label :email %>
 	<%= f.text_field :email %>
 
 	<%= f.submit 'Enviar'%>

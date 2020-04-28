@@ -6,11 +6,11 @@ feature 'Admin register valid custumer' do
     visit root_path
     click_on 'Cadastrar Cliente'
 	
-    fill_in 'Documento', with: '508.218.249.15'
+    fill_in 'CPF', with: '508.218.249.15'
 
     click_on 'Enviar'
 
-    expect(page).to have_content('Documento deve ser único')
+    expect(page).to have_content('CPF deve ser único')
   end
 
   scenario 'and name can not be blank' do
@@ -18,12 +18,14 @@ feature 'Admin register valid custumer' do
     click_on 'Cadastrar Cliente'
 
     fill_in 'Nome', with: ''
-    fill_in 'Document', with: ''
+    fill_in 'CPF', with: ''
     fill_in 'Email', with: ''
 
     click_on 'Enviar'
 
-    expect(page).to have_content('Preencha todos os campos')
+    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('CPF não pode ficar em branco')
+    expect(page).to have_content('Email não pode ficar em branco')
   end
 
 end

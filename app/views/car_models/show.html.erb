@@ -1,22 +1,23 @@
 <section id="main">
-	<h1>Modelo de Carro<%= CarModel.human_attribute_name(:car_model) %></h1>
+	<h1>Modelo de Carro <%= @car_model.name %></h1>
 	<dl>
-		<dt><%= CarModel.human_attribute_name(:manufacturer) %></dt>
+		<dt>Fabricante: </dt>
 		<dd><%= @car_model.manufacturer.name %></dd>
 
-		<dt><%= CarModel.human_attribute_year(:car_model) %></dt>
-		<dd><%= @car_model.manufacturer.year %></dd>
+		<dt>Ano: </dt>
+		<dd><%= @car_model.year %></dd>
 
-		<dt><%= CarModel.human_attribute_motorization(:car_model) %></dt>
-		<dd><%= @car_model.manufacturer.motorization %></dd>
+		<dt>Motor: </dt>
+		<dd><%= @car_model.motorization %></dd>
 
-		<dt><%= CarModel.human_attribute_fuel_type(:car_model) %></dt>
-		<dd><%= @car_model.manufacturer.fuel_type %></dd>
+		<dt>Combustivel: </dt>
+		<dd><%= @car_model.fuel_type %></dd>
 
-		<dt><%= CarModel.human_attribute_name(:car_category) %></dt>
+		<dt>Categoria: </dt>
 		<dd><%= @car_model.car_category.name %></dd>
 
-		<dt><%= CarModel.human_attribute_daily_rate(:car_category) %></dt>
+		<dt>Diária: </dt>
 		<dd><%= number_to_currency @car_model.car_category.daily_rate %></dd>
+
 	</dl>
 </section>

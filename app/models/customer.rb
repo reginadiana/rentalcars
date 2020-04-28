@@ -1,4 +1,4 @@
 class Customer < ApplicationRecord
-	validates :document, uniqueness: { message: 'Documento deve ser único' }
-	validates :name, :document, :email, presence: { message: 'Preencha todos os campos'}
+	validates :document, uniqueness: { message: 'CPF deve ser único' }
+	validates :name, :document, :email, presence: true
 end
