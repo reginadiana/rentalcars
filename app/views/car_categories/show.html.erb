@@ -18,10 +18,14 @@
 			<dd><%= link_to 'Editar', edit_car_category_path(@car_category) %></dd>
 
 		</dl>
-
-		<h3>Modelos de Carros</h3>
-		<%= @car_category.car_models.each do |car_model|%>
-			<%= link_to car_model.name, car_model%>		
+		
+		<% if @car_category.car_models.any? %>
+			<h3>Modelos de Carros</h3>
+			<% @car_category.car_models.each do |car_model|%>
+				<%= link_to car_model.name, car_model%>		
+			<% end %>
+		<% else %>
+			<%= 'Sem modelos cadastrados' %>	
 		<% end %>
 		
 	</div>

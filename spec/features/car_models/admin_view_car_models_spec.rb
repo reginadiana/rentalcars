@@ -12,7 +12,7 @@ feature 'Admin view car models' do
 				motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
 
 		visit root_path
-		click_on 'Modelo de Carros'
+		click_on 'Modelos de Carros'
 		
 		expect(page).to have_content 'Fiat'
 		expect(page).to have_content 'Uno'
@@ -32,7 +32,7 @@ feature 'Admin view car models' do
 
 
 		visit root_path
-		click_on 'Modelo de Carros'
+		click_on 'Modelos de Carros'
 		#click_on 'Ver detalhes'
 		find("a#details-#{cat_a.id}").click()
 

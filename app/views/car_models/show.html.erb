@@ -1,7 +1,22 @@
-<%= @car_model.name %>
-<h4>Fabricante: <%= @car_model.manufacturer.name %></h4>
-<h4>Ano: <%= @car_model.year %></h4>
-<h4>Motor: <%= @car_model.motorization %></h4>
-<h4>Combustivel: <%= @car_model.fuel_type %></h4>
-<h4>Categoria: <%= @car_model.car_category.name %></h4>
-<h4>Diaria: <%= number_to_currency @car_model.car_category.daily_rate %></h4>
+<section id="main">
+	<h1>Modelo de Carro<%= CarModel.human_attribute_name(:car_model) %></h1>
+	<dl>
+		<dt><%= CarModel.human_attribute_name(:manufacturer) %></dt>
+		<dd><%= @car_model.manufacturer.name %></dd>
+
+		<dt><%= CarModel.human_attribute_year(:car_model) %></dt>
+		<dd><%= @car_model.manufacturer.year %></dd>
+
+		<dt><%= CarModel.human_attribute_motorization(:car_model) %></dt>
+		<dd><%= @car_model.manufacturer.motorization %></dd>
+
+		<dt><%= CarModel.human_attribute_fuel_type(:car_model) %></dt>
+		<dd><%= @car_model.manufacturer.fuel_type %></dd>
+
+		<dt><%= CarModel.human_attribute_name(:car_category) %></dt>
+		<dd><%= @car_model.car_category.name %></dd>
+
+		<dt><%= CarModel.human_attribute_daily_rate(:car_category) %></dt>
+		<dd><%= number_to_currency @car_model.car_category.daily_rate %></dd>
+	</dl>
+</section>

@@ -27,7 +27,7 @@ feature 'Subsidiary' do
 		xit('must be valid') do
 			subsidiary = Subsidiary.new(cnpj: '75.666.888/1000-09')
 			subsidiary.valid?
-			expect(subsidiary.errors[:cnpj]).to include('cnpj invalido')	
+			expect(subsidiary.errors[:cnpj]).to include('Cnpj invalido')	
 		end
 		
 	end

@@ -8,7 +8,7 @@
 	<%= 'Nenhuma categoria cadastrada' %>
 <% end %>
 
-<%= @car_categories.each do |c| %>
+<% @car_categories.each do |c| %>
 	<div>
 		<h2><%= link_to "Categoria #{c.name}", c %></h2>
 		
