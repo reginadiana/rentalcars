@@ -17,6 +17,9 @@
 			<dt>Editar categoria</dt>
 			<dd><%= link_to 'Editar', edit_car_category_path(@car_category) %></dd>
 
+			<dt>Apagar categoria</dt>
+			<dd><%= link_to 'Apagar', car_category_path(id: @car_category.id), method: :delete %></dd>
+
 		</dl>
 		
 		<% if @car_category.car_models.any? %>
