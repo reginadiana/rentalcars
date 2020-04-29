@@ -20,6 +20,22 @@ class CarModelsController < ApplicationController
 			render :new
 		end
 	end
+	def edit
+		@car_model = CarModel.find(id)
+		@manufacturers = Manufacturer.all
+		@car_categories = CarCategory.all
+	end
+
+	def update
+		@car_model = CarModel.find(id)
+		if @car_model.update(require_params)
+			redirect_to @car_model
+		else
+			@manufacturers = Manufacturer.all
+			@car_categories = CarCategory.all
+			render :edit
+		end
+	end
 
 	private
 	
