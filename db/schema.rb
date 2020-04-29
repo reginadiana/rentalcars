@@ -71,4 +71,5 @@ ActiveRecord::Schema.define(version: 2020_04_28_150014) do
   add_foreign_key "car_models", "manufacturers"
   add_foreign_key "rentals", "car_categories"
   add_foreign_key "rentals", "customers"
+
 end

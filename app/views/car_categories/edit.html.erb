@@ -5,16 +5,16 @@
 <% end %>
 
 <%= form_with model: @car_category, local: true do |f| %>
-	<%= f.label :name, 'Nome' %>
+	<%= f.label :name %>
 	<%= f.text_field :name %>
 
-	<%= f.label :name, 'Daily Rate' %>
+	<%= f.label :daily_rate %>
 	<%= f.text_field :daily_rate %>
 
-	<%= f.label :name, 'Car Insurance' %>
+	<%= f.label :car_insurance %>
 	<%= f.text_field :car_insurance %>
 
-	<%= f.label :name, 'Third Part Insurance' %>
+	<%= f.label :third_part_insurance %>
 	<%= f.text_field :third_part_insurance %>
 
 

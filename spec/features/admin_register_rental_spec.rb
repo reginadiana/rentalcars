@@ -18,7 +18,7 @@ feature 'Admin register rental' do
 
 		expect(page).to have_content('Data de inicio: 27/04/2030')
 		expect(page).to have_content('Data de término: 27/04/2040')
-		expect(page).to have_content('Cliente: #{customer.name}')
-		expect(page).to have_content('Categoria: #{car_category.name}')
+		expect(page).to have_content('Cliente: Diana')
+		expect(page).to have_content('Categoria: A')
 	end
 end

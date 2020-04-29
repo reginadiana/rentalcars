@@ -6,10 +6,10 @@
 	<% @rentals.each do |rental| %>
 		<dl>
 			<dt>Data de inicio:</dt>
-			<dd><%= rental.start_date %></dd>
+			<dd><%= rental.start_date && localize(rental.start_date) %></dd>
 
 			<dt>Data de término:</dt>
-			<dd><%= rental.end_date %></dd>
+			<dd><%= rental.end_date && localize(rental.end_date) %></dd>
 
 			<dt>Cliente:</dt>
 			<dd><%= rental.customer.name %></dd>
