@@ -1,7 +1,10 @@
+<h1>Editar fabricante:</h1>
+
 <% @manufacturer.errors.full_messages.each do |message| %>
 	<p><%= message %></p>
 <% end %>
 
+<%= link_to 'Voltar', manufacturers_path %>
 
 <%= form_with(model: @manufacturer) do |f| %>
 	<%= f.label :name %>

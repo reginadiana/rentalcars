@@ -2,6 +2,8 @@
 
 <%= link_to 'Registrar nova locação', new_rental_path %>
 
+<%= link_to 'Voltar', root_path %>
+
 <% if @rentals.any? %>
 	<% @rentals.each do |rental| %>
 		<dl>

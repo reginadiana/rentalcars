@@ -44,4 +44,14 @@ feature 'Admin view car models' do
 		expect(page).to have_content 'Categoria: A'
 		expect(page).to have_content 'Diária: R$ 50,00'
 	end
+
+  scenario 'and return to home page' do
+
+    visit root_path
+    click_on 'Modelos de Carros'
+
+    click_on 'Voltar'
+
+    expect(current_path).to eq root_path
+  end
 end

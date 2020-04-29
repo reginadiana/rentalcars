@@ -24,5 +24,15 @@ feature 'Admin register valid manufacturer' do
     expect(page).to have_content('Nome não pode ficar em branco')
   end
 
+ scenario 'and return to list manufacturers' do
+
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Registrar novo fabricante'
+    click_on 'Voltar'
+
+    expect(current_path).to eq manufacturers_path
+  end
+
 end
 

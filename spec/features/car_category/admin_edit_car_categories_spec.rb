@@ -50,4 +50,17 @@ feature 'Admin edits car category' do
 
     expect(page).to have_content('Esta categoria já foi criada')
   end
+
+  scenario 'and return to list car categories' do
+    CarCategory.create(name: 'C', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
+
+    visit root_path
+    click_on 'Categorias de Carros'
+    click_on 'Categoria C'
+    click_on 'Editar'
+
+    click_on 'Voltar'
+
+    expect(current_path).to eq car_categories_path
+  end
 end

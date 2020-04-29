@@ -38,4 +38,15 @@ feature 'Admin register car models' do
 		expect(page).to have_content('Combustivel não pode ficar em branco')
 	end
 
+  scenario 'and return to list car models' do
+
+    visit root_path
+    click_on 'Modelos de Carros'
+    click_on 'Registrar novo modelo de carro'
+
+    click_on 'Voltar'
+
+    expect(current_path).to eq car_models_path
+  end
+
 end

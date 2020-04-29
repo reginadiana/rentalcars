@@ -1,5 +1,7 @@
 <h1>Nova locação</h1>
 
+<%= link_to 'Voltar', rentals_path %>
+
 <%= form_with model: @rental, local: true do |f| %>
 	<%= f.label :start_date %>
 	<%= f.date_field :start_date %>

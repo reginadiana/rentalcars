@@ -31,5 +31,16 @@ feature 'Admin register valid car category' do
     expect(page).to have_content('Seguro para Terceiros não pode ficar em branco')
   end
 
+  scenario 'and return to list car categories' do
+
+    visit root_path
+    click_on 'Categorias de Carros'
+    click_on 'Registrar nova Categoria'
+
+    click_on 'Voltar'
+
+    expect(current_path).to eq car_categories_path
+  end
+
 end
 

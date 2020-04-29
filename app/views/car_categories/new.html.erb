@@ -1,5 +1,7 @@
 <h1>Registre uma nova categoria:</h1>
 
+<%= link_to 'Voltar', car_categories_path %>
+
 <% @car_category.errors.full_messages.each do |message| %>
 	<p><%= message %></p>
 <% end %>

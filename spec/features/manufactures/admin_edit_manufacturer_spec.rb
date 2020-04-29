@@ -40,4 +40,16 @@ feature 'Admin edits manufacturer' do
 
     expect(page).to have_content('Nome deve ser único')
   end
+
+ scenario 'and return to list manufacturers' do
+    Manufacturer.create(name: 'Fiat')
+
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Fiat'
+    click_on 'Editar'
+    click_on 'Voltar'
+
+    expect(current_path).to eq manufacturers_path
+  end
 end

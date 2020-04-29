@@ -1,5 +1,7 @@
 <h1>Registre um novo cliente:</h1>
 
+<%= link_to 'Voltar', root_path %>
+
 <% @customer.errors.full_messages.each do |message| %>
 	<p><%= message %></p>
 <% end %>

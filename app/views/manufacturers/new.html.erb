@@ -1,5 +1,7 @@
 <h1>Registre um novo fabricante:</h1>
 
+<%= link_to 'Voltar', manufacturers_path %>
+
 <% @manufacturer.errors.full_messages.each do |message| %>
 	<p><%= message %></p>
 <% end %>
