@@ -3,23 +3,30 @@
 
 <%= link_to 'Registrar novo modelo de carro', new_car_model_path %>
 <%= link_to 'Voltar', root_path %>
-<table>
-	<head>
-		<tr>
-			<th>Nome:</th>
-			<th>Ano:</th>
-			<th>Modelo:</th>
-			<th></th>
-		</tr>
-	</head>
-	<tbody>
-		<% @car_models.each do |model| %>
-			<tr>			
-				<td><%= model.name %></td>	
-				<td><%= model.year %></td>
-				<td><%= model.manufacturer.name %></td>
-				<td><%= link_to 'Ver detalhes', model, id: "details-#{model.id}" %></td>
-			</tr>		
-			<% end %>
-	</tbody>
-</table>
+
+<% if @car_models.empty? %>
+	<%= 'Nenhum modelo cadastrado' %>
+<% end %>
+
+<% if @car_models.any? %>
+	<table>
+		<head>
+			<tr>
+				<th>Nome:</th>
+				<th>Ano:</th>
+				<th>Modelo:</th>
+				<th></th>
+			</tr>
+		</head>
+		<tbody>
+			<% @car_models.each do |model| %>
+				<tr>			
+					<td><%= model.name %></td>	
+					<td><%= model.year %></td>
+					<td><%= model.manufacturer.name %></td>
+					<td><%= link_to 'Ver detalhes', model, id: "details-#{model.id}" %></td>
+				</tr>		
+				<% end %>
+		</tbody>
+	</table>
+<% end %>

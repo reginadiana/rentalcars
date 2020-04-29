@@ -24,5 +24,8 @@
 		<dt>Editar modelo</dt>
 		<dd><%= link_to 'Editar', edit_car_model_path(@car_model) %></dd>
 
+		<dt>Apagar modelo</dt>
+		<dd><%= link_to 'Apagar', car_model_path(id: @car_model.id), method: :delete %></dd>
+
 	</dl>
 </section>

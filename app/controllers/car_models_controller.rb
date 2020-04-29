@@ -37,6 +37,13 @@ class CarModelsController < ApplicationController
 		end
 	end
 
+        def destroy
+		@car_model = CarModel.find(id)
+		@car_model.destroy
+
+		redirect_to car_models_path
+	end
+
 	private
 	
 	def require_params
