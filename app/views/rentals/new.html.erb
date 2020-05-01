@@ -2,6 +2,10 @@
 
 <%= link_to 'Voltar', rentals_path %>
 
+<% @rental.errors.full_messages.each do |message| %>
+	<p><%= message %></p>
+<% end %>
+
 <%= form_with model: @rental, local: true do |f| %>
 	<%= f.label :start_date %>
 	<%= f.date_field :start_date %>

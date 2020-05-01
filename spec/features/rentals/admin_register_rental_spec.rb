@@ -21,4 +21,16 @@ feature 'Admin register rental' do
 		expect(page).to have_content('Cliente: Diana')
 		expect(page).to have_content('Categoria: A')
 	end
+
+	scenario 'and fill in all fields' do
+		visit root_path
+		click_on 'Locações'
+		click_on 'Registrar nova locação'
+
+		fill_in 'Data de inicio', with: ''
+
+		click_on 'Enviar'
+
+		expect(page).to have_content('Data de inicio não pode ficar em branco')
+	end
 end

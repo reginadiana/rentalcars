@@ -11,8 +11,13 @@ class RentalsController < ApplicationController
 
 	def create
 		@rental = Rental.new(require_params)
-		@rental.save
-		redirect_to rentals_path
+		if @rental.save
+			redirect_to rentals_path
+		else
+			@customers = Customer.all
+			@car_categories = CarCategory.all	
+			render :new
+		end
 	end
 
 	private
