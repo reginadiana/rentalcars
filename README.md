@@ -123,6 +123,17 @@ $ rspec
 |  email |  string |
 |  id_customer |  integrer |
 
+|  car | Type |
+| ------------------- | ------------------- |
+|  license_plate |  string |
+|  color |  string |
+|  car_model |  **object** |
+|  mileage |  integrer |
+|  subsidiary |  **object** |
+|  id_car |  integrer |
+|  id_car_model |  integrer |
+|  id_subsidiary |  integrer |
+
 ### CRUD
 
 For each function of CRUD, we have a router for him:
