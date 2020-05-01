@@ -17,8 +17,6 @@ feature 'Admin view car categories' do
 	end
 
 	scenario 'and return to home page' do
-	    CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
-	    CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
 
 	    visit root_path
 	    click_on 'Categorias de Carros'
