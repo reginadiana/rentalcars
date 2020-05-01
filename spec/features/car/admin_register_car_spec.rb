@@ -10,16 +10,16 @@ feature 'Admin register valid car' do
 
     subsidiary = Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
 
-    Car.create!(license_plate: '2508ABC', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
+    Car.create!(license_plate: '0000AAA', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
 
     visit root_path
     click_on 'Carros das Frotas'
     click_on 'Registrar novo carro para a frota'
 
-    fill_in 'Placa', with: '2508ABC'
+    fill_in 'Placa', with: '0000AAA'
     click_on 'Enviar'
 
-    expect(page).to have_content('Placa deve ser único')
+    expect(page).to have_content('Placa já está em uso')
   end
 
   scenario 'and license_plate can not be blank' do

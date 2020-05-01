@@ -5,6 +5,23 @@ class CarsController < ApplicationController
 	def show
 	    	@car = Car.find(id)
 	end
+	def new
+		@car = Car.new
+		@car_models = CarModel.all
+		@subsidiaries = Subsidiary.all
+	end
+
+        def create
+		@car = Car.new(require_params)
+            	if @car.save
+			flash[:notice] = 'Carro criado com sucesso'	
+	    		redirect_to @car
+	    	else 
+			@car_models = CarModel.all
+			@subsidiaries = Subsidiary.all
+			render :new
+	    	end
+	end
 
 	private
 	
