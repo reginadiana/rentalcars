@@ -6,61 +6,59 @@ feature 'Admin edits subsidiary' do
 
     visit root_path
     click_on 'Filiais'
-    click_on 'Categoria A'
+    click_on 'Paulista'
     click_on 'Editar'
-    fill_in 'Nome', with: 'B'
+    fill_in 'Nome', with: 'ARCOM'
     click_on 'Enviar'
 
-    expect(page).to have_content('Categoria B')
+    expect(page).to have_content('ARCOM')
   end
 
-  scenario 'successfully' do
-    CarCategory.create(name: 'A', daily_rate: 20, car_insurance: 65, third_part_insurance: 20)
+  scenario 'cant not to be blank' do
+    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
     visit root_path
-    click_on 'Categorias de Carros'
-    click_on 'Categoria A'
+    click_on 'Filiais'
+    click_on 'Paulista'
     click_on 'Editar'
 
     fill_in 'Nome', with: ''
-    fill_in 'Diaria', with: ''
-    fill_in 'Seguro do Carro', with: ''
-    fill_in 'Seguro para Terceiros', with: ''
+    fill_in 'Cnpj', with: ''
+    fill_in 'Endereço', with: ''
 
     click_on 'Enviar'
 
     expect(page).to have_content('Nome não pode ficar em branco')
-    expect(page).to have_content('Diaria não pode ficar em branco')
-    expect(page).to have_content('Seguro do Carro não pode ficar em branco')
-    expect(page).to have_content('Seguro para Terceiros não pode ficar em branco')
+    expect(page).to have_content('Cnpj não pode ficar em branco')
+    expect(page).to have_content('Endereço não pode ficar em branco')
   end
 
-  scenario 'successfully' do
-    CarCategory.create(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
-    CarCategory.create(name: 'B', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
+  scenario 'name must be unique' do
+    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+    Subsidiary.create!(name: 'ACCENTURE', cnpj: '85.171.517/0001-04', address: 'Rua: Brigadeiro, Paulista')
 
     visit root_path
-    click_on 'Categorias de Carros'
-    click_on 'Categoria A'
+    click_on 'Filiais'
+    click_on 'Paulista'
     click_on 'Editar'
 
-    fill_in 'Nome', with: 'B'
+    fill_in 'Nome', with: 'ACCENTURE'
 
     click_on 'Enviar'
 
-    expect(page).to have_content('Esta categoria já foi criada')
+    expect(page).to have_content('já está em uso')
   end
 
-  scenario 'and return to list car categories' do
-    CarCategory.create(name: 'C', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
+  scenario 'and return to list subsidiaries' do
+    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
     visit root_path
-    click_on 'Categorias de Carros'
-    click_on 'Categoria C'
+    click_on 'Filiais'
+    click_on 'Paulista'
     click_on 'Editar'
 
     click_on 'Voltar'
 
-    expect(current_path).to eq car_categories_path
+    expect(current_path).to eq subsidiaries_path
   end
 end

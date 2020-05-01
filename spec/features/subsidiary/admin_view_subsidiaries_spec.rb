@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin view subsidiaries' do
 	scenario 'successfully' do
 		Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
-		Subsidiary.create!(name: 'ACCIONA', cnpj: '98.168.496/0001-74', address: 'Rua: Masp')
+		Subsidiary.create!(name: 'ACCIONA', cnpj: '85.171.517/0001-04', address: 'Rua: Masp')
 		
 
 		visit root_path

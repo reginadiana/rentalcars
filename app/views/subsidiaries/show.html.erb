@@ -1,0 +1,6 @@
+<h1><%= @subsidiary.name %></h1>
+<h4><%= @subsidiary.cnpj %></h4>
+<h4><%= @subsidiary.address %></h4>
+
+<%= link_to 'Voltar', subsidiaries_path %>
+<%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%>

@@ -1,5 +1,9 @@
 class SubsidiariesController < ApplicationController
 	def index
+		@subsidiaries = Subsidiary.all
+	end
+	def show
+		@subsidiary = Subsidiary.find(id)
 	end
 	def new
 		@subsidiary = Subsidiary.new 
@@ -13,6 +17,19 @@ class SubsidiariesController < ApplicationController
 	    	else 
 			render :new
 	    	end
+	end
+
+	def edit
+		@subsidiary = Subsidiary.find(id)
+	end
+
+	def update
+		@subsidiary = Subsidiary.find(id)
+		if @subsidiary.update(require_params)
+			redirect_to @subsidiary
+		else
+			render :edit
+		end
 	end
 
         private

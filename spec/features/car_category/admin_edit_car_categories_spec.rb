@@ -14,7 +14,7 @@ feature 'Admin edits car category' do
     expect(page).to have_content('Categoria B')
   end
 
-  scenario 'successfully' do
+  scenario 'can not be blank' do
     CarCategory.create(name: 'A', daily_rate: 20, car_insurance: 65, third_part_insurance: 20)
 
     visit root_path
@@ -35,7 +35,7 @@ feature 'Admin edits car category' do
     expect(page).to have_content('Seguro para Terceiros não pode ficar em branco')
   end
 
-  scenario 'successfully' do
+  scenario 'must be unique' do
     CarCategory.create(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
     CarCategory.create(name: 'B', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
 

@@ -2,3 +2,11 @@
 
 <%= link_to 'Voltar', root_path %>
 <%= link_to 'Cadastrar uma filial', new_subsidiary_path%>
+
+<% if @subsidiaries.empty? %>
+	<%= 'Nenhuma filial cadastrada' %>
+<% end %>
+
+<% @subsidiaries.each do |subsidiary| %>
+	<h4><%= link_to subsidiary.name, subsidiary %></h4>
+<% end %>
