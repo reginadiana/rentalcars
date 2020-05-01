@@ -22,6 +22,17 @@ feature 'Admin register valid car' do
     expect(page).to have_content('Placa já está em uso')
   end
 
+  scenario 'lenght of mileage must be bigger then 0' do
+    visit root_path
+    click_on 'Carros das Frotas'
+    click_on 'Registrar novo carro para a frota'
+
+    fill_in 'Quilometragem', with: '-34'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Quilometragem deve ser maior ou igual a 0')
+  end
+
   scenario 'and license_plate can not be blank' do
     visit root_path
     click_on 'Carros das Frotas'
