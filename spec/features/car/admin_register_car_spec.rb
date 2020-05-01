@@ -30,7 +30,7 @@ feature 'Admin register valid car' do
     fill_in 'Quilometragem', with: '-34'
     click_on 'Enviar'
 
-    expect(page).to have_content('Quilometragem deve ser maior ou igual a 0')
+    expect(page).to have_content('Quilometragem deve ser maior que 0')
   end
 
   scenario 'and license_plate can not be blank' do
