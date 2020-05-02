@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+* {
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	
+	padding: 0;
+}
+
+/*Todos os elementos de home/index*/
+.home-page {
+	text-align: center;
+}
+
+/*Todos os links de home/index*/
+.links {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+}
+
+/*Para cada link em home/index*/
+.links li {
+	padding: 10px 10px;
+	list-style: none;
+	color: #9370db;
+}
+
+.links li:hover {
+	transition: 0.5s;
+	color: gray;
+}
