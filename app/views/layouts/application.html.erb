@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    	<nav>
+		<% if user_signed_in? %>
+			<li><%= link_to 'Sair', destroy_user_session_path, method: :delete%></li>
+			<li><%= link_to 'Locações', rentals_path%></li>
+	 	<% else %>
+			<li><%= link_to 'Entrar', new_user_session_path%></li>
+		<% end %>   
+	</nav>
     <%= flash[:notice] %>
     <%= yield %>
   </body>
