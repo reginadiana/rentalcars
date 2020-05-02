@@ -22,7 +22,10 @@ feature 'Admin register rental' do
 		expect(page).to have_content('Categoria: A')
 	end
 
-	scenario 'and fill in all fields' do
+	xscenario 'and must fill in all fields ' do
+	end
+
+	scenario 'can not be black' do
 		visit root_path
 		click_on 'Locações'
 		click_on 'Registrar nova locação'
