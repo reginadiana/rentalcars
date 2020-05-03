@@ -11,3 +11,7 @@ pt-BR:
     sessions:
       new:
         log_in: Entrar
+        password_confirmation: Confirmação de senha
+    registrations:
+      new:
+        password_confirmation: Confirmação de senha

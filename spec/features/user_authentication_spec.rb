@@ -19,9 +19,13 @@ feature 'User authentication' do
       expect(current_path).to eq(root_path)
     end
 
-    xscenario 'and must fill in all fields' do
+    scenario 'and must fill in all fields' do
       visit root_path
       click_on 'Entrar'
+
+      fill_in 'Email', with: ''
+      fill_in 'Senha', with: ''
+
       within 'form' do
         click_on 'Entrar'
       end
@@ -54,8 +58,9 @@ feature 'User authentication' do
   end
 
   context 'sign up' do
-    xscenario 'successfully' do
+    scenario 'successfully' do
       visit root_path
+      click_on 'Entrar'
       click_on 'Criar conta'
       fill_in 'Email', with: 'test@test.com.br'
       fill_in 'Senha', with: '12345678'
