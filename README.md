@@ -2,18 +2,29 @@
 
 ## Table of contents
 
-- [Description](#description-checkered_flag)
-- [How to run](#how-to-run)
-  - [Technologies and your Versions](#technologies-and-your-versions)
-  - [System dependencies](#system-dependencies-package)
-  - [Database initialization](#database-initialization)
-  - [Run in server](#run-in-server)
-  - [How to run the test suite](#how-to-run-the-test-suite-memo)
-- [Database](#database-floppy_disk)
-  - [CRUD](#crud)
-  - [Database initialization](#database-initialization)
-- [Solving problems](#solving-problems)
-- [Licence](#licence-trident)
+:small_orange_diamond: [Description](#description-checkered_flag)
+
+:small_orange_diamond: [How to run](#how-to-run)
+
+  :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
+  
+  :small_blue_diamond: [System dependencies](#system-dependencies-package)
+  
+  :small_blue_diamond: [Database initialization](#database-initialization)
+  
+  :small_blue_diamond: [Run in server](#run-in-server)
+  
+  :small_blue_diamond: [How to run the test suite](#how-to-run-the-test-suite-memo)
+  
+:small_orange_diamond: [Database](#database-floppy_disk)
+
+  :small_blue_diamond: [CRUD](#crud)
+  
+  :small_blue_diamond: [Database initialization](#database-initialization)
+  
+:small_orange_diamond: [Solving problems](#solving-problems)
+
+:small_orange_diamond: [Licence](#licence-trident)
 
 ## Description :checkered_flag:
 
