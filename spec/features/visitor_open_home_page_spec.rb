@@ -6,7 +6,5 @@ feature 'Visitor open home page' do
 
     expect(page).to have_content('Rental Cars')
     expect(page).to have_content('Bem vindo ao sistema de gestão de locação')
-
-    expect(page).to have_link('Fabricantes', href: manufacturers_path)
   end
 end

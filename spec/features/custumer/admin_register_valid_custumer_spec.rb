@@ -33,13 +33,5 @@ feature 'Admin register valid custumer' do
     expect(page).to have_content('CPF não pode ficar em branco')
     expect(page).to have_content('Email não pode ficar em branco')
   end
-
-  scenario 'and must be authenticated' do
-		visit new_customer_path
-
-		expect(current_path).to eq(new_user_session_path)	
-		expect(page).to have_content('Para continuar, efetue login ou registre-se.')	
-  end
-
 end
 
