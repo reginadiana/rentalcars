@@ -6,6 +6,8 @@ feature 'Admin edits car models' do
     cat_a = CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 
     CarModel.create!(name: 'Uno', year: 2020, manufacturer: fiat, motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Modelos de Carros'
@@ -23,6 +25,9 @@ feature 'Admin edits car models' do
     cat_a = CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 
     CarModel.create!(name: 'Uno', year: 2020, manufacturer: fiat, motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
+    
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Modelos de Carros'

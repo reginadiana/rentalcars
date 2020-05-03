@@ -5,7 +5,9 @@ feature 'Admin register car models' do
 		
 		manufacturer = Manufacturer.create!(name: 'Fiat')
 		car_category = CarCategory.create!(name: 'A', daily_rate: 100, car_insurance: 100, third_part_insurance: 100)
-		
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    		login_as user, scope: :user
+
 		visit root_path
 		click_on 'Modelos de Carros'
 		click_on 'Registrar novo modelo de carro'
@@ -27,6 +29,9 @@ feature 'Admin register car models' do
 	end
 
 	scenario 'and fill in all fields' do
+                user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+                login_as user, scope: :user
+
 		visit new_car_model_path
 		fill_in 'Ano', with: ''
 
@@ -39,6 +44,8 @@ feature 'Admin register car models' do
 	end
 
   scenario 'and return to list car models' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Modelos de Carros'
@@ -48,5 +55,15 @@ feature 'Admin register car models' do
 
     expect(current_path).to eq car_models_path
   end
+
+  scenario 'and must be authenticated' do
+
+		# Caso o visitante tente acessar as actions pela URL sem 
+		# estar autenticado sera redirecionado para sign in
+		visit car_models_path
+
+		expect(current_path).to eq(new_user_session_path)	
+		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+   end
 
 end

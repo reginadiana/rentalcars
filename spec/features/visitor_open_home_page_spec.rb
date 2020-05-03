@@ -9,6 +9,5 @@ feature 'Visitor open home page' do
 
     expect(page).to have_link('Fabricantes', href: manufacturers_path)
     expect(page).to have_link('Categorias de Carros', href: car_categories_path)
-    expect(page).to have_link('Modelos de Carros', href: car_models_path)
   end
 end
