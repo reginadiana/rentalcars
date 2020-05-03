@@ -91,23 +91,4 @@ feature 'Admin view car categories' do
 
 		expect(page).to have_content('Nenhuma categoria cadastrada')
 	end
-	scenario 'cannot view unless logged in' do
-		visit root_path
-
-		expect(page).not_to have_link('Categorias de Carros')
-	end
-
-	scenario 'cannot view unless logged in' do
-		visit car_categories_path
-
-		expect(current_path).to eq(new_user_session_path)
-		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
-	end
-        xscenario 'and must be authenticated' do
-
-		visit car_category_path
-
-		expect(current_path).to eq(new_user_session_path)	
-		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
-   	end
 end

@@ -74,11 +74,4 @@ feature 'Admin edits car category' do
 
     expect(current_path).to eq car_categories_path
   end
-  xscenario 'and must be authenticated' do
-
-	visit edit_car_category_path
-
-	expect(current_path).to eq(new_user_session_path)	
-	expect(page).to have_content('Para continuar, efetue login ou registre-se.')
-   end
 end
