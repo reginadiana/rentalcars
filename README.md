@@ -6,7 +6,7 @@
 
 :small_orange_diamond: [How to run](#how-to-run)
 
-  :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
+&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
   
   :small_blue_diamond: [System dependencies](#system-dependencies-package)
   
