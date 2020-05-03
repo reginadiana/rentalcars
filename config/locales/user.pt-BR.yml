@@ -7,10 +7,13 @@ pt-BR:
       user:
         email: Email
         password: Senha
+        remember_me: Lembrar senha
+        password_confirmation: Confirmação de senha
   devise:
     sessions:
       new:
         log_in: Entrar
+        remember_me: Lembrar senha
         password_confirmation: Confirmação de senha
     registrations:
       new:
