@@ -6,21 +6,21 @@
 
 :small_orange_diamond: [How to run](#how-to-run)
 
-&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
   
-  :small_blue_diamond: [System dependencies](#system-dependencies-package)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [System dependencies](#system-dependencies-package)
   
-  :small_blue_diamond: [Database initialization](#database-initialization)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Database initialization](#database-initialization)
   
-  :small_blue_diamond: [Run in server](#run-in-server)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Run in server](#run-in-server)
   
-  :small_blue_diamond: [How to run the test suite](#how-to-run-the-test-suite-memo)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [How to run the test suite](#how-to-run-the-test-suite-memo)
   
 :small_orange_diamond: [Database](#database-floppy_disk)
 
-  :small_blue_diamond: [CRUD](#crud)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [CRUD](#crud)
   
-  :small_blue_diamond: [Database initialization](#database-initialization)
+&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Database initialization](#database-initialization)
   
 :small_orange_diamond: [Solving problems](#solving-problems)
 
