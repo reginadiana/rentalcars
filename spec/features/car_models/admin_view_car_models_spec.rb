@@ -48,28 +48,36 @@ feature 'Admin view car models' do
 		expect(page).to have_content 'Diária: R$ 50,00'
 	end
 
-  scenario 'and return to home page' do
+	scenario 'and return to home page' do
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
+	
+		visit root_path
+		click_on 'Modelos de Carros'
+		click_on 'Voltar'
 
-    visit root_path
-    click_on 'Modelos de Carros'
+		expect(current_path).to eq root_path
+	end
 
-    click_on 'Voltar'
+  	scenario 'cannot view unless logged in' do
+    		visit root_path
 
-    expect(current_path).to eq root_path
-  end
+    		expect(page).not_to have_link('Modelos de Carros')
+  	end
 
-  scenario 'cannot view unless logged in' do
-    visit root_path
+  	scenario 'cannot view unless logged in' do
+		visit car_models_path
 
-    expect(page).not_to have_link('Modelos de Carros')
-  end
+		expect(current_path).to eq(new_user_session_path)
+    		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+  	end
 
-  scenario 'cannot view unless logged in' do
-    visit car_models_path
+  	xscenario 'and must be authenticated' do
 
-    expect(current_path).to eq(new_user_session_path)
-  end
+		visit car_model_path
+
+		expect(current_path).to eq(new_user_session_path)	
+		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+   	end
 end

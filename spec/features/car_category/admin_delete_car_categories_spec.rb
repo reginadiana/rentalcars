@@ -4,6 +4,9 @@ feature 'Admin deletes car categories' do
   scenario 'successfully' do
     CarCategory.create(name: 'D', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Categoria D'
@@ -16,6 +19,9 @@ feature 'Admin deletes car categories' do
   scenario 'and keep anothers' do
     CarCategory.create(name: 'D', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
     CarCategory.create(name: 'E', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
+
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de Carros'

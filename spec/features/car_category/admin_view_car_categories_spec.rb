@@ -5,6 +5,8 @@ feature 'Admin view car categories' do
 		CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 		CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
 		
+	        user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+	        login_as user, scope: :user
 
 		visit root_path
 		click_on 'Categorias de Carros'
@@ -17,6 +19,8 @@ feature 'Admin view car categories' do
 	end
 
 	scenario 'and return to home page' do
+	    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    	    login_as user, scope: :user
 
 	    visit root_path
 	    click_on 'Categorias de Carros'
@@ -34,7 +38,10 @@ feature 'Admin view car categories' do
 
 		mobi = CarModel.create!(name: 'Mobi', year: 2020, manufacturer: manufacturer, motorization: '1.0', 
 				fuel_type: 'Flex', car_category: car_category)
-		
+
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    		login_as user, scope: :user
+
 		visit root_path
 		click_on 'Categorias de Carros'
 		click_on 'Categoria A'
@@ -62,7 +69,10 @@ feature 'Admin view car categories' do
 
 		argos = CarModel.create!(name: 'Argos', year: 2020, manufacturer: manufacturer, motorization: '1.0', 
 				fuel_type: 'Flex', car_category: car_category_b)
-		
+
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    		login_as user, scope: :user
+
 		visit root_path
 		click_on 'Categorias de Carros'
 		click_on 'Categoria A'
@@ -73,9 +83,31 @@ feature 'Admin view car categories' do
 	end
 
 	scenario 'empty list' do
-	    visit root_path
-	    click_on 'Categorias de Carros'
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
 
-	    expect(page).to have_content('Nenhuma categoria cadastrada')
+		visit root_path
+		click_on 'Categorias de Carros'
+
+		expect(page).to have_content('Nenhuma categoria cadastrada')
 	end
+	scenario 'cannot view unless logged in' do
+		visit root_path
+
+		expect(page).not_to have_link('Categorias de Carros')
+	end
+
+	scenario 'cannot view unless logged in' do
+		visit car_categories_path
+
+		expect(current_path).to eq(new_user_session_path)
+		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+	end
+        xscenario 'and must be authenticated' do
+
+		visit car_category_path
+
+		expect(current_path).to eq(new_user_session_path)	
+		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+   	end
 end

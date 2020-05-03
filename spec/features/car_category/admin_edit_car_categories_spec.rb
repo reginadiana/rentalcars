@@ -4,6 +4,9 @@ feature 'Admin edits car category' do
   scenario 'successfully' do
     CarCategory.create(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Categoria A'
@@ -16,6 +19,9 @@ feature 'Admin edits car category' do
 
   scenario 'can not be blank' do
     CarCategory.create(name: 'A', daily_rate: 20, car_insurance: 65, third_part_insurance: 20)
+
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de Carros'
@@ -39,6 +45,9 @@ feature 'Admin edits car category' do
     CarCategory.create(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
     CarCategory.create(name: 'B', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Categoria A'
@@ -53,6 +62,8 @@ feature 'Admin edits car category' do
 
   scenario 'and return to list car categories' do
     CarCategory.create(name: 'C', daily_rate: 40, car_insurance: 60, third_part_insurance: 10)
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de Carros'
@@ -63,4 +74,11 @@ feature 'Admin edits car category' do
 
     expect(current_path).to eq car_categories_path
   end
+  xscenario 'and must be authenticated' do
+
+	visit edit_car_category_path
+
+	expect(current_path).to eq(new_user_session_path)	
+	expect(page).to have_content('Para continuar, efetue login ou registre-se.')
+   end
 end
