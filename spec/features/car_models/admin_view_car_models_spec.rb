@@ -59,25 +59,4 @@ feature 'Admin view car models' do
 
 		expect(current_path).to eq root_path
 	end
-
-  	scenario 'cannot view unless logged in' do
-    		visit root_path
-
-    		expect(page).not_to have_link('Modelos de Carros')
-  	end
-
-  	scenario 'cannot view unless logged in' do
-		visit car_models_path
-
-		expect(current_path).to eq(new_user_session_path)
-    		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
-  	end
-
-  	xscenario 'and must be authenticated' do
-
-		visit car_model_path
-
-		expect(current_path).to eq(new_user_session_path)	
-		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
-   	end
 end
