@@ -39,11 +39,4 @@ feature 'Admin register rental' do
 
 		expect(page).to have_content('Data de inicio não pode ficar em branco')
 	end
-
-	scenario 'and must be authenticated' do
-		visit new_rental_path
-
-		expect(current_path).to eq(new_user_session_path)
-		expect(page).to have_content('Para continuar, efetue login ou registre-se.')	
-	end
 end
