@@ -1,8 +1,5 @@
 class CustomersController < ApplicationController
 
-	#Garante que o usuario deve estar autenticado para acessar as views de customers
-	before_action :authenticate_user!, only: [:new, :create]
-
 	def new
 		@customer = Customer.new
 	end

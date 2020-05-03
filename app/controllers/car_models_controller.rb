@@ -1,7 +1,4 @@
 class CarModelsController < ApplicationController
-
-	#Garante que o usuario deve estar autenticado para acessar as views de car models
-	before_action :authenticate_user!
 	
 	def index
 		@car_models = CarModel.all

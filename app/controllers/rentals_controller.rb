@@ -1,7 +1,4 @@
 class RentalsController < ApplicationController
-
-	#Garante que o usuario deve estar autenticado para acessar as views de rentals
-	before_action :authenticate_user!, only: [:index, :new, :create]
 	
 	def index
 		@rentals = Rental.all
