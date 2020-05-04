@@ -5,6 +5,8 @@ feature 'Admin view subsidiaries' do
 		Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
 		Subsidiary.create!(name: 'ACCIONA', cnpj: '85.171.517/0001-04', address: 'Rua: Masp')
 		
+	    	user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+	    	login_as user, scope: :user
 
 		visit root_path
 		click_on 'Filiais'
@@ -14,17 +16,22 @@ feature 'Admin view subsidiaries' do
 	end
 
 	scenario 'and return to home page' do
+	    	user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+	    	login_as user, scope: :user
 
-	    visit root_path
-	    click_on 'Filiais'
-	    click_on 'Voltar'
+	    	visit root_path
+	    	click_on 'Filiais'
+	    	click_on 'Voltar'
 
-	    expect(current_path).to eq root_path
+	    	expect(current_path).to eq root_path
 	end
 
 	scenario 'view subsidiary details' do
 		Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
 		
+	    	user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+	    	login_as user, scope: :user
+
 		visit root_path
 		click_on 'Filiais'
 		click_on 'ACCENTURE'
@@ -36,9 +43,12 @@ feature 'Admin view subsidiaries' do
 	
 
 	scenario 'empty list' do
-	    visit root_path
-	    click_on 'Filiais'
+	    	user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+	    	login_as user, scope: :user
 
-	    expect(page).to have_content('Nenhuma filial cadastrada')
+	    	visit root_path
+	    	click_on 'Filiais'
+
+	    	expect(page).to have_content('Nenhuma filial cadastrada')
 	end
 end

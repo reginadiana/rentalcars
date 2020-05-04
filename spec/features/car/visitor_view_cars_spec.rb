@@ -13,6 +13,8 @@ feature 'Visitor view cars' do
     Car.create!(license_plate: '2508ABC', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
     Car.create!(license_plate: '1819ABC', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
     
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Carros das Frotas'
@@ -32,6 +34,9 @@ feature 'Visitor view cars' do
 
     Car.create!(license_plate: '2508ABC', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Carros das Frotas'
     click_on '2508ABC'
@@ -45,6 +50,9 @@ feature 'Visitor view cars' do
   end
 
   scenario 'and no cars are created' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Carros das Frotas'
 
@@ -52,6 +60,8 @@ feature 'Visitor view cars' do
   end
 
   scenario 'and return to home page' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Carros das Frotas'
@@ -72,6 +82,8 @@ feature 'Visitor view cars' do
 
     Car.create!(license_plate: '2508ABC', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Carros das Frotas'

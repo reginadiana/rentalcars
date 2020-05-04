@@ -4,6 +4,9 @@ feature 'Admin register valid subsidiary' do
   scenario 'and name must be unique' do
     Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
     
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Cadastrar uma filial'
@@ -19,6 +22,9 @@ feature 'Admin register valid subsidiary' do
   end
 
   scenario 'and name, cnpj and address can not be blank' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Cadastrar uma filial'
@@ -36,6 +42,8 @@ feature 'Admin register valid subsidiary' do
   end
 
   scenario 'and return to list subsidiaries' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'

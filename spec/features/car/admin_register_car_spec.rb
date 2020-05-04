@@ -12,6 +12,9 @@ feature 'Admin register valid car' do
 
     Car.create!(license_plate: '0000AAA', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Carros das Frotas'
     click_on 'Registrar novo carro para a frota'
@@ -23,6 +26,9 @@ feature 'Admin register valid car' do
   end
 
   scenario 'lenght of mileage must be bigger then 0' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Carros das Frotas'
     click_on 'Registrar novo carro para a frota'
@@ -34,6 +40,9 @@ feature 'Admin register valid car' do
   end
 
   scenario 'and license_plate can not be blank' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Carros das Frotas'
     click_on 'Registrar novo carro para a frota'
@@ -45,6 +54,8 @@ feature 'Admin register valid car' do
   end
 
  scenario 'and return to list cars' do
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Carros das Frotas'

@@ -3,6 +3,8 @@ require 'rails_helper'
 feature 'Admin edits subsidiary' do
   scenario 'successfully' do
     Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -16,6 +18,8 @@ feature 'Admin edits subsidiary' do
 
   scenario 'cant not to be blank' do
     Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -37,6 +41,9 @@ feature 'Admin edits subsidiary' do
     Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
     Subsidiary.create!(name: 'ACCENTURE', cnpj: '85.171.517/0001-04', address: 'Rua: Brigadeiro, Paulista')
 
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Paulista'
@@ -51,6 +58,9 @@ feature 'Admin edits subsidiary' do
 
   scenario 'and return to list subsidiaries' do
     Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+
+    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'

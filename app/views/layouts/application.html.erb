@@ -19,15 +19,17 @@
 			<li><%= link_to 'Categorias de Carros', car_categories_path%></li>
 			<li><%= link_to 'Fabricantes', manufacturers_path%></li>
 			<li><%= link_to 'Filiais', subsidiaries_path%></li>
+
 	 	<% else %>
 			<li><%= link_to 'Entrar', new_user_session_path%></li>
 		<% end %>   
 	</nav>
+
     <%= flash[:notice] %>
 
- <% if flash[:alert] %>
+    <% if flash[:alert] %>
         <%= flash[:alert] %>
-      <% end %>
+    <% end %>
 
     <%= yield %>
   </body>
