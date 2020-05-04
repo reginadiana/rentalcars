@@ -13,9 +13,10 @@ feature 'Visitor tries to acess manufacturers and' do
 		expect(current_path).to eq(new_user_session_path)
 		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
 	end
-        xscenario 'and must be authenticated to see detals' do
+        scenario 'and must be authenticated to see detals' do
+		manufacturer = Manufacturer.create!(name: 'Fiat')
 
-		visit manufacturer_path
+		visit manufacturer_path(manufacturer)
 
 		expect(current_path).to eq(new_user_session_path)	
 		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
@@ -27,9 +28,10 @@ feature 'Visitor tries to acess manufacturers and' do
     		expect(current_path).to eq(new_user_session_path)	
     		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
    	end
-        xscenario 'and must be authenticated to edit some manufacturer' do
+        scenario 'and must be authenticated to edit some manufacturer' do
+		manufacturer = Manufacturer.create!(name: 'Fiat')
 
-		visit edit_manufacturer_path
+		visit edit_manufacturer_path(manufacturer)
 
 		expect(current_path).to eq(new_user_session_path)	
 		expect(page).to have_content('Para continuar, efetue login ou registre-se.')
