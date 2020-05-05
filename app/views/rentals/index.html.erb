@@ -4,9 +4,19 @@
 
 <%= link_to 'Voltar', root_path %>
 
+<%= form_with url: search_rentals_path, method: :get do |f| %>
+	<%= f.label :q, 'Código' %>
+	<%= f.text_field :q%>
+	<%= f.submit 'Buscar' %>
+<% end %>
+
 <% if @rentals.any? %>
 	<% @rentals.each do |rental| %>
 		<dl>
+
+			<dt>Código:</dt>
+			<dd><%= rental.code %></dd>
+	
 			<dt>Data de inicio:</dt>
 			<dd><%= rental.start_date && localize(rental.start_date) %></dd>
 
