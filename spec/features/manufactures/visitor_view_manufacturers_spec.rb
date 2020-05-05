@@ -41,8 +41,6 @@ feature 'Visitor view manufacturers' do
   end
 
   scenario 'and return to home page' do
-    Manufacturer.create!(name: 'Fiat')
-    Manufacturer.create!(name: 'Volkswagen')
 
     user = User.create!(email: 'teste@teste.com.br', password: '12345678')
     login_as user, scope: :user
@@ -55,8 +53,6 @@ feature 'Visitor view manufacturers' do
   end
 
   scenario 'and return to manufacturers page' do
-    Manufacturer.create!(name: 'Fiat')
-    Manufacturer.create!(name: 'Volkswagen')
 
     user = User.create!(email: 'teste@teste.com.br', password: '12345678')
     login_as user, scope: :user
