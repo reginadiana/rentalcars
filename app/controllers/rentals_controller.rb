@@ -25,6 +25,30 @@ class RentalsController < ApplicationController
 		@rental = Rental.find_by(code: @q.upcase)
 	end
 
+	def edit
+		@rental = Rental.find(id)
+		@customers = Customer.all
+		@car_categories = CarCategory.all
+	end
+
+	def update
+		@rental = Rental.find(id)
+		if @rental.update(require_params)
+			redirect_to rentals_path
+		else
+			@customers = Customer.all
+			@car_categories = CarCategory.all
+			render :edit
+		end
+	end
+
+	def destroy
+		@rental = Rental.find(id)
+		@rental.destroy
+
+		redirect_to rentals_path
+	end
+
 	private
 	
 	def require_params

@@ -23,6 +23,8 @@
 					<th>Data de término</th>
 					<th>Cliente</th>
 					<th>Categoria</th>
+					<th></th>
+					<th></th>
 				</tr>
 			</head>
 			<tbody>
@@ -33,6 +35,8 @@
 					<td><%= rental.car_category.name %></td>
 					<td><%= rental.start_date && localize(rental.start_date) %></td>
 					<td><%= rental.end_date && localize(rental.end_date) %></td>
+					<td><%= link_to 'Editar', edit_rental_path(rental), id: "edit-#{rental.id}" %></td>
+					<td><%= link_to 'Excluir', rentals_path(rental), method: :delete, id: "delete-#{rental.id}" %></td>
 				</tr>
 				<% end %>
 			</tbody>
