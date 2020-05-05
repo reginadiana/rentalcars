@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 	resources :car_categories
 	resources :manufacturers
 	resources :car_models
-	resources :customers
+	 resources :customers do
+    		get 'search', on: :collection
+  	end
 
 	resources :rentals do
 		get 'search', on: :collection	

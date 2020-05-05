@@ -7,6 +7,7 @@ feature 'Admin register valid custumer' do
 
     login_as user, scope: :user
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar Cliente'
 	
     fill_in 'CPF', with: '508.218.249.15'
@@ -21,6 +22,7 @@ feature 'Admin register valid custumer' do
 
     login_as user, scope: :user
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar Cliente'
 
     fill_in 'Nome', with: ''

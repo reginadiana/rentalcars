@@ -29,7 +29,7 @@ feature 'Admin search rental' do
 		fill_in 'Código', with: ''
 		click_on 'Buscar'
 
-		expect(page).to have_content('Busca não pode ficar em branco')
+		expect(page).to have_content('Nenhum resultado encontrado para:')
 	end
 
 	scenario 'and code cannot be found' do
