@@ -29,7 +29,12 @@ feature 'Subsidiary' do
 			subsidiary.valid?
 			expect(subsidiary.errors[:cnpj]).to include('não é válido')	
 		end
-		
+
+		it('must be 18 caracters') do
+			subsidiary = Subsidiary.new(cnpj: '75.666.888/1000')
+			subsidiary.valid?
+			expect(subsidiary.errors[:cnpj]).to include('não possui o tamanho esperado (18 caracteres)')	
+		end
 	end
 
         context '#address' do
