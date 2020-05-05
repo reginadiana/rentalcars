@@ -14,7 +14,7 @@ feature 'Admin edits car category' do
 		fill_in 'Nome', with: 'B'
 		click_on 'Enviar'
 
-		expect(page).to have_content('Categoria B')
+		expect(page).to have_content('B')
 	end
 
 	scenario 'can not be blank' do

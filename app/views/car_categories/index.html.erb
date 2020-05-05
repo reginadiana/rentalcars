@@ -8,13 +8,21 @@
 	<%= 'Nenhuma categoria cadastrada' %>
 <% end %>
 
-<% @car_categories.each do |c| %>
-	<div>
-		<h2><%= link_to "Categoria #{c.name}", c %></h2>
-		
-		<dl>
-			<dt>Valor da diaria</dt>
-			<dd><%= number_to_currency c.daily_rate %></dd>
-		</dl>
-	</div>
+<% if @car_categories.any? %>
+	<table>
+		<thead>
+			<tr>
+				<th>Categorias</th>
+				<th>Valor da Diaria</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @car_categories.each do |c| %>
+				<tr>
+					<td><%= link_to "Categoria #{c.name}", c %></td>
+					<td><%= number_to_currency c.daily_rate %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>

@@ -18,10 +18,10 @@ feature 'Admin register rental' do
 
 		click_on 'Enviar'
 
-		expect(page).to have_content('Data de inicio: 27/04/2030')
-		expect(page).to have_content('Data de término: 27/04/2040')
-		expect(page).to have_content('Cliente: Diana')
-		expect(page).to have_content('Categoria: A')
+		expect(page).to have_content('27/04/2030')
+		expect(page).to have_content('27/04/2040')
+		expect(page).to have_content('Diana')
+		expect(page).to have_content('A')
 	end
 
 	scenario 'and must fill in all fields' do

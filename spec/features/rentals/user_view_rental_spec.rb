@@ -13,10 +13,10 @@ feature 'User view rental' do
 		visit root_path
 		click_on 'Locações'
 
-		expect(page).to have_content("Data de inicio: 22/03/1995")
-		expect(page).to have_content("Data de término: 22/03/2000")
-		expect(page).to have_content("Cliente: #{customer.name}")
-		expect(page).to have_content("Categoria: #{car_category.name}")
+		expect(page).to have_content("22/03/1995")
+		expect(page).to have_content("22/03/2000")
+		expect(page).to have_content("#{customer.name}")
+		expect(page).to have_content("#{car_category.name}")
 	end
 
 	scenario 'and no rentals are created' do

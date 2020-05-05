@@ -46,10 +46,10 @@ feature 'Admin view car categories' do
 		click_on 'Categorias de Carros'
 		click_on 'Categoria A'
 
-		expect(page).to have_content 'Categoria A'
-		expect(page).to have_content 'Diaria: R$ 50,00'
-		expect(page).to have_content 'Seguro do Carro: R$ 50,00'
-		expect(page).to have_content 'Seguro para Terceiros: R$ 30,00'
+		expect(page).to have_content 'A'
+		expect(page).to have_content 'R$ 50,00'
+		expect(page).to have_content 'R$ 50,00'
+		expect(page).to have_content 'R$ 30,00'
 
 		expect(page).to have_link('Uno', href: car_model_path(uno)) 
 		expect(page).to have_link('Mobi', href: car_model_path(mobi)) 	
