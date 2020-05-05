@@ -6,17 +6,17 @@ feature 'User view rental' do
 		car_category = CarCategory.create!(name: 'A', daily_rate: 100, car_insurance: 100, third_part_insurance: 100)
 		user = User.create!(email: 'joana@teste.com.br', password: '12345678')
 
-		rental = Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer, car_category: car_category)
+		rental = Rental.create!(start_date: '22/03/1995', end_date: '22/03/2000', customer: customer, car_category: car_category)
 
 		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Locações'
 
-		expect(page).to have_content("Data de inicio: #{rental.start_date}")
-		expect(page).to have_content("Data de término: #{rental.end_date}")
-		expect(page).to have_content('Cliente: Diana')
-		expect(page).to have_content('Categoria: A')
+		expect(page).to have_content("Data de inicio: 22/03/1995")
+		expect(page).to have_content("Data de término: 22/03/2000")
+		expect(page).to have_content("Cliente: #{customer.name}")
+		expect(page).to have_content("Categoria: #{car_category.name}")
 	end
 
 	scenario 'and no rentals are created' do
@@ -26,7 +26,7 @@ feature 'User view rental' do
 		visit root_path
 		click_on 'Locações'
 
-		expect(page).to have_content('Nenhuma locação cadastrada')
+		expect(page).to have_content('Nenhuma locação registrada')
 	end
 
 	scenario 'and return to home page' do
