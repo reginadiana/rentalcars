@@ -4,7 +4,7 @@
 
 :small_orange_diamond: [Description](#description-checkered_flag)
 
-:small_orange_diamond: [How to run](#how-to-run)
+:small_orange_diamond: [How to run](#how-to-run-arrow_forward)
 
 &nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
   
