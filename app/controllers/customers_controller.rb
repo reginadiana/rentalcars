@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 	end
 
 	def search
-		@customers = Customer.where(name: params[:q])
+		@customers = Customer.where(name: params[:q]).or(Customer.where(document: params[:q]))
 		render :index
 	end
 
