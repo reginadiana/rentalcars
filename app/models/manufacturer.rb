@@ -1,4 +1,4 @@
 class Manufacturer < ApplicationRecord
-	validates :name, uniqueness: { message: 'Nome deve ser único' }
+	validates :name, uniqueness: true
 	validates :name, presence: true
 end

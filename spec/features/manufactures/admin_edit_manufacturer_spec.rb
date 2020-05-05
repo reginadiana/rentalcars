@@ -1,67 +1,67 @@
 require 'rails_helper'
 
 feature 'Admin edits manufacturer' do
-  scenario 'successfully' do
-    Manufacturer.create(name: 'Fiat')
+	scenario 'successfully' do
+		Manufacturer.create(name: 'Fiat')
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
+		
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Editar'
+		fill_in 'Nome', with: 'Honda'
+		click_on 'Enviar'
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Editar'
-    fill_in 'Nome', with: 'Honda'
-    click_on 'Enviar'
+		expect(page).to have_content('Honda')
+	end
 
-    expect(page).to have_content('Honda')
-  end
+	scenario 'and cannot be black' do
+		Manufacturer.create(name: 'Fiat')
 
-  scenario 'and cannot be black' do
-    Manufacturer.create(name: 'Fiat')
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Editar'
+		fill_in 'Nome', with: ''
+		click_on 'Enviar'
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Editar'
-    fill_in 'Nome', with: ''
-    click_on 'Enviar'
+		expect(page).to have_content('Nome não pode ficar em branco')
+	end
 
-    expect(page).to have_content('Nome não pode ficar em branco')
-  end
+	scenario 'successfully' do
+		Manufacturer.create(name: 'Fiat')
+		Manufacturer.create(name: 'Honda')
 
-  scenario 'successfully' do
-    Manufacturer.create(name: 'Fiat')
-    Manufacturer.create(name: 'Honda')
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Editar'
+		fill_in 'Nome', with: 'Honda'
+		click_on 'Enviar'
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Editar'
-    fill_in 'Nome', with: 'Honda'
-    click_on 'Enviar'
+		expect(page).to have_content('Nome já está em uso')
+	end
 
-    expect(page).to have_content('Nome deve ser único')
-  end
+	scenario 'and return to list manufacturers' do
+		Manufacturer.create(name: 'Fiat')
 
- scenario 'and return to list manufacturers' do
-    Manufacturer.create(name: 'Fiat')
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Editar'
+		click_on 'Voltar'
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Editar'
-    click_on 'Voltar'
-
-    expect(current_path).to eq manufacturers_path
-  end
+		expect(current_path).to eq manufacturers_path
+	end
 end

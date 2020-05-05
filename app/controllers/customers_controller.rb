@@ -21,6 +21,19 @@ class CustomersController < ApplicationController
 	    	end
 	end
 
+	def edit
+		@customer = Customer.find(id)
+	end
+
+	def update
+		@customer = Customer.find(id)
+		if @customer.update(require_params)
+			redirect_to customers_path
+		else
+			render :edit
+		end
+	end
+
 	private
 	
 	def require_params

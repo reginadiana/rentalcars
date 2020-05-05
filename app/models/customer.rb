@@ -1,4 +1,4 @@
 class Customer < ApplicationRecord
-	validates :document, uniqueness: { message: 'CPF deve ser único' }
+	validates :document, :email, uniqueness: true
 	validates :name, :document, :email, presence: true
 end

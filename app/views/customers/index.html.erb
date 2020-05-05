@@ -20,6 +20,7 @@
       <th>Nome</th>
       <th>Email</th>
       <th>Documento</th>
+      <th>Alterar informações</th>
       <th></th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= customer.name %></td>
         <td><%= customer.email %></td>
         <td><%= customer.document %></td>
+	<td><%= link_to 'Editar', edit_customer_path(customer), id: "edit-#{customer.id}" %></td>
       </tr>
     <% end %>
   </tbody>
