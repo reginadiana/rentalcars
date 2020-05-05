@@ -34,6 +34,13 @@ class CustomersController < ApplicationController
 		end
 	end
 
+	def destroy
+		@customer = Customer.find(id)
+		@customer.destroy
+
+		redirect_to customers_path
+	end
+
 	private
 	
 	def require_params

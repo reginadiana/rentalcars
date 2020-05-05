@@ -21,8 +21,8 @@
       <th>Email</th>
       <th>Documento</th>
       <th>Alterar informações</th>
-      <th></th>
-    </tr>
+      <th>Excluir cliente</th>
+     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
@@ -31,6 +31,7 @@
         <td><%= customer.email %></td>
         <td><%= customer.document %></td>
 	<td><%= link_to 'Editar', edit_customer_path(customer), id: "edit-#{customer.id}" %></td>
+	<td><%= link_to 'Excluir', customer_path(customer), method: :delete, id: "delete-#{customer.id}" %></td>
       </tr>
     <% end %>
   </tbody>
