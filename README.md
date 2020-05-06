@@ -22,7 +22,7 @@
   
 &nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Database initialization](#database-initialization)
   
-:small_orange_diamond: [Solving problems](#solving-problems)
+:small_orange_diamond: [Solving problems](#solving-problems-exclamation)
 
 :small_orange_diamond: [Licence](#licence-trident)
 
@@ -155,9 +155,9 @@ For to see this routes in prompt, run:
 $ rails routes -g <name of controller>
 ```
 
-## Solving problems
+## Solving problems :exclamation:
 
-Go to my [issues](https://github.com/Diana-ops/treina-dev-turma-3/issues) for to see how I resolved some problems in development project.
+Go to my [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) for to see how I resolved some problems in development project.
 
 ## Licence :trident:
 
