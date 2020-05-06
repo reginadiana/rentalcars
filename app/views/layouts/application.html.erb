@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    	<nav>
+    	<nav class="menu">
+		<div class="logo"><%= image_tag("logo.png", size: "100x100", alt: "Logo")%></div>
 		<% if user_signed_in? %>
 			<li><%= link_to 'Sair', destroy_user_session_path, method: :delete%></li>
 			<li><%= link_to 'Home', root_path%></li>
@@ -23,7 +24,7 @@
 			<li><%= link_to 'Carros das Frotas', cars_path%></li>
 
 	 	<% else %>
-			<li><%= link_to 'Entrar', new_user_session_path%></li>
+			<h4 class="li-entrar"><%= link_to 'Entrar', new_user_session_path%></h4>
 		<% end %> 
 	</nav>
 

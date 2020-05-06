@@ -1,31 +1,30 @@
 <%= link_to 'Voltar', car_models_path %>
 
-<section id="main">
-	<h1>Modelo de Carro <%= @car_model.name %></h1>
-	<dl>
-		<dt>Fabricante: </dt>
-		<dd><%= @car_model.manufacturer.name %></dd>
-
-		<dt>Ano: </dt>
-		<dd><%= @car_model.year %></dd>
-
-		<dt>Motor: </dt>
-		<dd><%= @car_model.motorization %></dd>
-
-		<dt>Combustivel: </dt>
-		<dd><%= @car_model.fuel_type %></dd>
-
-		<dt>Categoria: </dt>
-		<dd><%= @car_model.car_category.name %></dd>
-
-		<dt>Diária: </dt>
-		<dd><%= number_to_currency @car_model.car_category.daily_rate %></dd>
-
-		<dt>Editar modelo</dt>
-		<dd><%= link_to 'Editar', edit_car_model_path(@car_model) %></dd>
-
-		<dt>Apagar modelo</dt>
-		<dd><%= link_to 'Excluir', car_model_path(id: @car_model.id), method: :delete %></dd>
-
-	</dl>
-</section>
+<table>
+	<thead>
+		<tr>
+			<th>Modelo de Carro</th>
+			<th>Fabricante</th>
+			<th>Ano</th>
+			<th>Motor</th>
+			<th>Combustivel</th>
+			<th>Categoria</th>
+			<th>Diária</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tbody>
+			<tr>
+				<td><%= @car_model.name %></td>
+				<td><%= @car_model.manufacturer.name %></td>
+				<td><%= @car_model.year %></td>
+				<td><%= @car_model.motorization %></td>
+				<td><%= @car_model.fuel_type %></td>
+				<td><%= @car_model.car_category.name %></td>
+				<td><%= number_to_currency @car_model.car_category.daily_rate %></td>
+				<td><%= link_to 'Editar', edit_car_model_path(@car_model) %></td>
+				<td><%= link_to 'Excluir', car_model_path(id: @car_model.id), method: :delete %></td>
+			</tr>
+		</tbody>
+	</thead>
+</table>

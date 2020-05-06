@@ -39,12 +39,12 @@ feature 'Admin view car models' do
 		find("a#details-#{car_model.id}").click()
 
 		expect(page).to have_content 'Uno'
-		expect(page).to have_content 'Fabricante: Fiat'
-		expect(page).to have_content 'Ano: 2020'
-		expect(page).to have_content 'Motor: 1.0'
-		expect(page).to have_content 'Combustivel: Flex'
-		expect(page).to have_content 'Categoria: A'
-		expect(page).to have_content 'Diária: R$ 50,00'
+		expect(page).to have_content 'Fiat'
+		expect(page).to have_content '2020'
+		expect(page).to have_content '1.0'
+		expect(page).to have_content 'Flex'
+		expect(page).to have_content 'A'
+		expect(page).to have_content 'R$ 50,00'
 	end
 
 	scenario 'and return to home page' do

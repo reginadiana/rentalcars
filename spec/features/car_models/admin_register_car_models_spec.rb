@@ -20,7 +20,7 @@ feature 'Admin register car models' do
 		select 'A', from: 'Categoria do Carro'	
 		click_on 'Enviar'
 
-		expect(page).to have_content('Modelo de Carro Uno')
+		expect(page).to have_content('Uno')
 		expect(page).to have_content('Fiat')
 		expect(page).to have_content('2020')
 		expect(page).to have_content('1.0')

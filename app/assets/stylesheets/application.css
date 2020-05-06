@@ -23,6 +23,30 @@
 	padding: 0;
 }
 
+/*Menu de session - usuario nao logado*/
+.menu {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*Logo*/
+.logo {
+	margin-top: -1%;
+	margin-left: 1%;
+}
+
+/*Entrar*/
+.li-entrar {
+	margin-top: 5%;
+	margin-right: 5%;
+	color: pink;
+}
+
+/*Itens*/
+.menu li {
+	list-style: none;
+}
+
 /*Todos os elementos de home/index*/
 .home-page {
 	text-align: center;
@@ -44,4 +68,12 @@
 .links li:hover {
 	transition: 0.5s;
 	color: gray;
+}
+
+/*Tablet*/
+@media screen and (min-width: 1000px) {
+	/*Entrar*/
+	.li-entrar {
+		margin-top: 2%;
+	}
 }
