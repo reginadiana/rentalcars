@@ -40,6 +40,12 @@ class CarsController < ApplicationController
 		end
 	end
 
+        def destroy
+		@car = Car.find(id)
+		@car.destroy
+
+		redirect_to cars_path
+	end
 
 	private
 	
