@@ -93,6 +93,22 @@ table .link-excluir a:hover {
 	color: red;
 }
 
+/*Ver detalhes - car models*/
+table .link-ver-detalhes a {
+	background-color: black; 
+	color: white;
+	width: 100px;
+	height: 30px;
+	padding: 2%;
+	font-size: 15px;
+}
+
+table .link-ver-detalhes a:hover {
+	transition: 0.5s;
+	background-color: #20b2aa;
+	color: black;
+}
+
 /*Campo de Busca*/
 .field-seach {
 	margin-left: 5%;
@@ -244,6 +260,15 @@ td {
 		text-align: center;
 	}
 
+	/*Ver detalhes - car models*/
+	table .link-ver-detalhes a {
+		padding: 3%;
+	}
+	
+	/*Espacamento dos dados das tabelas*/
+	td {
+		padding: 2%;
+	}
 }
 
 

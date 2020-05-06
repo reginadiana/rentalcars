@@ -1,32 +1,34 @@
+<h3 class="link-to-back"><%= link_to 'Voltar', root_path %></h3>
 
-<h1>Modelo de Carros</h1>
+<div class="customers-div">
+	<h1>Modelo de Carros</h1>
 
-<%= link_to 'Registrar novo modelo de carro', new_car_model_path %>
-<%= link_to 'Voltar', root_path %>
+	<h3><%= link_to 'Registrar novo modelo ', new_car_model_path %></h3>
 
-<% if @car_models.empty? %>
-	<%= 'Nenhum modelo cadastrado' %>
-<% end %>
+	<% if @car_models.empty? %>
+		<%= 'Nenhum modelo cadastrado' %>
+	<% end %>
 
-<% if @car_models.any? %>
-	<table>
-		<head>
-			<tr>
-				<th>Nome:</th>
-				<th>Ano:</th>
-				<th>Modelo:</th>
-				<th></th>
-			</tr>
-		</head>
-		<tbody>
-			<% @car_models.each do |model| %>
-				<tr>			
-					<td><%= model.name %></td>	
-					<td><%= model.year %></td>
-					<td><%= model.manufacturer.name %></td>
-					<td><%= link_to 'Ver detalhes', model, id: "details-#{model.id}" %></td>
-				</tr>		
-				<% end %>
-		</tbody>
-	</table>
-<% end %>
+	<% if @car_models.any? %>
+		<table>
+			<head>
+				<tr>
+					<th>Nome:</th>
+					<th>Ano:</th>
+					<th>Modelo:</th>
+					<th></th>
+				</tr>
+			</head>
+			<tbody>
+				<% @car_models.each do |model| %>
+					<tr>			
+						<td><%= model.name %></td>	
+						<td><%= model.year %></td>
+						<td><%= model.manufacturer.name %></td>
+						<td class="link-ver-detalhes"><%= link_to 'Ver detalhes', model, id: "details-#{model.id}" %></td>
+					</tr>		
+					<% end %>
+			</tbody>
+		</table>
+	<% end %>
+</div>

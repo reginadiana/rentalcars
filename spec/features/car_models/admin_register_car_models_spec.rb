@@ -10,7 +10,7 @@ feature 'Admin register car models' do
 
 		visit root_path
 		click_on 'Modelos de Carros'
-		click_on 'Registrar novo modelo de carro'
+		click_on 'Registrar novo modelo'
 		fill_in 'Nome', with: 'Uno'
 		fill_in 'Ano', with: '2020'
 		fill_in 'Motor', with: '1.0'
@@ -49,7 +49,7 @@ feature 'Admin register car models' do
 
 		visit root_path
 		click_on 'Modelos de Carros'
-		click_on 'Registrar novo modelo de carro'
+		click_on 'Registrar novo modelo'
 		click_on 'Voltar'
 
 		expect(current_path).to eq car_models_path
