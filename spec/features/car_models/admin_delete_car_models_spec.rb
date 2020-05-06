@@ -13,7 +13,7 @@ feature 'Admin deletes car models' do
     click_on 'Modelos de Carros'
     find("a#details-#{cat_a.id}").click()
 
-    click_on 'Apagar'
+    click_on 'Excluir'
 
     expect(current_path).to eq car_models_path
     expect(page).to have_content('Nenhum modelo cadastrado')

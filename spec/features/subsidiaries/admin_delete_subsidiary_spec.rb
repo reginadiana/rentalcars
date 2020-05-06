@@ -10,7 +10,7 @@ feature 'Admin deletes subsidiary' do
 		visit root_path
 		click_on 'Filiais'
 		click_on 'ACCENTURE'
-		click_on 'Apagar'
+		click_on 'Excluir'
 
 		expect(current_path).to eq subsidiaries_path
 		expect(page).to have_content('Nenhuma filial cadastrada')
@@ -26,7 +26,7 @@ feature 'Admin deletes subsidiary' do
 		visit root_path
 		click_on 'Filiais'
 		click_on 'ACCENTURE'
-		click_on 'Apagar'
+		click_on 'Excluir'
 
 		expect(current_path).to eq subsidiaries_path
 		expect(page).not_to have_content('ACCENTURE')

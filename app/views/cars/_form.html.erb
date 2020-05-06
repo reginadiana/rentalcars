@@ -1,0 +1,29 @@
+<% @car.errors.full_messages.each do |message| %>
+	<p><%= message %></p>
+<% end %>
+
+<%= form_with model: @car, local: true do |f|%>
+	<div>
+		<strong><%= f.label :license_plate %></strong>
+		<%= f.text_field :license_plate %>
+	</div>
+	<div>
+		<strong><%= f.label :color %></strong>
+		<%= f.number_field :color %>
+	</div>
+	<div>
+		<strong><%= f.label :car_model_id %></strong>
+		<%= f.collection_select :car_model_id, @car_models, :id, :name %>
+	</div>
+	<div>
+		<strong><%= f.label :mileage %></strong>
+		<%= f.number_field :mileage %>
+	</div>
+	<div>
+		<strong><%= f.label :subsidiary_id %></strong>
+		<%= f.collection_select :subsidiary_id, @subsidiaries, :id, :name %>
+	</div>
+	<div>
+		<%= f.submit 'Enviar'%>
+	</div>
+<% end %>

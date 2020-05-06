@@ -19,7 +19,7 @@
 			<td><%= number_to_currency @car_category.car_insurance %></td>
 			<td><%= number_to_currency @car_category.third_part_insurance %></td>
 			<td><%= link_to 'Editar', edit_car_category_path(@car_category) %></td>
-			<td><%= link_to 'Apagar', car_category_path(id: @car_category.id), method: :delete %></td>
+			<td><%= link_to 'Excluir', car_category_path(id: @car_category.id), method: :delete %></td>
 		</tr>
 	</tbody>
 </table>

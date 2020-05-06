@@ -25,13 +25,17 @@ class CarsController < ApplicationController
 	end
 	def edit
 		@car = Car.find(id)
+		@car_models = CarModel.all
+		@subsidiaries = Subsidiary.all
 	end
 
 	def update
-		@car = Manufacturer.find(id)
+		@car = Car.find(id)
 		if @car.update(require_params)
 			redirect_to @car
 		else
+			@car_models = CarModel.all
+			@subsidiaries = Subsidiary.all
 			render :edit
 		end
 	end

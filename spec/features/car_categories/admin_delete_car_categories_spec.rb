@@ -10,7 +10,7 @@ feature 'Admin deletes car categories' do
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Categoria D'
-    click_on 'Apagar'
+    click_on 'Excluir'
 
     expect(current_path).to eq car_categories_path
     expect(page).to have_content('Nenhuma categoria cadastrada')
@@ -26,7 +26,7 @@ feature 'Admin deletes car categories' do
     visit root_path
     click_on 'Categorias de Carros'
     click_on 'Categoria D'
-    click_on 'Apagar'
+    click_on 'Excluir'
 
     expect(current_path).to eq car_categories_path
     expect(page).not_to have_content('Categoria D')

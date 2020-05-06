@@ -6,3 +6,5 @@
 <h4>Quilometragem: <%= @car.mileage %></h4>
 <h4>Filial: <%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></h4>
 
+<%= link_to 'Editar', edit_car_path(@car)%>
+<%= link_to 'Excluir', car_path(@car), method: :delete%>
