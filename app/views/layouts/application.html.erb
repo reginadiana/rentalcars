@@ -13,17 +13,24 @@
     	<nav class="menu">
 		<div class="logo"><%= image_tag("logo.png", size: "100x100", alt: "Logo")%></div>
 		<% if user_signed_in? %>
-			<li><%= link_to 'Sair', destroy_user_session_path, method: :delete%></li>
-			<li><%= link_to 'Home', root_path%></li>
-			<li><%= link_to 'Clientes', customers_path%></li>
-			<li><%= link_to 'Fabricantes', manufacturers_path%></li>
-			<li><%= link_to 'Locações', rentals_path%></li>
-			<li><%= link_to 'Filiais', subsidiaries_path%></li>
-			<li><%= link_to 'Modelos de Carros', car_models_path%></li>
-			<li><%= link_to 'Categorias de Carros', car_categories_path%></li>
-			<li><%= link_to 'Carros das Frotas', cars_path%></li>
+				
+				<li><%= link_to 'Home', root_path%></li>
+				<li><%= link_to 'Clientes', customers_path%></li>
 
-	 	<% else %>
+				<div class="dropdown">
+					<button>Alugue agora</button>
+					<div class="dropdown-content">
+						<li><%= link_to 'Fabricantes', manufacturers_path%></li>
+						<li><%= link_to 'Locações', rentals_path%></li>
+						<li><%= link_to 'Filiais', subsidiaries_path%></li>
+						<li><%= link_to 'Modelos de Carros', car_models_path%></li>
+						<li><%= link_to 'Categorias de Carros', car_categories_path%></li>
+						<li><%= link_to 'Carros das Frotas', cars_path%></li>
+					</div>
+				</div>
+				<li class="li-sair"><%= link_to 'Sair', destroy_user_session_path, method: :delete%></li>
+		 <% else %>
+			
 			<h4 class="li-entrar"><%= link_to 'Entrar', new_user_session_path%></h4>
 		<% end %> 
 	</nav>

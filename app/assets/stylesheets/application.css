@@ -23,10 +23,34 @@
 	padding: 0;
 }
 
+a {
+	color: #0e9f59;
+}
+
 /*Menu de session - usuario nao logado*/
 .menu {
 	display: flex;
 	justify-content: space-between;
+}
+
+/*Link para sair*/
+.li-sair {
+	margin-right: 5%;
+}
+
+
+/*Alugue agora*/
+.dropdown button {
+	width: 150%;
+	text-align: center;
+	background-color: #11c76f;
+	border-color: transparent;
+	height: 30px;
+	border-radius: 25px;
+	padding: 3%;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
 }
 
 /*Logo*/
@@ -43,8 +67,33 @@
 }
 
 /*Itens*/
-.menu li {
+.menu li, .dropdown {
 	list-style: none;
+	margin-top: 2%;
+}
+
+
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 20px 20px;
+	z-index: 1;
+}
+
+.dropdown-content li {
+	padding: 3%;
+}
+
+.dropdown-content li:hover {
+	background-color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
 }
 
 /*Todos os elementos de home/index*/
@@ -52,28 +101,32 @@
 	text-align: center;
 }
 
-/*Todos os links de home/index*/
-.links {
-	display: grid;
-	grid-template-columns: repeat(3, 200px);
-}
-
-/*Para cada link em home/index*/
-.links li {
-	padding: 10px 10px;
-	list-style: none;
-	color: #9370db;
-}
-
-.links li:hover {
-	transition: 0.5s;
-	color: gray;
-}
-
-/*Tablet*/
+/*Desktop*/
 @media screen and (min-width: 1000px) {
 	/*Entrar*/
 	.li-entrar {
 		margin-top: 2%;
 	}
 }
+
+/*Tablet*/
+@media screen and (max-width: 700px){
+	/*Menu de session - usuario nao logado*/
+	.menu {
+		display: block;
+	}
+
+	.dropdown button {
+		width: 35%;
+		padding: 0%;
+	}
+}
+
+
+
+
+
+
+
+
+
