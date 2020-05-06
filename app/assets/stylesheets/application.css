@@ -23,7 +23,7 @@
 	padding: 0;
 }
 
-a {
+.menu a {
 	color: #0e9f59;
 }
 
@@ -57,6 +57,59 @@ a {
 .logo {
 	margin-top: -1%;
 	margin-left: 5%;
+}
+
+/*Voltar*/
+.link-to-back {
+	width: 100px;
+	text-align: center;
+	background-color: #dddaf4 ;
+	border-color: transparent;
+	height: 30px;
+	border-radius: 25px;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+	margin-left: 5%;
+	margin-bottom: 3%;	
+	padding-top: 10px;
+}
+
+/*Editar*/
+table .link-editar a {
+	color: orange;
+}
+
+table .link-editar a:hover {
+	color: #e26f00;
+}
+
+/*Excluir*/
+table .link-excluir a {
+	color: gray;
+}
+
+table .link-excluir a:hover {
+	color: red;
+}
+
+/*Campo de Busca*/
+.field-seach {
+	margin-left: 5%;
+	align-elements: left;
+	text-align: left;
+}
+
+/*Botao de busca*/
+.button-busca {
+	padding: 1%;
+	border-radius: 5px;
+	border-color: transparent;
+}
+
+/*Espacamento dos dados das tabelas*/
+td {
+	padding: 1%;
 }
 
 /*Entrar*/
@@ -119,6 +172,10 @@ a {
 	.li-entrar {
 		margin-top: 2%;
 	}
+	/*Botao de busca*/
+	.button-busca {
+		padding: 0.5%;
+	}
 }
 
 /*Tablet*/
@@ -146,6 +203,13 @@ a {
 	.home-page h1 {
 		padding-top: 40%;
 		margin-bottom: 5%;
+	}
+
+	/*Campo de Busca*/
+	.field-seach {
+		margin-left: 5%;
+		align-elements: center;
+		text-align: center;
 	}
 }
 

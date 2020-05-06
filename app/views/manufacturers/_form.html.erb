@@ -2,9 +2,14 @@
 	<p><%= message %></p>
 <% end %>
 
-
-<%= form_with(model: @manufacturer) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.submit 'Enviar'%>
-<% end %>
+<div class="form">
+	<%= form_with(model: @manufacturer) do |f| %>
+		<div class="field">
+			<%= f.label :name %>
+		</div>
+		<div class="field">
+			<%= f.text_field :name %>
+		</div>
+		<%= f.submit 'Enviar'%>
+	<% end %>
+</div>
