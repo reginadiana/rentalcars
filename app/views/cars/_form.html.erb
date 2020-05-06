@@ -23,7 +23,5 @@
 		<strong><%= f.label :subsidiary_id %></strong>
 		<%= f.collection_select :subsidiary_id, @subsidiaries, :id, :name %>
 	</div>
-	<div>
-		<%= f.submit 'Enviar'%>
-	</div>
+	<button class="button-enviar-form" type="submit">Enviar</button>
 <% end %>

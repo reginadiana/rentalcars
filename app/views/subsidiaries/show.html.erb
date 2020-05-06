@@ -1,7 +1,8 @@
+<h3 class="link-to-back"><%= link_to 'Voltar', subsidiaries_path %></h3>
+
 <h1><%= @subsidiary.name %></h1>
 <h4><%= @subsidiary.cnpj %></h4>
 <h4><%= @subsidiary.address %></h4>
 
-<%= link_to 'Voltar', subsidiaries_path %>
 <%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%>
 <%= link_to 'Excluir', subsidiary_path(@subsidiary), method: :delete %>

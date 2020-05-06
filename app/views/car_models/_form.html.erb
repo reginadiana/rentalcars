@@ -27,7 +27,6 @@
 		<strong><%= f.label :car_category_id %></strong>
 		<%= f.collection_select :car_category_id, @car_categories, :id, :name %>
 	</div>
-	<div>
-		<%= f.submit 'Enviar'%>
-	</div>
+
+	<button class="button-enviar-form" type="submit">Enviar</button>
 <% end %>

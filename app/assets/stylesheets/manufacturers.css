@@ -1,3 +1,43 @@
+/*Show*/
+.manufacturers-div {
+	background-color: #f9f9f9;
+	padding: 5%;	
+	height: 100vh;
+}
+
+/*Lista de manufacturers - index*/
 .each-manufacturer {
 	padding: 1%;
+}
+
+/*Manufacturer - show*/
+.title-manufacturer {
+	margin-left: 5%;
+	margin-bottom: 3%;
+}
+
+.buttons-manufacturer {
+	display: flex;
+	font-size: 20px;
+	margin-left: 5%;
+}
+
+/*Editar - show*/
+.buttons-manufacturer .link-editar a {
+	color: orange;
+	padding: 3%;
+}
+
+.buttons-manufacturer .link-editar a:hover {
+	color: #e26f00;
+}
+
+/*Excluir - show*/
+.buttons-manufacturer .link-excluir a {
+	color: gray;
+	margin-left: 40%;
+}
+
+.buttons-manufacturer .link-excluir a:hover {
+	color: red;
 }

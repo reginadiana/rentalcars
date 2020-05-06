@@ -1,48 +1,50 @@
-<h1>Locações</h1>
+<h3 class="link-to-back"><%= link_to 'Voltar', root_path %></h3>
 
-<%= link_to 'Registrar nova locação', new_rental_path %>
+<div class="customers-div">
+	<h1>Locações</h1>
 
-<%= link_to 'Voltar', root_path %>
+	<h3><%= link_to 'Registrar nova locação', new_rental_path %></h3>
 
-<% if @rentals.empty? %>
-	<%= 'Nenhuma locação registrada' %>
-<% end %>
+	<% if @rentals.empty? %>
+		<%= 'Nenhuma locação registrada' %>
+	<% end %>
+	<div class="field-seach">
+		<%= form_with url: search_rentals_path, method: :get do |f| %>
+			<%= f.label :q, 'Código' %>
+			<%= f.text_field :q%>
+			<button class="button-busca" type="submit">Buscar</button>
+		<% end %>
+	</div>
+	<% if @rentals.empty? %>
+		<%= 'Nenhum cliente cadastrado' %>
+	<% end %>
 
-<%= form_with url: search_rentals_path, method: :get do |f| %>
-	<%= f.label :q, 'Código' %>
-	<%= f.text_field :q%>
-	<%= f.submit 'Buscar' %>
-<% end %>
-
-<% if @rentals.empty? %>
-	<%= 'Nenhum cliente cadastrado' %>
-<% end %>
-
-<% if @rentals.any? %>
-		<table>
-			<head>
-				<tr>
-					<th>Código</th>
-					<th>Data de inicio</th>
-					<th>Data de término</th>
-					<th>Cliente</th>
-					<th>Categoria</th>
-					<th></th>
-					<th></th>
-				</tr>
-			</head>
-			<tbody>
-				<% @rentals.each do |rental| %>
-				<tr>
-					<td><%= rental.code %></td>
-					<td><%= rental.customer.name %></td>
-					<td><%= rental.car_category.name %></td>
-					<td><%= rental.start_date && localize(rental.start_date) %></td>
-					<td><%= rental.end_date && localize(rental.end_date) %></td>
-					<td><%= link_to 'Editar', edit_rental_path(rental), id: "edit-#{rental.id}" %></td>
-					<td><%= link_to 'Excluir', rental_path(rental), method: :delete, id: "delete-#{rental.id}" %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-<% end %>
+	<% if @rentals.any? %>
+			<table>
+				<head>
+					<tr>
+						<th>Código</th>
+						<th>Data de inicio</th>
+						<th>Data de término</th>
+						<th>Cliente</th>
+						<th>Categoria</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</head>
+				<tbody>
+					<% @rentals.each do |rental| %>
+					<tr>
+						<td><%= rental.code %></td>
+						<td><%= rental.customer.name %></td>
+						<td><%= rental.car_category.name %></td>
+						<td><%= rental.start_date && localize(rental.start_date) %></td>
+						<td><%= rental.end_date && localize(rental.end_date) %></td>
+						<td class="link-editar"><%= link_to 'Editar', edit_rental_path(rental), id: "edit-#{rental.id}" %></td>
+						<td class="link-excluir"><%= link_to 'Excluir', rental_path(rental), method: :delete, id: "delete-#{rental.id}" %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+	<% end %>
+</div>
