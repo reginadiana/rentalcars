@@ -1,13 +1,17 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', root_path %></h3>
 
-<h1>Filiais</h1>
+<div class="customers-div">
+	<h1>Filiais</h1>
 
-<%= link_to 'Cadastrar uma filial', new_subsidiary_path%>
+	<h3><%= link_to 'Cadastrar uma filial', new_subsidiary_path%></h3>
 
-<% if @subsidiaries.empty? %>
-	<%= 'Nenhuma filial cadastrada' %>
-<% end %>
+	<% if @subsidiaries.empty? %>
+		<%= 'Nenhuma filial cadastrada' %>
+	<% end %>
 
-<% @subsidiaries.each do |subsidiary| %>
-	<h4><%= link_to subsidiary.name, subsidiary %></h4>
-<% end %>
+	<% @subsidiaries.each do |subsidiary| %>
+		<div class="each-manufacturer">
+			<%= link_to subsidiary.name, subsidiary %>
+		</div>
+	<% end %>
+</div>

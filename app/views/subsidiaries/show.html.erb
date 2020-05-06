@@ -1,8 +1,15 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', subsidiaries_path %></h3>
 
-<h1><%= @subsidiary.name %></h1>
-<h4><%= @subsidiary.cnpj %></h4>
-<h4><%= @subsidiary.address %></h4>
+<div class="manufacturers-div">
+	<h1 class="title-manufacturer"><%= @subsidiary.name %></h1>
+	
+	<div class="subsidiary-info">
+		<h4>CNPJ: &nbsp;&nbsp;<%= @subsidiary.cnpj %></h4>
+		<h4>Endereço: &nbsp;&nbsp;<%= @subsidiary.address %></h4>
+	</div>
 
-<%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%>
-<%= link_to 'Excluir', subsidiary_path(@subsidiary), method: :delete %>
+	<div class="buttons-manufacturer">
+		<p class="link-editar"><%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%></p>
+		<p class="link-excluir"><%= link_to 'Excluir', subsidiary_path(@subsidiary), method: :delete %></p>
+	</div>
+</div>
