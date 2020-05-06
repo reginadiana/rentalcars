@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
 	def create
 		@customer = Customer.new(require_params)
 		if @customer.save	
-	    		redirect_to root_path
+	    		redirect_to customers_path
 	    	else 
 			render :new
 	    	end

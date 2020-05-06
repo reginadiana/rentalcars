@@ -1,13 +1,17 @@
-<h1>Fabricantes</h1>
+<h3 class="link-to-back"><%= link_to 'Voltar', root_path%></h3>
 
-<%= link_to 'Registrar novo fabricante', new_manufacturer_path %>
+<div class="customers-div">
+	<h1>Fabricantes</h1>
 
-<% if @manufacturers.empty? %>
-	<%= 'Nenhum fabricante cadastrado' %>
-<% end %>
+	<h3><%= link_to 'Registrar novo fabricante', new_manufacturer_path %></h3>
 
-<% @manufacturers.each do |manu| %>
-	<%= link_to manu.name, manu %>
-<% end %>
+	<% if @manufacturers.empty? %>
+		<%= 'Nenhum fabricante cadastrado' %>
+	<% end %>
 
-<%= link_to 'Voltar', root_path%>
+	<% @manufacturers.each do |manu| %>
+		<div class="each-manufacturer">
+			<%= link_to manu.name, manu %>
+		</div>
+	<% end %>
+</div>
