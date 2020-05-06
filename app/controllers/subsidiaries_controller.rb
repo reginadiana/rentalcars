@@ -33,6 +33,13 @@ class SubsidiariesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@subsidiary = Subsidiary.find(id)
+		@subsidiary.destroy
+
+		redirect_to subsidiaries_path
+	end	
+
         private
 	
 	def require_params
