@@ -1,0 +1,16 @@
+.selectors {
+	margin-bottom: 3%;
+	margin-top: 3%;
+}
+
+.selectors, .field {
+	padding: 1%;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+	.selectors {
+		margin-bottom: 1%;
+		margin-top: 0%;
+	}
+}
