@@ -112,6 +112,23 @@ td {
 	padding: 1%;
 }
 
+/*Botao de submit dos formularios (new and edit) */
+.button-enviar-form {
+	width: 75%;
+	text-align: center;
+	background-color: #11c76f;
+	border-color: transparent;
+	padding: 2%;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+.button-enviar-form:hover {
+	transition: 0.5s;
+	background-color: #0e9f59;
+}
+
 /*Entrar*/
 .li-entrar {
 	margin-top: 5%;
@@ -176,10 +193,24 @@ td {
 	.button-busca {
 		padding: 0.5%;
 	}
+	/*Botao de submit dos formularios (new and edit) */
+	.button-enviar-form {
+		width: 32%;
+		padding: 0.5%;
+	}
 }
 
 /*Tablet*/
-@media screen and (max-width: 700px){
+@media screen and (min-width: 600px) and (max-width: 1000px){
+	/*Botao de submit dos formularios (new and edit) */
+	.button-enviar-form {
+		width: 53.5%;
+		padding: 0.5%;
+	}
+}
+
+/*Mobile*/
+@media screen and (max-width: 700px) {
 	/*Menu de session - usuario nao logado*/
 	.menu {
 		display: block;
@@ -211,6 +242,7 @@ td {
 		align-elements: center;
 		text-align: center;
 	}
+
 }
 
 

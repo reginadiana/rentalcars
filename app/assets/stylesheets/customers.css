@@ -35,6 +35,11 @@
 	background-color: #e26f00;
 }
 
+/*Titulo do formulario*/
+.form-session h1 {
+	margin-bottom: 5%;
+}
+
 /*Responsividade*/
 
 /*Desktop*/
