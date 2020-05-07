@@ -12,6 +12,10 @@
 	width: 100%;
 }
 
+.form {
+	margin-bottom: 3%;
+}
+
 /*Titulo e subtitulo*/
 .title {
 	color: #0e9f59;
@@ -38,7 +42,7 @@
 
 /*Entrar - Button*/
 .actions button {
-	margin-bottom: 3%;
+	
 	width: 70%;
 	background-color: #11c76f;
 	border-color: transparent;
@@ -53,6 +57,40 @@
 	transition: 0.5s;
 	background-color: #0e9f59;
 }
+
+/*Link para criar uma conta*/
+.link-sign-up {
+	align-elements: center;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3%;
+	padding: 3%;
+	width: 65%;
+	background-color: #efefef;
+	border-color: transparent;
+	border-radius: 25px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.link-sign-up:hover {
+	transition: 0.5s;
+	background-color: #dcdcdc;
+}
+
+.link-sign-up a {
+	color: #11c76f;
+}
+
+/*Link para enviar instrucoes por e-mail*/
+.actions .send-email-password {
+	font-size: 15px;
+	border-radius: 0px;
+	width: 100%;
+	background-color: gray;
+}
+
 /*Responsividade*/
 
 /*Desktop*/
@@ -67,6 +105,10 @@
 	/*Entrar - Button*/
 	.actions button {
 		width: 20%;
+	}
+	.link-sign-up {
+		width: 18%;
+		padding: 1%;
 	}
 
 	/*Check-box*/
@@ -87,6 +129,11 @@
 	/*Entrar - Button*/
 	.actions button {
 		width: 30%;
+	}
+
+	.link-sign-up {
+		width: 25%;
+		padding: 2%;
 	}
 }
 
