@@ -78,6 +78,10 @@ $ bundle install or bin/setup
 $ rails db:migrate
 ```
 
+### Use this node version
+```
+$ nvm use node >=10.13.0
+```
 ### Run in server 
 
 > For to see the application in localhost, run this commands and acess http://localhost:3000
