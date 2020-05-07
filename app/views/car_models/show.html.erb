@@ -1,5 +1,6 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', car_models_path %></h3>
 
+<h2 class="title-info-models">Informações do Modelo</h2>
 <table>
 	<thead>
 		<tr>
@@ -22,8 +23,8 @@
 				<td><%= @car_model.fuel_type %></td>
 				<td><%= @car_model.car_category.name %></td>
 				<td><%= number_to_currency @car_model.car_category.daily_rate %></td>
-				<td><%= link_to 'Editar', edit_car_model_path(@car_model) %></td>
-				<td><%= link_to 'Excluir', car_model_path(id: @car_model.id), method: :delete %></td>
+				<td class="link-editar"><%= link_to 'Editar', edit_car_model_path(@car_model) %></td>
+				<td class="link-excluir"><%= link_to 'Excluir', car_model_path(id: @car_model.id), method: :delete %></td>
 			</tr>
 		</tbody>
 	</thead>

@@ -1,0 +1,12 @@
+/*Informacoes do carro - show*/
+.info-cars h4 {
+	padding: 3%;
+}
+
+.info-cars p {
+	padding-left: 3%;
+}
+
+.info-cars p:last-child {
+	margin-bottom: 3%;
+}

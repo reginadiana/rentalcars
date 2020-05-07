@@ -1,28 +1,30 @@
-<h1>Categorias de Carros</h1>
+<h3 class="link-to-back"><%= link_to 'Voltar', root_path%></h3>
 
-<%= link_to 'Voltar', root_path%>
+<div class="customers-div">
+	<h1>Categorias de Carros</h1>
 
-<%= link_to 'Registrar nova Categoria', new_car_category_path %>
+	<h3><%= link_to 'Registrar nova Categoria', new_car_category_path %></h3>
 
-<% if @car_categories.empty? %>
-	<%= 'Nenhuma categoria cadastrada' %>
-<% end %>
+	<% if @car_categories.empty? %>
+		<%= 'Nenhuma categoria cadastrada' %>
+	<% end %>
 
-<% if @car_categories.any? %>
-	<table>
-		<thead>
-			<tr>
-				<th>Categorias</th>
-				<th>Valor da Diaria</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @car_categories.each do |c| %>
+	<% if @car_categories.any? %>
+		<table>
+			<thead>
 				<tr>
-					<td><%= link_to "Categoria #{c.name}", c %></td>
-					<td><%= number_to_currency c.daily_rate %></td>
+					<th>Categorias</th>
+					<th>Valor da Diaria</th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %>
+			</thead>
+			<tbody>
+				<% @car_categories.each do |c| %>
+					<tr>
+						<td><%= link_to "Categoria #{c.name}", c %></td>
+						<td><%= number_to_currency c.daily_rate %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+</div>

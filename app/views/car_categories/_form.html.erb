@@ -3,18 +3,22 @@
 <% end %>
 
 <%= form_with model: @car_category, local: true do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-
-	<%= f.label :daily_rate %>
-	<%= f.text_field :daily_rate %>
-
-	<%= f.label :car_insurance %>
-	<%= f.text_field :car_insurance %>
-
-	<%= f.label :third_part_insurance %>
-	<%= f.text_field :third_part_insurance %>
-
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :daily_rate %>
+		<%= f.text_field :daily_rate %>
+	</div>
+	<div class="field">
+		<%= f.label :car_insurance %>
+		<%= f.text_field :car_insurance %>
+	</div>
+	<div class="field">
+		<%= f.label :third_part_insurance %>
+		<%= f.text_field :third_part_insurance %>
+	</div>
 
 	<button class="button-enviar-form" type="submit">Enviar</button>
 <% end %>

@@ -14,7 +14,7 @@ feature 'Admin register valid car' do
 
 		visit root_path
 		click_on 'Carros das Frotas'
-		click_on 'Registrar novo carro para a frota'
+		click_on 'Registrar novo carro'
 
 		fill_in 'Placa', with: '0000AAA'
 		fill_in 'Cor', with: 'Black'
@@ -42,7 +42,7 @@ feature 'Admin register valid car' do
 
 		visit root_path
 		click_on 'Carros das Frotas'
-		click_on 'Registrar novo carro para a frota'
+		click_on 'Registrar novo carro'
 
 		fill_in 'Placa', with: '0000AAA'
 		click_on 'Enviar'
@@ -56,7 +56,7 @@ feature 'Admin register valid car' do
 
 		visit root_path
 		click_on 'Carros das Frotas'
-		click_on 'Registrar novo carro para a frota'
+		click_on 'Registrar novo carro'
 
 		fill_in 'Quilometragem', with: '-34'
 		click_on 'Enviar'
@@ -70,7 +70,7 @@ feature 'Admin register valid car' do
 
 		visit root_path
 		click_on 'Carros das Frotas'
-		click_on 'Registrar novo carro para a frota'
+		click_on 'Registrar novo carro'
 
 		fill_in 'Placa', with: ''
 		click_on 'Enviar'
@@ -84,7 +84,7 @@ feature 'Admin register valid car' do
 
 		visit root_path
 		click_on 'Carros das Frotas'
-		click_on 'Registrar novo carro para a frota'
+		click_on 'Registrar novo carro'
 		click_on 'Voltar'
 
 		expect(current_path).to eq cars_path

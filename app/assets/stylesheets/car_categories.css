@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+/*Lista de modelos de carros em show de categorias*/
+.models-categories {
+	margin-left: 5%;
+}
+
+/*Modelo de Carros*/
+.models-categories h3{
+	color: orange;
+	margin-bottom: 3%;
+}
+
+/*Para cada item*/
+.models-categories li {
+	list-style: none;
+	padding-top: 3%;
+	margin-bottom: 3%;
+}
+.models-categories li a {
+	background-color: black; 
+	color: white;
+	width: 100px;
+	height: 30px;
+	padding: 2%;
+	font-size: 15px;
+}
+
+.models-categories a:hover {
+	transition: 0.5s;
+	background-color: #20b2aa;
+	color: black;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+	.models-categories li a {
+		padding: 1%;
+	}
+	/*Modelo de Carros*/
+	.models-categories h3{
+		margin-bottom: 0%;
+	}
+
+	/*Para cada item*/
+	.models-categories li {
+		margin-bottom: 0%;
+	}
+}

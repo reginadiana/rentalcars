@@ -1,12 +1,17 @@
-<h1>Carros Cadastrados</h1>
+<h3 class="link-to-back"><%= link_to 'Voltar', root_path %></h3>
 
-<%= link_to 'Voltar', root_path %>
-<%= link_to 'Registrar novo carro para a frota', new_car_path%>
+<div class="customers-div">
+	<h1>Carros Cadastrados</h1>
 
-<% if @cars.empty? %>
-	<%= 'Nenhum carro cadastrado' %>
-<% end %>
+	<h3><%= link_to 'Registrar novo carro', new_car_path%></h3>
 
-<% @cars.each do |car| %>
-	<h2><%= link_to car.license_plate, car %></h2>
-<% end %>
+	<% if @cars.empty? %>
+		<%= 'Nenhum carro cadastrado' %>
+	<% end %>
+
+	<% @cars.each do |car| %>
+		<div class="each-manufacturer">
+			<%= link_to car.license_plate, car %>
+		</div>
+	<% end %>
+</div>

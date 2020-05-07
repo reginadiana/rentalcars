@@ -1,5 +1,4 @@
-
-<%= link_to 'Voltar', car_categories_path %>
+<h3 class="link-to-back"><%= link_to 'Voltar', car_categories_path %></h3>
 
 <table>
 	<thead>
@@ -18,19 +17,21 @@
 			<td><%= number_to_currency @car_category.daily_rate %></td>
 			<td><%= number_to_currency @car_category.car_insurance %></td>
 			<td><%= number_to_currency @car_category.third_part_insurance %></td>
-			<td><%= link_to 'Editar', edit_car_category_path(@car_category) %></td>
-			<td><%= link_to 'Excluir', car_category_path(id: @car_category.id), method: :delete %></td>
+			<td class="link-editar"><%= link_to 'Editar', edit_car_category_path(@car_category) %></td>
+			<td class="link-excluir"><%= link_to 'Excluir', car_category_path(id: @car_category.id), method: :delete %></td>
 		</tr>
 	</tbody>
 </table>
-	
-<% if @car_category.car_models.any? %>
-	<h3>Modelos de Carros</h3>
-	<% @car_category.car_models.each do |car_model|%>
-		<li><%= link_to car_model.name, car_model%></li>		
+
+<div class="models-categories">
+	<% if @car_category.car_models.any? %>
+		<h3>Modelos de Carros</h3>
+		<% @car_category.car_models.each do |car_model|%>
+			<li><%= link_to car_model.name, car_model%></li>		
+		<% end %>
+	<% else %>
+		<%= 'Sem modelos cadastrados' %>	
 	<% end %>
-<% else %>
-	<%= 'Sem modelos cadastrados' %>	
-<% end %>
+</div>
 
 

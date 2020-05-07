@@ -40,10 +40,10 @@ feature 'Visitor view cars' do
 		click_on 'Carros das Frotas'
 		click_on '2508ABC'
 
-		expect(page).to have_content('Placa: 2508ABC')
-		expect(page).to have_content('Cor: Pink')
+		expect(page).to have_content('2508ABC')
+		expect(page).to have_content('Pink')
 		expect(page).to have_link('Uno', href: car_model_path(car_model)) 
-		expect(page).to have_content('Quilometragem: 500')
+		expect(page).to have_content('500')
 		expect(page).to have_link('ACCENTURE', href: subsidiary_path(subsidiary)) 
 
 	end
