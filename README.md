@@ -94,7 +94,7 @@ $ rails server or rails s
 
 ```
 $ cd rental_cars
-$ rspec 
+$ rspec or bundle exec rspec
 ```
 
 ## Database :floppy_disk:
