@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
 
 	def search
 		@q = params[:q]
-		@customers = Customer.where(name: @q).or(Customer.where(document: @q))
+		@customers = Customer.search(@q).or(Customer.search(@q))
 	end
 
 	def new
