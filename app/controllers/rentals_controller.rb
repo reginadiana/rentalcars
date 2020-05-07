@@ -3,6 +3,10 @@ class RentalsController < ApplicationController
 	def index
 		@rentals = Rental.all
 	end
+	
+	def show
+		@rental = Rental.find(id)
+	end
 
 	def new
 		@rental = Rental.new

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 	resources :rentals do
 		get 'search', on: :collection	
+		resources :car_rentals, only: [:new, :create]
 	end
 
 	resources :subsidiaries
