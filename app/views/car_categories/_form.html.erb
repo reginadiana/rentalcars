@@ -1,5 +1,5 @@
 <% @car_category.errors.full_messages.each do |message| %>
-	<p><%= message %></p>
+	<p class="msg-error"><%= message %></p>
 <% end %>
 
 <%= form_with model: @car_category, local: true do |f| %>

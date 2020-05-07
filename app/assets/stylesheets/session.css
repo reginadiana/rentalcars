@@ -93,6 +93,27 @@
 	margin-bottom: 5%;
 }
 
+/*Mensagens de erro e alerta*/
+.msg-error, .msg-alert  {
+	align-elements: center;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: red;
+	text-align: center;
+	background-color: #efefef;
+	padding: 1%;
+	width: 70%;
+	margin-bottom: 3%;
+}
+
+/*Mensagens de erro*/
+.msg-alert {
+	color: orange;
+	background-color: #f9f9f9;
+	font-weight: bold;
+}
+
 /*Responsividade*/
 
 /*Desktop*/
@@ -123,6 +144,11 @@
 		width: 30%;
 		margin-top: 0%;
 	}	
+
+	/*Mensagens de erro*/
+	.msg-error, .msg-alert  {
+		width: 20%;
+	}
 }
 
 /*Tablet*/
