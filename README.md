@@ -71,13 +71,26 @@ For install dependencies of this project, you need to have this [Gemfile](https:
 ```
 $ bundle install or bin/setup
 ```
+### Check files with yarn
 
+```
+$ yarn install --check-files
+```
 ### Database initialization
 
 ```
 $ rails db:migrate
 ```
+### To use database default of application
 
+```
+$ rails db:reset
+```
+
+### Use this node version
+```
+$ nvm use node >=10.13.0
+```
 ### Run in server 
 
 > For to see the application in localhost, run this commands and acess http://localhost:3000
@@ -90,7 +103,7 @@ $ rails server or rails s
 
 ```
 $ cd rental_cars
-$ rspec 
+$ rspec or bundle exec rspec
 ```
 
 ## Database :floppy_disk:
