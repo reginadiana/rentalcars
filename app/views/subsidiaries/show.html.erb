@@ -1,11 +1,14 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', subsidiaries_path %></h3>
 
 <div class="manufacturers-div">
+	<h2 class="title-info-models">Informações da Filial</h2>
 	<h1 class="title-manufacturer"><%= @subsidiary.name %></h1>
 	
 	<div class="subsidiary-info">
-		<h4>CNPJ: &nbsp;&nbsp;<%= @subsidiary.cnpj %></h4>
-		<h4>Endereço: &nbsp;&nbsp;<%= @subsidiary.address %></h4>
+		<h4>CNPJ:</h4>
+			<p><%= @subsidiary.cnpj %></p>
+		<h4>Endereço: </h4>
+			<p><%= @subsidiary.address %></p>
 	</div>
 
 	<div class="buttons-manufacturer">

@@ -2,14 +2,15 @@
 	margin-left: 5%;
 }
 
-.subsidiary-info h4{
+.subsidiary-info h4, .subsidiary-info p{
 	padding-bottom: 1%;
 }
 
 /*Tablet*/
 @media screen and (max-width: 1000px){
-	.subsidiary-info h4{
+	.subsidiary-info h4, .subsidiary-info p{
 		padding-bottom: 5%;
 	}
+	
 }
 
