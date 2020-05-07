@@ -71,11 +71,20 @@ For install dependencies of this project, you need to have this [Gemfile](https:
 ```
 $ bundle install or bin/setup
 ```
+### Check files with yarn
 
+```
+$ yarn install --check-files
+```
 ### Database initialization
 
 ```
 $ rails db:migrate
+```
+### To use database default of application
+
+```
+$ rails db:reset
 ```
 
 ### Use this node version
