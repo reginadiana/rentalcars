@@ -9,7 +9,7 @@
 		<%= 'Nenhuma locação registrada' %>
 	<% end %>
 	<div class="field-seach">
-		<%= form_with url: search_rentals_path, method: :get do |f| %>
+		<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
 			<%= f.label :q, 'Código' %>
 			<%= f.text_field :q%>
 			<button class="button-busca" type="submit">Buscar</button>
