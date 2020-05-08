@@ -7,6 +7,24 @@
 	padding: 1%;
 }
 
+/*Link para iniciar locacao*/
+.link-start-rental a {
+
+	text-align: center;
+	background-color: #11c76f;
+	border-color: transparent;
+	height: 30px;
+	padding: 10%;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;	
+}
+
+.link-start-rental a:hover {
+	transition: 0.5s;
+	background-color: #0e9f59;
+}
+
 /*Desktop*/
 @media screen and (min-width: 1000px) {
 	.selectors {
