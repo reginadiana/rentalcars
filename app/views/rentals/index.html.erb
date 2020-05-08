@@ -8,6 +8,9 @@
 	<% if @rentals.empty? %>
 		<%= 'Nenhuma locação registrada' %>
 	<% end %>
+
+	<p class="inst-seach">Pesquise por uma locação a partir do codigo para agendá-la</p>
+
 	<div class="field-seach">
 		<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
 			<%= f.label :q, 'Código' %>

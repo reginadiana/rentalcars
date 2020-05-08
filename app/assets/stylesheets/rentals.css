@@ -14,6 +14,18 @@
 	color: orange;
 }
 
+/*Pesquise por uma ...*/
+.customers-div .inst-seach, .field-seach .inst-seach {
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.field-seach .inst-seach {
+	margin-bottom: 3%;
+}
+
 /*Link para iniciar locacao*/
 .link-start-rental a {
 
@@ -37,5 +49,16 @@
 	.selectors {
 		margin-bottom: 1%;
 		margin-top: 0%;
+	}
+
+	/*Pesquise por uma ...*/
+	.customers-div .inst-seach {
+		text-align: left;
+		margin-left: 5%;
+		margin-bottom: 2%;
+	}
+
+	.field-seach .inst-seach {
+		margin-left: 0%;
 	}
 }
