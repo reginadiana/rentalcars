@@ -7,6 +7,13 @@
 	padding: 1%;
 }
 
+/*Iniciando locacao*/
+.form-session .title-start-rental {
+	margin-top: 5%;
+	margin-bottom: 2%;
+	color: orange;
+}
+
 /*Link para iniciar locacao*/
 .link-start-rental a {
 

@@ -24,6 +24,8 @@ feature 'User start rental' do
 		login_as user, scope: :user
 		visit search_rentals_path(q: rental.code)
 		click_on 'Iniciar'
+
+		expect(page).to have_link 'Voltar'
 		select car.license_plate, from: 'Carro'
 		click_on 'Confirmar locação'
 

@@ -1,5 +1,16 @@
-<%= form_with model: [@rental, @car_rental], local: true do |f| %>
-	<%= f.label :car_id, 'Carro' %>
-	<%= f.collection_select :car_id, @cars, :id, :license_plate %>
-	<%= f.submit 'Confirmar locação' %>
-<% end %> 
+<div class="form-session">
+
+	<h1 class="title-start-rental">Iniciando um agendamento</h1>
+
+	<%= form_with model: [@rental, @car_rental], local: true do |f| %>
+		<div class="field">
+			<%= f.label :car_id, 'Carro' %>
+		</div>
+
+		<div class="field">
+			<%= f.collection_select :car_id, @cars, :id, :license_plate %>
+		</div>
+
+		<button class="button-enviar-form" type="submit">Confirmar locação</button>
+	<% end %> 
+</div>
