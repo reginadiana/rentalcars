@@ -1,179 +1,140 @@
-<h1 align="center">Rental Cars</h1>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/46378210/81428957-76295000-9133-11ea-910a-ccbdf88e32ba.png" alt="Titulo do Projeto"/>
+</p>
 
-## Table of contents
+## Lista de Conteúdos
 
-:small_orange_diamond: [Description](#description-checkered_flag)
+:small_orange_diamond: [Descrição do Projeto](#descrição-do-projeto-checkered_flag)
 
-:small_orange_diamond: [How to run](#how-to-run-arrow_forward)
+:small_orange_diamond: [Deploy](#deploy)
 
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Technologies and your Versions](#technologies-and-your-versions)
-  
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [System dependencies](#system-dependencies-package)
-  
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Database initialization](#database-initialization)
-  
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Run in server](#run-in-server)
-  
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [How to run the test suite](#how-to-run-the-test-suite-memo)
-  
+:small_orange_diamond: [Pré-requisitos](#pré-requisitos-package)
+
+:small_orange_diamond: [Configurações](#configurações-arrow_forward)
+
+:small_orange_diamond: [Rodando a aplicação](#rodando-a-aplicação)
+
+:small_orange_diamond: [Rodando os testes](#rodando-os-testes-memo)
+
 :small_orange_diamond: [Database](#database-floppy_disk)
 
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [CRUD](#crud)
-  
-&nbsp;&nbsp;&nbsp;&nbsp; :small_blue_diamond: [Database initialization](#database-initialization)
-  
-:small_orange_diamond: [Solving problems](#solving-problems-exclamation)
+:small_orange_diamond: [Rotas](#rotas)
 
-:small_orange_diamond: [Licence](#licence-trident)
+:small_orange_diamond: [Resolvendo Problemas](#resolvendo-problemas-exclamation)
 
-## Description :checkered_flag:
+:small_orange_diamond: [Licença](#licença-trident)
 
-A backend application with Ruby on Rails for rental cars. The customers can register itself and choose a model car. 
+## Status do Projeto
 
-## How to run :arrow_forward:
+> Em desenvolvimento :exclamation:
 
-### Technologies and your Versions
+## README em Ingles
 
-Ruby 2.6.3
-```
-$ ruby -v 
-```
+[README](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/README-ENG.md)
 
-Ruby on Rails  6.0.2.2
-```
-$ rails -v 
-```
+## Descrição do Projeto :checkered_flag:
 
-Node 12.16.2
-```
-$ node -v
-```
+O projeto é uma aplicação backend com Ruby on Rails para um sistema interno de aluguel de carros. O administrador pode criar uma conta e agendar uma locação, escolhendo o modelo do carro, categoria, data de agendamento, etc. 
 
-Gem 3.1.2
-```
-$ gem -v 
-``` 
+## Deploy 
 
-Bundle 2.1.2
-```
-$ bundle -v
-```
+## Pré-requisitos :package:
 
-Yarn 1.22.4
-```
-$ yarn -v
-```
+Algumas instalações serão necessárias antes de iniciar o projeto. 
 
-### System dependencies :package:
+:warning: [Ruby](https://www.ruby-lang.org/pt/documentation/installation/) versão >=2.6.3
 
-For install dependencies of this project, you need to have this [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile). Before, run in prompt:
+:warning: [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html) versão >=6.0.2.2
+
+:warning: [Node](https://nodejs.org/en/download/) versão >=12.16.2
+
+:warning: [Gem](https://rubygems.org/pages/download?locale=pt-BR) versão >=3.1.2
+
+:warning: [Bundle](https://bundler.io/man/bundle-install.1.html) versão >=2.1.2
+
+:warning: [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#windows-stable) versão >=1.22.4
+
+Verifique se as libs foram instaldas e estão na versão correta executando no terminal:
 
 ```
-$ bundle install or bin/setup
+$ <nome da lib em minusculo> -v 
 ```
-### Check files with yarn
 
+## Configurações :arrow_forward:
+
+1. Clone o projeto
+
+```
+$ git clone https://github.com/Diana-ops/rental-cars-treina-dev-1
+```
+
+2. Entre no diretório
+
+```
+$ cd rental-cars-treina-dev-1
+```
+3. Use a versão correta do Node
+
+```
+$ nvm use node >=10.13.0
+```
+
+4. Check os arquivos 
 ```
 $ yarn install --check-files
 ```
-### Database initialization
 
+5. Instale as dependencias do arquivo [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile)
+```
+$ bundle install or bin/setup
+```
+
+6. Inicie o database 
 ```
 $ rails db:migrate
 ```
-### To use database default of application
 
+7. Importe o database default da aplicação
 ```
 $ rails db:reset
 ```
 
-### Use this node version
-```
-$ nvm use node >=10.13.0
-```
-### Run in server 
-
-> For to see the application in localhost, run this commands and acess http://localhost:3000
+## Rodando a aplicação
 
 ```
 $ rails server or rails s
 ```
 
-### How to run the test suite :memo:
+> Depois, acesse http://localhost:3000 para ver a aplicação
+
+
+### Rodando os testes :memo:
 
 ```
-$ cd rental_cars
+$ cd rental-cars-treina-dev-1
 $ rspec or bundle exec rspec
 ```
 
 ## Database :floppy_disk:
 
-|  manufacturer | Type |
-| ------------------- | ------------------- |
-|  name |  string |
-|  id_manufacturer |  integrer |
+As tabelas do banco de dados podem ser vistas no arquivo [schema](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/db/schema.rb)
 
-|  car_category | Type |
-| ------------------- | ------------------- |
-|  name |  string |
-|  daily_rate |  string |
-|  car_insurance |  string |
-|  third_party_insurance |  string |
-|  id_car_category |  integrer |
+Os dados default foram criados em [seeds](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/db/seeds.rb)
 
-|  car_model | Type |
-| ------------------- | ------------------- |
-|  name |  string |
-|  year |  integrer |
-|  **manufacturer** |  **object** |
-|  motorization |  string |
-|  **car_category** |   **object** |
-|  fuel_type | string |
-|  id_car_model |  integrer |
-|  id_manufacturer |  integrer |
-|  id_car_category |  integrer |
+## Rotas
 
-|  subsidiary | Type |
-| ------------------- | ------------------- |
-|  name |  string |
-|  CNPJ |  string |
-|  address |  string |
-|  id_subsidiary |  integrer |
-
-|  customer | Type |
-| ------------------- | ------------------- |
-|  name |  string |
-|  CPF |  string |
-|  email |  string |
-|  id_customer |  integrer |
-
-|  car | Type |
-| ------------------- | ------------------- |
-|  license_plate |  string |
-|  color |  string |
-|  car_model |  **object** |
-|  mileage |  integrer |
-|  subsidiary |  **object** |
-|  id_car |  integrer |
-|  id_car_model |  integrer |
-|  id_subsidiary |  integrer |
-
-### CRUD
-
-For each function of CRUD, we have a router for him:
-
-For to see this routes in prompt, run: 
+Para ver as rotas disponíveis na aplicação, execute: 
 
 ```
 $ rails routes -g <name of controller>
 ```
 
-## Solving problems :exclamation:
+## Resolvendo Problemas :exclamation:
 
-Go to my [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) for to see how I resolved some problems in development project.
+Em [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
 
-## Licence :trident:
+## Licença :trident:
 
-The MIT License (MIT)
+The [MIT License](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/LICENSE) (MIT)
 
 Copyright :copyright: 2020 Rental Cars
