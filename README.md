@@ -24,6 +24,14 @@
 
 :small_orange_diamond: [Licença](#licença-trident)
 
+## Status do Projeto
+
+> Em desenvolvimento :exclamation:
+
+## README em Ingles
+
+[README](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/README-ENG.md)
+
 ## Descrição do Projeto :checkered_flag:
 
 O projeto é uma aplicação backend com Ruby on Rails para um sistema interno de aluguel de carros. O administrador pode criar uma conta e agendar uma locação, escolhendo o modelo do carro, categoria, data de agendamento, etc. 
