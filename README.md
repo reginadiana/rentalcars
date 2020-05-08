@@ -1,4 +1,6 @@
-<h1 align="center">Rental Cars</h1>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/46378210/81428957-76295000-9133-11ea-910a-ccbdf88e32ba.png" alt="Titulo do Projeto"/>
+</p>
 
 ## Table of contents
 
