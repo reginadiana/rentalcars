@@ -3,6 +3,7 @@ class CarRentalsController < ApplicationController
 		@rental = Rental.find(id)
 		@car_rental = CarRental.new
 		@cars = @rental.car_category.cars 
+		@customers = @rental.customer 
 	end
 
 	def create
@@ -22,6 +23,6 @@ class CarRentalsController < ApplicationController
 	end
 	
 	def require_params
-		params.require(:car_rental).permit(:car_id)
+		params.require(:car_rental).permit(:car_id, :customer_id)
 	end
 end 
