@@ -15,7 +15,8 @@ feature 'User search customer' do
 		click_on 'Clientes'
 		fill_in 'Busca', with: customer.name
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content(customer.name)
 		expect(page).to have_content(customer.email)
 		expect(page).to have_content(customer.document)
@@ -38,7 +39,8 @@ feature 'User search customer' do
 		click_on 'Clientes'
 		fill_in 'Busca', with: customer.document
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content(customer.name)
 		expect(page).to have_content(customer.email)
 		expect(page).to have_content(customer.document)
@@ -55,7 +57,8 @@ feature 'User search customer' do
 		click_on 'Clientes'
 		fill_in 'Busca', with: ''
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content('Nenhum resultado encontrado para:')
 	end
 
@@ -73,7 +76,8 @@ feature 'User search customer' do
 		click_on 'Clientes'
 		fill_in 'Busca', with: 'fulano'
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content(customer.name)
 		expect(page).to have_content(customer.email)
 		expect(page).to have_content(customer.document)
@@ -96,7 +100,8 @@ feature 'User search customer' do
 		click_on 'Clientes'
 		fill_in 'Busca', with: 'Larissa'
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content('Nenhum resultado encontrado para: Larissa')
 
 		expect(page).not_to have_content(customer.name)

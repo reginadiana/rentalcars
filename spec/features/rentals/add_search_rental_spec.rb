@@ -15,7 +15,8 @@ feature 'Admin search rental' do
 		click_on 'Locações'
 		fill_in 'Código', with: rental.code
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content(rental.code)
 		expect(page).not_to have_content(another_rental.code)
 	end
@@ -28,7 +29,8 @@ feature 'Admin search rental' do
 		click_on 'Locações'
 		fill_in 'Código', with: ''
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).to have_content('Nenhum resultado encontrado para:')
 	end
 
@@ -47,7 +49,8 @@ feature 'Admin search rental' do
 		click_on 'Locações'
 		fill_in 'Código', with: 'ABXUXA'
 		click_on 'Buscar'
-
+		
+		expect(page).to have_link 'Voltar'
 		expect(page).not_to have_content(rental.code)
 		expect(page).not_to have_content(another_rental.code)
 

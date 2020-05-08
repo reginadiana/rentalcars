@@ -1,3 +1,5 @@
+<h3 class="link-to-back"><%= link_to 'Voltar', rentals_path %></h3>
+
 <div class="field-seach">
 	<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
 		<%= f.label :q, 'Código' %>
