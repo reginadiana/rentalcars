@@ -25,12 +25,12 @@
 		<td><%= customer.name %></td>
 		<td><%= customer.email %></td>
 		<td><%= customer.document %></td>
-		<td><%= link_to 'Editar', edit_customer_path(customer), id: "edit-#{customer.id}" %></td>
-		<td><%= link_to 'Excluir', customer_path(customer), method: :delete, id: "delete-#{customer.id}" %></td>
+		<td class="link-editar"><%= link_to 'Editar', edit_customer_path(customer), id: "edit-#{customer.id}" %></td>
+		<td class="link-excluir"><%= link_to 'Excluir', customer_path(customer), method: :delete, id: "delete-#{customer.id}" %></td>
 	      </tr>
 	    <% end %>
 	  </tbody>
 	</table>
 <% else %>
-	<p><%= "Nenhum resultado encontrado para: #{@q}" %></p>
+	<p class="msg-error"><%= "Nenhum resultado encontrado para: #{@q}" %></p>
 <% end %>
