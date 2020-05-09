@@ -1,5 +1,5 @@
 class SubsidiariesController < ApplicationController
-	before_action: authorize_admin!
+	# before_action: authorize_admin!
 
 	def index
 		@subsidiaries = Subsidiary.all

@@ -12,7 +12,7 @@ class CarRentalsController < ApplicationController
 		@car_rental.rental = @rental
 		@car_rental.save!
 		@rental.ongoing!
-		@car.unavailable!
+		# @car.unavailable!
     
 		redirect_to @rental
 	end
