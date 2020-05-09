@@ -11,8 +11,8 @@ feature 'Admin register rental' do
 		click_on 'Locações'
 		click_on 'Registrar nova locação'
 		
-		fill_in 'Data de inicio', with: '27/04/2030'
-		fill_in 'Data de término', with: '27/04/2040'
+		fill_in 'Data de inicio', with: '22/03/1995'
+		fill_in 'Data de término', with: '22/03/2000'
 		select customer.name, from: 'Cliente'
 		select car_category.name, from: 'Categoria'
 
@@ -27,14 +27,10 @@ feature 'Admin register rental' do
 		expect(page).to have_content("Cliente")
 		expect(page).to have_content("Categoria")
 	
-		expect(page).to have_content("#{rental.code}")
 		expect(page).to have_content("22/03/1995")
 		expect(page).to have_content("22/03/2000")
 		expect(page).to have_content("#{customer.name}")
 		expect(page).to have_content("#{car_category.name}")
-
-		expect(page).to have_link "edit-#{rental.id}" 
-		expect(page).to have_link "delete-#{rental.id}"
 	end
 
 	scenario 'and must fill in all fields' do

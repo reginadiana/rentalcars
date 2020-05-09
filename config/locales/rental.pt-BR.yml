@@ -5,6 +5,7 @@ pt-BR:
       rental: Modelo de Carro
     attributes:
       rental:
+       code: Código
        start_date: Data de inicio
        end_date: Data de término
        customer: Cliente
