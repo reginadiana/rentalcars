@@ -12,7 +12,7 @@ feature 'Admin view car categories' do
 		click_on 'Categorias de Carros'
 
 		expect(page).to have_content 'Categoria'
-		expect(page).to have_content 'Diaria'
+		expect(page).to have_content 'Diária'
 		
 		expect(page).to have_content 'A'
 		expect(page).to have_content 'R$ 10,00'
@@ -50,7 +50,7 @@ feature 'Admin view car categories' do
 		click_on 'A'
 
 		expect(page).to have_content 'Categoria'
-		expect(page).to have_content 'Diaria'
+		expect(page).to have_content 'Diária'
 		expect(page).to have_content 'Seguro do Carro'
 		expect(page).to have_content 'Seguro para Terceiros'
 

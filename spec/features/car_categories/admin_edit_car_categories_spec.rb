@@ -29,14 +29,14 @@ feature 'Admin edits car category' do
 		click_on 'Editar'
 
 		fill_in 'Nome', with: ''
-		fill_in 'Diaria', with: ''
+		fill_in 'Diária', with: ''
 		fill_in 'Seguro do Carro', with: ''
 		fill_in 'Seguro para Terceiros', with: ''
 
 		click_on 'Enviar'
 
 		expect(page).to have_content('Nome não pode ficar em branco')
-		expect(page).to have_content('Diaria não pode ficar em branco')
+		expect(page).to have_content('Diária não pode ficar em branco')
 		expect(page).to have_content('Seguro do Carro não pode ficar em branco')
 		expect(page).to have_content('Seguro para Terceiros não pode ficar em branco')
 		end

@@ -4,10 +4,10 @@
 <table>
 	<thead>
 		<tr>
-			<th>Categoria</th>
-			<th>Diaria</th>
-			<th>Seguro do Carro</th>
-			<th>Seguro para Terceiros</th>
+			<th><%= I18n.t('activerecord.models.car_category') %></th>
+			<th><%= CarCategory.human_attribute_name(:daily_rate) %></th>
+			<th><%= CarCategory.human_attribute_name(:car_insurance) %></th>
+			<th><%= CarCategory.human_attribute_name(:third_part_insurance) %></th>
 			<th></th>
 			<th></th>
 			</tr>
