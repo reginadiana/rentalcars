@@ -24,7 +24,21 @@ feature 'Admin register valid car' do
 
 		click_on 'Enviar'
 
+		expect(page).to have_content('Placa')
+		expect(page).to have_content('Cor')
+		expect(page).to have_content('Modelo de Carro')
+		expect(page).to have_content('Quilometragem')
+		expect(page).to have_content('Filial')
+
 		expect(page).to have_content('0000AAA')
+		expect(page).to have_content('Black')
+		expect(page).to have_content('Uno')
+		expect(page).to have_content('1')
+		expect(page).to have_content('ACCENTURE')
+
+		expect(page).to have_link "Editar"
+		expect(page).to have_link "Excluir"
+
 	end
 	scenario 'and license_plate must be unique' do
 		fiat = Manufacturer.create!(name: 'Fiat')

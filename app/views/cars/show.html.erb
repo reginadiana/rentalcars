@@ -3,16 +3,20 @@
 <div class="manufacturers-div">
 	<h2 class="title-info-models">Informações do Carro</h2>
 	<div class="info-cars">
-		<h4>Placa: </h4>
-			<p><%= @car.license_plate %></p>
-		<h4>Cor: </h4>
-			<p><%= @car.color %></p>
-		<h4>Modelo: </h4>
-			<p><%= link_to @car.car_model.name, car_model_path(id: @car.car_model.id) %></p>
-		<h4>Quilometragem: </h4> 
-			<p><%= @car.mileage %></p>
-		<h4>Filial: </h4>
-			<p><%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></p>
+		<h4><%= Car.human_attribute_name(:license_plate) %></h4>
+		<p><%= @car.license_plate %></p>
+
+		<h4><%= Car.human_attribute_name(:color) %></h4>
+		<p><%= @car.color %></p>
+
+		<h4><%= Car.human_attribute_name(:car_model) %></h4>
+		<p><%= link_to @car.car_model.name, car_model_path(id: @car.car_model.id) %></p>
+
+		<h4><%= Car.human_attribute_name(:mileage) %></h4> 
+		<p><%= @car.mileage %></p>
+
+		<h4><%= Car.human_attribute_name(:subsidiary) %></h4>
+		<p><%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></p>
 	</div>
 
 	<div class="buttons-manufacturer">
