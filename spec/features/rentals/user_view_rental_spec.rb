@@ -12,10 +12,23 @@ feature 'User view rental' do
 		visit root_path
 		click_on 'Locações'
 
+		within(".table") do
+		      expect(page).to have_content("Código")
+		end
+
+		expect(page).to have_content("Data de inicio")
+		expect(page).to have_content("Data de término")
+		expect(page).to have_content("Cliente")
+		expect(page).to have_content("Categoria")
+	
+		expect(page).to have_content("#{rental.code}")
 		expect(page).to have_content("22/03/1995")
 		expect(page).to have_content("22/03/2000")
 		expect(page).to have_content("#{customer.name}")
 		expect(page).to have_content("#{car_category.name}")
+
+		expect(page).to have_link "edit-#{rental.id}" 
+		expect(page).to have_link "delete-#{rental.id}"
 	end
 
 	scenario 'and no rentals are created' do

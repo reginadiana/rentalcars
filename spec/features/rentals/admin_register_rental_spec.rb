@@ -18,10 +18,23 @@ feature 'Admin register rental' do
 
 		click_on 'Enviar'
 
-		expect(page).to have_content('27/04/2030')
-		expect(page).to have_content('27/04/2040')
-		expect(page).to have_content('Diana')
-		expect(page).to have_content('A')
+		within(".table") do
+		      expect(page).to have_content("Código")
+		end
+
+		expect(page).to have_content("Data de inicio")
+		expect(page).to have_content("Data de término")
+		expect(page).to have_content("Cliente")
+		expect(page).to have_content("Categoria")
+	
+		expect(page).to have_content("#{rental.code}")
+		expect(page).to have_content("22/03/1995")
+		expect(page).to have_content("22/03/2000")
+		expect(page).to have_content("#{customer.name}")
+		expect(page).to have_content("#{car_category.name}")
+
+		expect(page).to have_link "edit-#{rental.id}" 
+		expect(page).to have_link "delete-#{rental.id}"
 	end
 
 	scenario 'and must fill in all fields' do
@@ -34,9 +47,11 @@ feature 'Admin register rental' do
 		click_on 'Registrar nova locação'
 
 		fill_in 'Data de inicio', with: ''
+		fill_in 'Data de término', with: ''
 
 		click_on 'Enviar'
 
 		expect(page).to have_content('Data de inicio não pode ficar em branco')
+		expect(page).to have_content('Data de término não pode ficar em branco')
 	end
 end

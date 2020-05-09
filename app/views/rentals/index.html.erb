@@ -23,10 +23,10 @@
 	<% end %>
 
 	<% if @rentals.any? %>
-			<table>
+			<table class="table">
 				<head>
 					<tr>
-						<th>Código</th>
+						<th><%= Rental.human_attribute_name(:code) %></th>
 						<th>Data de inicio</th>
 						<th>Data de término</th>
 						<th>Cliente</th>
