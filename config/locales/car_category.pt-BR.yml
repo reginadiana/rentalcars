@@ -6,6 +6,6 @@ pt-BR:
     attributes:
       car_category:
        name: Nome
-       daily_rate: Diaria
+       daily_rate: Diária
        car_insurance: Seguro do Carro
        third_part_insurance: Seguro para Terceiros

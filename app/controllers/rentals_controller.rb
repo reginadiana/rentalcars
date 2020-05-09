@@ -8,6 +8,11 @@ class RentalsController < ApplicationController
 		@rental = Rental.find(id)
 	end
 
+	def search
+		@q = params[:q]
+		@rental = Rental.find_by(code: @q.upcase)
+	end
+
 	def new
 		@rental = Rental.new
 		@customers = Customer.all
@@ -23,10 +28,6 @@ class RentalsController < ApplicationController
 			@car_categories = CarCategory.all	
 			render :new
 		end
-	end
-	def search
-		@q = params[:q]
-		@rental = Rental.find_by(code: @q.upcase)
 	end
 
 	def edit

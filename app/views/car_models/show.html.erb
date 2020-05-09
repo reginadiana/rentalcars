@@ -4,13 +4,13 @@
 <table>
 	<thead>
 		<tr>
-			<th>Modelo de Carro</th>
-			<th>Fabricante</th>
-			<th>Ano</th>
-			<th>Motor</th>
-			<th>Combustivel</th>
-			<th>Categoria</th>
-			<th>Diária</th>
+			<th><%= I18n.t('activerecord.models.car_model') %></th>
+			<th><%= CarModel.human_attribute_name(:manufacturer) %></th>
+			<th><%= CarModel.human_attribute_name(:year) %></th>
+			<th><%= CarModel.human_attribute_name(:motorization) %></th>
+			<th><%= CarModel.human_attribute_name(:fuel_type) %></th>
+			<th><%= CarModel.human_attribute_name(:car_category) %></th>
+			<th><%= CarCategory.human_attribute_name(:daily_rate) %></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -23,8 +23,8 @@
 				<td><%= @car_model.fuel_type %></td>
 				<td><%= @car_model.car_category.name %></td>
 				<td><%= number_to_currency @car_model.car_category.daily_rate %></td>
-				<td class="link-editar"><%= link_to 'Editar', edit_car_model_path(@car_model) %></td>
-				<td class="link-excluir"><%= link_to 'Excluir', car_model_path(id: @car_model.id), method: :delete %></td>
+				<td class="link-editar"><%= link_to 'Editar', edit_car_model_path(@car_model), id: "edit-#{@car_model.id}"%></td>
+				<td class="link-excluir"><%= link_to 'Excluir', car_model_path(@car_model), method: :delete, id: "delete-#{@car_model.id}" %></td>
 			</tr>
 		</tbody>
 	</thead>

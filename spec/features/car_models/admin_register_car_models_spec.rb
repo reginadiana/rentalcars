@@ -20,12 +20,23 @@ feature 'Admin register car models' do
 		select 'A', from: 'Categoria do Carro'	
 		click_on 'Enviar'
 
+		expect(page).to have_content('Modelo de Carro')
+		expect(page).to have_content('Ano')
+		expect(page).to have_content('Fabricante')
+		expect(page).to have_content('Motor')
+		expect(page).to have_content('Combustivel')
+		expect(page).to have_content('Categoria do Carro')
+		expect(page).to have_content('Diária')
+
 		expect(page).to have_content('Uno')
 		expect(page).to have_content('Fiat')
 		expect(page).to have_content('2020')
 		expect(page).to have_content('1.0')
 		expect(page).to have_content('R$ 100,00')
 		expect(page).to have_content(/A/)
+
+		expect(page).to have_link "Editar" 
+		expect(page).to have_link "Excluir"
 	end
 
 	scenario 'and fill in all fields' do
@@ -33,7 +44,10 @@ feature 'Admin register car models' do
                 login_as user, scope: :user
 
 		visit new_car_model_path
+		fill_in 'Nome', with: ''
 		fill_in 'Ano', with: ''
+		fill_in 'Motor', with: ''
+		fill_in 'Combustivel', with: ''
 
 		click_on 'Enviar'
 
