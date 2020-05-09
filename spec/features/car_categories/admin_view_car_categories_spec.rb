@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin view car categories' do
 	scenario 'successfully' do
-		CarCategory.create!(name: 'A', daily_rate: 10, car_insurance: 20, third_part_insurance: 30)
+		car_category = create(:car_category)
 		CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
 		
 	        user = User.create!(email: 'teste@teste.com.br', password: '12345678')
@@ -14,8 +14,8 @@ feature 'Admin view car categories' do
 		expect(page).to have_content 'Categoria'
 		expect(page).to have_content 'Diária'
 		
-		expect(page).to have_content 'A'
-		expect(page).to have_content 'R$ 10,00'
+		expect(page).to have_content "#{car_category.name}"
+		expect(page).to have_content "R$ 10,00"
 
 		expect(page).to have_content 'B'
 		expect(page).to have_content 'R$ 70,00'

@@ -2,24 +2,18 @@ require 'rails_helper'
 
 feature 'User start rental' do
 	scenario 'successfully by search' do
-		manufacturer = Manufacturer.create!(name: 'Fiat')
-		car_category = CarCategory.create!(name: 'A', daily_rate: 100, 
-		                               car_insurance: 100,
-		                               third_part_insurance: 100)
-		car_model = CarModel.create!(name: 'Uno', year: 2020, fuel_type: 'Flex',
-		                         manufacturer: manufacturer, 
-		                         motorization: '1.0', 
-		                         car_category: car_category)
-		subsidiary = Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
-		car = Car.create!(license_plate: 'ABC1234', color: 'Branco', 
-		              car_model: car_model, mileage: 1,subsidiary: subsidiary)
-		customer = Customer.create!(name: 'Fulano Sicrano', 
-		                        document: '185.972.440-03', 
-		                        email: 'teste@teste.com.br')
-		rental = Rental.create!(customer: customer, car_category: car_category,
-		                    start_date: 1.day.from_now, 
-		                    end_date: 2.days.from_now)
-		user = User.create!(email: 'test@test.com.br', password: '12345678')
+		manufacturer = create(:manufacturer)
+		car_category = create(:car_category)
+		car_model = create(:car_model, manufacturer: manufacturer, car_category: car_category)
+
+	    	car = create(:car, license_plate: 'ABC1234', car_model: car_model)
+	    	customer = create(:customer, name: 'Fulano Sicrano', 
+		                         email: 'teste@teste.com.br')
+
+	    	rental = create(:rental, customer: customer, 
+		                     car_category: car_model.car_category)
+
+	    	user = create(:user, email: 'test@test.com.br')
 
 		login_as user, scope: :user
 		visit search_rentals_path(q: rental.code)
