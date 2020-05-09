@@ -6,6 +6,10 @@
 	<p>Placa: <%= @rental.car_rental.car.license_plate %></p>
 	<p>Cliente: <%= @rental.customer.name %></p>
 	<p>Email do Cliente: <%= @rental.customer.email %></p>
-	<p>Status: Em progresso</p>
+
+	<% if @rental.ongoing? %>
+		<p>Status: <%= Rental.human_attribute_name("status.#{@rental.status}") %></p>
+	<% end %>
+	
 	<p>E-mail do contratante: <%= @rental.car_rental.user.email %></p>
 <% end %>

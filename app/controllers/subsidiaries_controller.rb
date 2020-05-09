@@ -1,4 +1,5 @@
 class SubsidiariesController < ApplicationController
+	before_action: authorize_admin!
 
 	def index
 		@subsidiaries = Subsidiary.all
@@ -48,6 +49,10 @@ class SubsidiariesController < ApplicationController
 
 	def id
 		params[:id]
+	end
+	
+	def authorize_admin
+		redirect_to root_path, notice: 'Não autorizado' unless current_user.admin?
 	end
 end
 

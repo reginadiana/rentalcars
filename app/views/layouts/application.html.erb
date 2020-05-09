@@ -13,10 +13,11 @@
     	<nav class="menu">
 		<div class="logo"><%= image_tag("logo.png", size: "100x100", alt: "Logo")%></div>
 		<% if user_signed_in? %>
-				
-				<li><%= link_to 'Home', root_path%></li>
-				<li><%= link_to 'Clientes', customers_path%></li>
-
+				<%= current.admin? %>
+					<li><%= link_to 'Home', root_path%></li>
+				<% end %>
+					<li><%= link_to 'Clientes', customers_path%></li>
+				 
 				<div class="dropdown">
 					<button>Alugue agora</button>
 					<div class="dropdown-content">

@@ -4,6 +4,9 @@ pt-BR:
     models:
       rental: Locações
     attributes:
+      rental/status:
+        scheduled: Agendada
+        ongoing: Em progresso
       rental:
        code: Código
        start_date: Data de inicio

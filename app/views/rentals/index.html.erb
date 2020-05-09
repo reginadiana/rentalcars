@@ -20,6 +20,7 @@
 						<th><%= Rental.human_attribute_name(:end_date) %></th>
 						<th><%= Rental.human_attribute_name(:customer) %></th>
 						<th><%= Rental.human_attribute_name(:car_category) %></th>
+						<th>Status:</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -32,6 +33,7 @@
 						<td><%= rental.end_date && localize(rental.end_date) %></td>
 						<td><%= rental.customer.name %></td>
 						<td><%= rental.car_category.name %></td>
+						<td><%= Rental.human_attribute_name("status.#{rental.status}") %></td>
 						<td class="link-editar"><%= link_to 'Editar', edit_rental_path(rental), id: "edit-#{rental.id}" %></td>
 						<td class="link-excluir"><%= link_to 'Excluir', rental_path(rental), method: :delete, id: "delete-#{rental.id}" %></td>
 					</tr>

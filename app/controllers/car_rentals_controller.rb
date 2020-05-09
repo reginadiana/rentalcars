@@ -2,7 +2,7 @@ class CarRentalsController < ApplicationController
 	def new
 		@rental = Rental.find(params[:rental_id])
 		@car_rental = CarRental.new
-		@cars = @rental.car_category.cars 
+		@cars = Car.all
 	end
 
 	def create
@@ -11,6 +11,8 @@ class CarRentalsController < ApplicationController
 		@car_rental.user = current_user
 		@car_rental.rental = @rental
 		@car_rental.save!
+		@rental.ongoing!
+		@car.unavailable!
     
 		redirect_to @rental
 	end
