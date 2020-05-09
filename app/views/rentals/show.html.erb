@@ -1,9 +1,11 @@
+<h1>Locação agendada com sucesso!</h1>
+
 <% if @rental.car_rental %>
 	<p>Usuario que iniciou: <%= @rental.car_rental.user.email%></p>
 	<p>Data/Hora que iniciou: <%= l(@rental.car_rental.created_at, format: :long) %></p>
 	<p>Placa: <%= @rental.car_rental.car.license_plate %></p>
-	<p>Cliente: <%= @rental.car_rental.customer.name %></p>
-	<p>Email do Cliente: <%= @rental.car_rental.customer.email %></p>
+	<p>Cliente: <%= @rental.customer.name %></p>
+	<p>Email do Cliente: <%= @rental.customer.email %></p>
 	<p>Status: Em progresso</p>
-	<p>E-mail do contratante: <%= @rental.car_rental.user.name %></p>
+	<p>E-mail do contratante: <%= @rental.car_rental.user.email %></p>
 <% end %>
