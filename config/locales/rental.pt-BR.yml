@@ -2,7 +2,7 @@
 pt-BR:
   activerecord:
     models:
-      rental: Modelo de Carro
+      rental: Locações
     attributes:
       rental:
        code: Código

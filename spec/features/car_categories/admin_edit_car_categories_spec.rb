@@ -9,7 +9,7 @@ feature 'Admin edits car category' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria A'
+		click_on 'A'
 		click_on 'Editar'
 		fill_in 'Nome', with: 'B'
 		click_on 'Enviar'
@@ -25,7 +25,7 @@ feature 'Admin edits car category' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria A'
+		click_on 'A'
 		click_on 'Editar'
 
 		fill_in 'Nome', with: ''
@@ -50,7 +50,7 @@ feature 'Admin edits car category' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria A'
+		click_on 'A'
 		click_on 'Editar'
 		
 		fill_in 'Nome', with: 'B'
@@ -67,7 +67,7 @@ feature 'Admin edits car category' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria C'
+		click_on 'C'
 		click_on 'Editar'
 
 		click_on 'Voltar'

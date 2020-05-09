@@ -13,14 +13,14 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Categorias</th>
-					<th>Valor da Diaria</th>
+					<th><%= Rental.human_attribute_name(:car_category) %></th>
+					<th><%= CarCategory.human_attribute_name(:daily_rate) %></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="colums">
 				<% @car_categories.each do |c| %>
 					<tr>
-						<td><%= link_to "Categoria #{c.name}", c %></td>
+						<td><%= link_to c.name, c %></td>
 						<td><%= number_to_currency c.daily_rate %></td>
 					</tr>
 				<% end %>

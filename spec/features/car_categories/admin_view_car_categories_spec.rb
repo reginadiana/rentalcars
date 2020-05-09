@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin view car categories' do
 	scenario 'successfully' do
-		CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
+		CarCategory.create!(name: 'A', daily_rate: 10, car_insurance: 20, third_part_insurance: 30)
 		CarCategory.create!(name: 'B', daily_rate: 70, car_insurance: 50, third_part_insurance: 30)
 		
 	        user = User.create!(email: 'teste@teste.com.br', password: '12345678')
@@ -10,11 +10,14 @@ feature 'Admin view car categories' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		
-		expect(page).to have_content 'Categoria A'
-		expect(page).to have_content 'R$ 50,00'
 
-		expect(page).to have_content 'Categoria B'
+		expect(page).to have_content 'Categoria'
+		expect(page).to have_content 'Diaria'
+		
+		expect(page).to have_content 'A'
+		expect(page).to have_content 'R$ 10,00'
+
+		expect(page).to have_content 'B'
 		expect(page).to have_content 'R$ 70,00'
 	end
 
@@ -44,7 +47,12 @@ feature 'Admin view car categories' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria A'
+		click_on 'A'
+
+		expect(page).to have_content 'Categoria'
+		expect(page).to have_content 'Diaria'
+		expect(page).to have_content 'Seguro do Carro'
+		expect(page).to have_content 'Seguro para Terceiros'
 
 		expect(page).to have_content 'A'
 		expect(page).to have_content 'R$ 50,00'
@@ -75,7 +83,7 @@ feature 'Admin view car categories' do
 
 		visit root_path
 		click_on 'Categorias de Carros'
-		click_on 'Categoria A'
+		click_on 'A'
 
 		expect(page).to have_link('Uno', href: car_model_path(uno)) 
 		expect(page).not_to have_link('Argos') 	
