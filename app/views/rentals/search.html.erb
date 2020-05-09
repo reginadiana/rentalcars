@@ -1,44 +1,33 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', rentals_path %></h3>
 
-<div class="field-seach">
-
-	<p class="inst-seach">Pesquise por uma locação a partir do codigo para agendá-la</p>
-	<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
-		<%= f.label :q, 'Código' %>
-		<%= f.text_field :q%>
-		<button class="button-busca" type="submit">Buscar</button>
-	<% end %>
-</div>
+<%= render "search_field" %>
 
 <% if @rental %>
-			<table>
-				<head>
-					<tr>
-						<th>Código</th>
-						<th>Data de inicio</th>
-						<th>Data de término</th>
-						<th>Cliente</th>
-						<th>Categoria</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</head>
-				<tbody>
-					
-					<tr>
-						<td><%= @rental.code %></td>
-						<td><%= @rental.customer.name %></td>
-						<td><%= @rental.car_category.name %></td>
-						<td><%= @rental.start_date && localize(@rental.start_date) %></td>
-						<td><%= @rental.end_date && localize(@rental.end_date) %></td>
-						<td class="link-start-rental"><%= link_to 'Iniciar', new_rental_car_rental_path(@rental) %></td>
-						<td class="link-editar"><%= link_to 'Editar', edit_rental_path(@rental), id: "edit-#{@rental.id}" %></td>
-						<td class="link-excluir"><%= link_to 'Excluir', rental_path(@rental), method: :delete, id: "delete-#{@rental.id}" %></td>
-						
-					</tr>
-					
-				</tbody>
-			</table>
+	<table>
+		<head>
+			<tr>
+				<th><%= Rental.human_attribute_name(:code) %></th>
+				<th><%= Rental.human_attribute_name(:start_date) %></th>
+				<th><%= Rental.human_attribute_name(:end_date) %></th>
+				<th><%= Rental.human_attribute_name(:customer) %></th>
+				<th><%= Rental.human_attribute_name(:car_category) %></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</head>
+		<tbody>		
+			<tr>
+				<td><%= @rental.code %></td>
+				<td><%= @rental.customer.name %></td>
+				<td><%= @rental.car_category.name %></td>
+				<td><%= @rental.start_date && localize(@rental.start_date) %></td>
+				<td><%= @rental.end_date && localize(@rental.end_date) %></td>
+				<td class="link-start-rental"><%= link_to 'Iniciar', new_rental_car_rental_path(@rental) %></td>
+				<td class="link-editar"><%= link_to 'Editar', edit_rental_path(@rental), id: "edit-#{@rental.id}" %></td>
+				<td class="link-excluir"><%= link_to 'Excluir', rental_path(@rental), method: :delete, id: "delete-#{@rental.id}" %></td>		
+			</tr>	
+		</tbody>
+	</table>
 <% else %>
 	<p class="msg-error"><%= "Nenhum resultado encontrado para: #{@q}" %></p>
 <% end %>

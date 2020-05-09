@@ -9,18 +9,7 @@
 		<%= 'Nenhuma locação registrada' %>
 	<% end %>
 
-	<p class="inst-seach">Pesquise por uma locação a partir do codigo para agendá-la</p>
-
-	<div class="field-seach">
-		<%= form_with url: search_rentals_path, method: :get, local: true do |f| %>
-			<%= f.label :q, 'Código' %>
-			<%= f.text_field :q%>
-			<button class="button-busca" type="submit">Buscar</button>
-		<% end %>
-	</div>
-	<% if @rentals.empty? %>
-		<%= 'Nenhum cliente cadastrado' %>
-	<% end %>
+	<%= render "search_field" %>
 
 	<% if @rentals.any? %>
 			<table class="table">
