@@ -6,6 +6,6 @@
 
 	<div class="buttons-manufacturer">
 		<p class="link-editar"><%= link_to 'Editar', edit_manufacturer_path(@manufacturer)%></p>
-		<p class="link-excluir"><%= link_to 'Excluir', manufacturer_path(@manufacturer), method: :delete %></p>
+		<p class="link-excluir"><%= link_to 'Excluir', manufacturer_path(@manufacturer), :data => { :confirm => "Are you sure?" }, method: :delete %></p>
 	</div>
 </div>

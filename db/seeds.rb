@@ -31,9 +31,11 @@ Car.create!(license_plate: '2708ABD', color: 'Black', car_model: car_model, mile
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_a, car_category: car_category_a)
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_b, car_category: car_category_b)
 
-# Admin (Users Default)
-User.create!(email: 'dianaregina22@outlook.com.br', password: '123456')
-User.create!(email: 'dianaregina22@yahoo.com', password: '111111')
+# Usarios (Users Default)
+User.create!(email: 'dianaregina22@outlook.com.br', password: '123456').user!
+
+# Admin (Default)
+User.create!(email: 'dianaregina22@yahoo.com', password: '111111').admin!
 
 
 
