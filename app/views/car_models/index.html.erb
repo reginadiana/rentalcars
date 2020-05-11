@@ -1,9 +1,11 @@
 <h3 class="link-to-back"><%= link_to 'Voltar', root_path %></h3>
 
 <div class="customers-div">
-	<h1>Modelo de Carros</h1>
+	<h1>Modelos de Carros</h1>
 
-	<h3><%= link_to 'Registrar novo modelo ', new_car_model_path %></h3>
+	<% if @user.admin? %>
+		<h3><%= link_to 'Registrar novo modelo ', new_car_model_path %></h3>
+	<% end %>
 
 	<% if @car_models.empty? %>
 		<%= 'Nenhum modelo cadastrado' %>

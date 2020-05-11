@@ -23,8 +23,11 @@
 				<td><%= @car_model.fuel_type %></td>
 				<td><%= @car_model.car_category.name %></td>
 				<td><%= number_to_currency @car_model.car_category.daily_rate %></td>
-				<td class="link-editar"><%= link_to 'Editar', edit_car_model_path(@car_model), id: "edit-#{@car_model.id}"%></td>
-				<td class="link-excluir"><%= link_to 'Excluir', car_model_path(@car_model), method: :delete, id: "delete-#{@car_model.id}" %></td>
+	
+				<% if @user.admin? %>
+					<td class="link-editar"><%= link_to 'Editar', edit_car_model_path(@car_model), id: "edit-#{@car_model.id}"%></td>
+					<td class="link-excluir"><%= link_to 'Excluir', car_model_path(@car_model), method: :delete, id: "delete-#{@car_model.id}" %></td>
+				<% end %>
 			</tr>
 		</tbody>
 	</thead>

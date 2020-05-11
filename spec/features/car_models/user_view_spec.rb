@@ -1,6 +1,12 @@
 require 'rails_helper'
 
-feature 'Admin view car models' do
+feature 'User view car models' do
+
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
+	end
+
 	scenario 'successfully' do
 		fiat = Manufacturer.create!(name: 'Fiat')
 		ford = Manufacturer.create!(name: 'Ford')
@@ -10,8 +16,7 @@ feature 'Admin view car models' do
 				motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
 		car_model_b = CarModel.create!(name: 'Ka', year: 2021, manufacturer: ford,
 				motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    		login_as user, scope: :user	
+	
 		visit root_path
 		click_on 'Modelos de Carros'
 
@@ -37,9 +42,6 @@ feature 'Admin view car models' do
 		car_model = CarModel.create!(name: 'Uno', year: 2020, manufacturer: fiat,
 					motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
 
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    	 	login_as user, scope: :user
-
 		visit root_path
 		click_on 'Modelos de Carros'
 		find("a#details-#{car_model.id}").click()
@@ -59,15 +61,9 @@ feature 'Admin view car models' do
 		expect(page).to have_content 'Flex'
 		expect(page).to have_content 'A'
 		expect(page).to have_content 'R$ 50,00'
-
-		expect(page).to have_link "edit-#{car_model.id}" 
-		expect(page).to have_link "delete-#{car_model.id}"
 	end
 
 	scenario 'and return to home page' do
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 	
 		visit root_path
 		click_on 'Modelos de Carros'
