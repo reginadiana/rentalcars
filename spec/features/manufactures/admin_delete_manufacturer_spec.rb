@@ -1,35 +1,37 @@
 require 'rails_helper'
 
 feature 'Admin deletes manufacturer' do
-  scenario 'successfully' do
-    Manufacturer.create!(name: 'Fiat')
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Excluir'
+		login_as user, scope: :user
+	end
 
-    expect(current_path).to eq manufacturers_path
-    expect(page).to have_content('Nenhum fabricante cadastrado')
-  end
+	scenario 'successfully' do
+		Manufacturer.create!(name: 'Fiat')
 
-  scenario 'and keep anothers' do
-    Manufacturer.create!(name: 'Fiat')
-    Manufacturer.create!(name: 'Honda')
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Excluir'
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		expect(current_path).to eq manufacturers_path
+		expect(page).to have_content('Nenhum fabricante cadastrado')
+	end
 
-    visit root_path
-    click_on 'Fabricantes'
-    click_on 'Fiat'
-    click_on 'Excluir'
+	scenario 'and keep anothers' do
+		Manufacturer.create!(name: 'Fiat')
+		Manufacturer.create!(name: 'Honda')
 
-    expect(current_path).to eq manufacturers_path
-    expect(page).not_to have_content('Fiat')
-    expect(page).to have_content('Honda')
-  end
+		visit root_path
+		click_on 'Fabricantes'
+		click_on 'Fiat'
+		click_on 'Excluir'
+
+		expect(current_path).to eq manufacturers_path
+		expect(page).not_to have_content('Fiat')
+		expect(page).to have_content('Honda')
+	end
 end

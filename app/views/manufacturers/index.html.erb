@@ -5,10 +5,7 @@
 	
 	<% if @user.admin? %>
 		<h3><%= link_to 'Registrar novo fabricante', new_manufacturer_path %></h3>
-	<% else %>
-		<%= 'voce nao pode fazer isso' %>
-	<% end %>
-	
+	<% end %>	
 
 	<% if @manufacturers.empty? %>
 		<%= 'Nenhum fabricante cadastrado' %>

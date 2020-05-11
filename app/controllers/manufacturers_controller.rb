@@ -6,6 +6,7 @@ class ManufacturersController < ApplicationController
 	end
 	def show
 	    	@manufacturer = Manufacturer.find(id)
+		@user = current_user
 	end
 	def create
 		@manufacturer = Manufacturer.new(require_params)
