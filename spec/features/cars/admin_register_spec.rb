@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 feature 'Admin register valid car' do
+
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
+
+		login_as user, scope: :user
+	end
+
 	scenario 'successfully' do
 		fiat = Manufacturer.create!(name: 'Fiat')
 		cat_a = CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, 							third_part_insurance: 30)
@@ -8,9 +16,6 @@ feature 'Admin register valid car' do
 					motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
 
 		subsidiary = Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Carros das Frotas'
@@ -41,18 +46,7 @@ feature 'Admin register valid car' do
 
 	end
 	scenario 'and license_plate must be unique' do
-		fiat = Manufacturer.create!(name: 'Fiat')
-		cat_a = CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, 							third_part_insurance: 30)
-
-		car_model = CarModel.create!(name: 'Uno', year: 2020, manufacturer: fiat,
-					motorization: '1.0', fuel_type: 'Flex', car_category: cat_a)
-
-		subsidiary = Subsidiary.create!(name: 'ACCENTURE', cnpj: '99.168.496/0001-74', address: 'Rua: Paulista')
-
-		Car.create!(license_plate: '0000AAA', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary)
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
+		car = create(:car, license_plate: '0000AAA')
 
 		visit root_path
 		click_on 'Carros das Frotas'
@@ -65,8 +59,6 @@ feature 'Admin register valid car' do
 	end
 
 	scenario 'lenght of mileage must be bigger then 0' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Carros das Frotas'
@@ -79,8 +71,6 @@ feature 'Admin register valid car' do
 	end
 
 	scenario 'and license_plate can not be blank' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Carros das Frotas'
@@ -93,8 +83,6 @@ feature 'Admin register valid car' do
 	end
 
 	scenario 'and return to list cars' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Carros das Frotas'

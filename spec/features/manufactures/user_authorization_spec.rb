@@ -2,33 +2,33 @@ require 'rails_helper'
 
 feature 'User can not' do
 	before :each do
-		manufacturer = create(:manufacturer, name: 'Fiat')
+		car = create(:car, license_plate: '2508ABC')
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
 		login_as user, scope: :user
 	end
 
-	scenario 'register valid manufacturer' do
+	scenario 'register valid car' do
 
 		visit root_path
-		click_on 'Fabricantes'
+		click_on 'Carros das Frotas'
 
-		expect(page).to have_content('Fiat')
-		expect(page).not_to have_link 'Registrar novo fabricante'
+		expect(page).to have_content('2508ABC')
+		expect(page).not_to have_link 'Registrar novo carro'
 	end
 
-	scenario 'edit manufacturer' do
+	scenario 'edit car' do
 
 		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Fiat'
+		click_on 'Carros das Frotas'
+		click_on '2508ABC'
 
 		expect(page).not_to have_link 'Editar'
 	end
-	scenario 'delete manufacturer' do
+	scenario 'delete car' do
 
 		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Fiat'
+		click_on 'Carros das Frotas'
+		click_on '2508ABC'
 
 		expect(page).not_to have_link 'Excluir'
 	end
