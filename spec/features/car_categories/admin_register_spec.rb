@@ -1,12 +1,43 @@
 require 'rails_helper'
 
 feature 'Admin register valid car category' do
-	scenario 'and name must be unique' do
-		CarCategory.create!(name: 'A', daily_rate: 50, car_insurance: 50, third_part_insurance: 30)
-	
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
+		login_as user, scope: :user
+	end
+
+	scenario 'successfully' do
+	
+		visit root_path
+		click_on 'Categorias de Carros'
+		click_on 'Registrar nova Categoria'
+
+		fill_in 'Nome', with: 'Z'
+		fill_in 'Diária', with: '50'
+		fill_in 'Seguro do Carro', with: '10'
+		fill_in 'Seguro para Terceiros', with: '30'
+
+		click_on 'Enviar'
+	
+		expect(page).to have_content('Categoria do Carro')
+		expect(page).to have_content('Diária')
+		expect(page).to have_content('Seguro do Carro')
+		expect(page).to have_content('Seguro para Terceiros')
+
+		expect(page).to have_content('Z')
+		expect(page).to have_content('R$ 50,00')
+		expect(page).to have_content('R$ 10,00')
+		expect(page).to have_content('R$ 30,00')
+
+		expect(page).to have_link 'Editar'
+		expect(page).to have_link 'Excluir'
+	end
+
+	scenario 'and name must be unique' do
+		car_category = create(:car_category, name: 'A')
+	
 		visit root_path
 		click_on 'Categorias de Carros'
 		click_on 'Registrar nova Categoria'
@@ -19,9 +50,6 @@ feature 'Admin register valid car category' do
 	end
 
 	scenario 'and name can not be blank' do
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Categorias de Carros'
@@ -40,8 +68,6 @@ feature 'Admin register valid car category' do
 	end
 
 	scenario 'and return to list car categories' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Categorias de Carros'

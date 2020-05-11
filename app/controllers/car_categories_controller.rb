@@ -2,9 +2,11 @@ class CarCategoriesController < ApplicationController
 
 	def index
 		@car_categories = CarCategory.all
+		@user = current_user
 	end
 	def show
 		@car_category = CarCategory.find(id)
+		@user = current_user
 		#@car_models = CarModel.where(car_category: @car_category)
 	end
 	def new
