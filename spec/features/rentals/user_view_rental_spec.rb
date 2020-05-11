@@ -28,8 +28,6 @@ feature 'User view rental' do
 		expect(page).to have_content("#{customer.name}")
 		expect(page).to have_content("#{car_category.name}")
 
-		#expect(page).to have_link "edit-#{rental.id}" 
-		#expect(page).to have_link "delete-#{rental.id}"
 	end
 
 	scenario 'and no rentals are created' do

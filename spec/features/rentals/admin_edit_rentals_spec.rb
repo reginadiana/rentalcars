@@ -1,12 +1,17 @@
 require 'rails_helper'
 
 feature 'Admin edits rental' do
-	scenario 'successfully' do
-		customer = Customer.create!(name: 'Diana', document: '505.450.444-17', email: 'diana@gmail.com')
-		car_category = CarCategory.create!(name: 'A', daily_rate: 100, car_insurance: 100, third_part_insurance: 100)
-		rental = Rental.create!(start_date: '22/03/1995', end_date: '22/03/2000', customer: customer, car_category: car_category)
-		user = User.create!(email: 'joana@teste.com.br', password: '12345678')
+
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+
 		login_as user, scope: :user
+	end
+
+	scenario 'successfully' do
+		customer = create(:customer)
+		car_category = create(:car_category)
+		rental = Rental.create!(start_date: '22/03/1995', end_date: '22/03/2000', customer: customer, car_category: car_category)
 
 		visit root_path
 		click_on 'Locações'
@@ -19,12 +24,7 @@ feature 'Admin edits rental' do
 	end
 
 	scenario 'can not be blank' do
-		customer = Customer.create!(name: 'Diana', document: '505.450.444-17', email: 'diana@gmail.com')
-		car_category = CarCategory.create!(name: 'A', daily_rate: 100, car_insurance: 100, third_part_insurance: 100)
-		rental = Rental.create!(start_date: '22/03/1995', end_date: '22/03/2000', customer: customer, car_category: car_category)
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
+		rental = create(:rental)
 
 		visit root_path
 		click_on 'Locações'

@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 feature 'User can not' do
-	scenario 'register valid manufacturer' do
-		Manufacturer.create!(name: 'Fiat' )
-
+	before :each do
+		manufacturer = create(:manufacturer, name: 'Fiat')
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
 		login_as user, scope: :user
+	end
+
+	scenario 'register valid manufacturer' do
 
 		visit root_path
 		click_on 'Fabricantes'
@@ -15,10 +17,6 @@ feature 'User can not' do
 	end
 
 	scenario 'edit manufacturer' do
-		Manufacturer.create!(name: 'Fiat' )
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'
@@ -27,10 +25,6 @@ feature 'User can not' do
 		expect(page).not_to have_link 'Editar'
 	end
 	scenario 'delete manufacturer' do
-		Manufacturer.create!(name: 'Fiat' )
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'

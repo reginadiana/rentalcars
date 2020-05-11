@@ -36,6 +36,7 @@
 						<td><%= Rental.human_attribute_name("status.#{rental.status}") %></td>
 						<td class="link-editar"><%= link_to 'Editar', edit_rental_path(rental), id: "edit-#{rental.id}" %></td>
 						<td class="link-excluir"><%= link_to 'Excluir', rental_path(rental), method: :delete, id: "delete-#{rental.id}" %></td>
+						
 					</tr>
 					<% end %>
 				</tbody>
