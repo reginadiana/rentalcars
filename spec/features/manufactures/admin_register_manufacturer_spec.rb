@@ -5,6 +5,8 @@ feature 'Admin register valid manufacturer' do
 		Manufacturer.create!(name: 'Fiat' )
 
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
+
 		login_as user, scope: :user
 
 		visit root_path
@@ -20,6 +22,7 @@ feature 'Admin register valid manufacturer' do
 	scenario 'and name can not be blank' do
 
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
 		login_as user, scope: :user
 
 		visit root_path
@@ -34,6 +37,7 @@ feature 'Admin register valid manufacturer' do
 
 	scenario 'and return to list manufacturers' do
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
 		login_as user, scope: :user
 
 		visit root_path

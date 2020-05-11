@@ -1,8 +1,8 @@
 class ManufacturersController < ApplicationController
-	#before_action :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
 
 	def index
 	    	@manufacturers = Manufacturer.all
+		@user = current_user
 	end
 	def show
 	    	@manufacturer = Manufacturer.find(id)

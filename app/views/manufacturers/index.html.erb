@@ -3,8 +3,11 @@
 <div class="customers-div">
 	<h1>Fabricantes</h1>
 	
-	
-	<h3><%= link_to 'Registrar novo fabricante', new_manufacturer_path %></h3>
+	<% if @user.admin? %>
+		<h3><%= link_to 'Registrar novo fabricante', new_manufacturer_path %></h3>
+	<% else %>
+		<%= 'voce nao pode fazer isso' %>
+	<% end %>
 	
 
 	<% if @manufacturers.empty? %>
