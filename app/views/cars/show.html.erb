@@ -19,7 +19,7 @@
 		<p><%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></p>
 	</div>
 
-	<% if @user.admin? %>
+	<% if current_user.admin? %>
 		<div class="buttons-manufacturer">
 			<p class="link-editar"><%= link_to 'Editar', edit_car_path(@car)%></p>
 			<p class="link-excluir"><%= link_to 'Excluir', car_path(@car), method: :delete%></p>

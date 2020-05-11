@@ -3,7 +3,7 @@
 <div class="customers-div">
 	<h1>Filiais</h1>
 	
-	<% if @user.admin? %>
+	<% if current_user.admin? %>
 		<h3><%= link_to 'Cadastrar uma filial', new_subsidiary_path%></h3>
 	<% end %>
 

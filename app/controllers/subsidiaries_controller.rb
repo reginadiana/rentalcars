@@ -3,11 +3,9 @@ class SubsidiariesController < ApplicationController
 
 	def index
 		@subsidiaries = Subsidiary.all
-		@user = current_user
 	end
 	def show
 		@subsidiary = Subsidiary.find(id)
-		@user = current_user
 	end
 	def new
 		@subsidiary = Subsidiary.new 

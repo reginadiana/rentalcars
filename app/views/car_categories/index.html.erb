@@ -3,7 +3,7 @@
 <div class="customers-div">
 	<h1>Categorias de Carros</h1>
 
-	<% if @user.admin? %>
+	<% if current_user.admin? %>
 		<h3><%= link_to 'Registrar nova Categoria', new_car_category_path %></h3>
 	<% end %>
 

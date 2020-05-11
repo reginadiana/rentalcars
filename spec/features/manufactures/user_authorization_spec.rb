@@ -6,6 +6,18 @@ feature 'User can not' do
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
 		login_as user, scope: :user
 	end
+	
+	scenario 'to create some manufacturer by route' do
+		manufacturer = create(:manufacturer)
+		visit new_manufacturer_path
+		expect(current_path).to eq(root_path)
+	end
+
+	scenario 'to edit some manufacturer by route' do
+		manufacturer = create(:manufacturer)
+		visit edit_manufacturer_path(manufacturer)
+		expect(current_path).to eq(root_path)
+	end
 
 	scenario 'register valid car' do
 

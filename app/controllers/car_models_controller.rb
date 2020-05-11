@@ -2,11 +2,9 @@ class CarModelsController < ApplicationController
 	
 	def index
 		@car_models = CarModel.all
-		@user = current_user
 	end
 	def show
 		@car_model = CarModel.find(id)
-		@user = current_user
 	end
 	def new
 		@car_model = CarModel.new

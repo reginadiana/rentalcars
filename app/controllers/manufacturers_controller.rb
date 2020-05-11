@@ -1,12 +1,12 @@
 class ManufacturersController < ApplicationController
 
+	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy] 
+
 	def index
 	    	@manufacturers = Manufacturer.all
-		@user = current_user
 	end
 	def show
 	    	@manufacturer = Manufacturer.find(id)
-		@user = current_user
 	end
 	def create
 		@manufacturer = Manufacturer.new(require_params)
@@ -18,7 +18,7 @@ class ManufacturersController < ApplicationController
 	    	end
 	end
 	def new
-		@manufacturer = Manufacturer.new
+		@manufacturer = Manufacturer.new		
 	end
 
 	def edit
@@ -49,5 +49,14 @@ class ManufacturersController < ApplicationController
 
 	def id
 		params[:id]
+	end
+
+	def authenticate_user
+	    
+	    if current_user.user?
+	      # if current_user is not admin redirect to some route
+	      redirect_to root_path
+	    end
+	    # if current_user is admin he will proceed to edit action
 	end
 end  
