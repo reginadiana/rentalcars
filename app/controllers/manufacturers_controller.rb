@@ -1,4 +1,5 @@
 class ManufacturersController < ApplicationController
+	#before_action :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
 
 	def index
 	    	@manufacturers = Manufacturer.all

@@ -32,10 +32,10 @@ Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: c
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_b, car_category: car_category_b)
 
 # Usarios (Users Default)
-User.create!(email: 'dianaregina22@outlook.com.br', password: '123456').user!
+User.create!(email: 'dianaregina22@outlook.com.br', password: '123456')
 
 # Admin (Default)
-User.create!(email: 'dianaregina22@yahoo.com', password: '111111').admin!
+Admin.create!(email: 'dianaregina22@yahoo.com', password: '111111')
 
 
 
