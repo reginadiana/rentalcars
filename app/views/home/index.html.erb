@@ -1,21 +1,6 @@
 <div class="home-page">
 	<h1>Rental Cars</h1>
 	<h2>Bem vindo ao sistema de gestão de locação</h2>
-
-	<% @users.each do |user| %>
-		<div class="each-manufacturer">
-			<%= user.email %>
-
-			<% if user.admin? %>
-				<%= 'adm' %>
-			<% end %>
-
-			<% if user.user? %>
-				<%= 'usuario' %>
-			<% end %>
-
-		</div>
-	<% end %>
 </div>
 
 

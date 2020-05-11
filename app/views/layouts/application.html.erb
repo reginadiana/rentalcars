@@ -15,12 +15,14 @@
 		<% if user_signed_in?%>
 				
 					<li><%= link_to 'Home', root_path%></li>
-				
-					<li><%= link_to 'Clientes', customers_path%></li>
-				 
+					
+					<% if current_user.admin? %>
+						<li><%= link_to 'Lista de Usuarios', list_path %></li>
+				 	<% end %> 
 				<div class="dropdown">
 					<button>Alugue agora</button>
 					<div class="dropdown-content">
+						<li><%= link_to 'Clientes', customers_path%></li>
 						<li><%= link_to 'Fabricantes', manufacturers_path%></li>
 						<li><%= link_to 'Locações', rentals_path%></li>
 						<li><%= link_to 'Filiais', subsidiaries_path%></li>

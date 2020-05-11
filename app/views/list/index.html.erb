@@ -1,0 +1,27 @@
+<div class="customers-div">
+	<% if @users.any? %>
+		<table>
+			<thead>
+				<tr>
+					<th>Email</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+
+			<tbody class="colums">
+				<% @users.each do |user| %>
+					<tr>
+						<td><%= user.email %></td>
+						<% if user.admin? %>
+							<td><%= 'Administrador' %></td>
+						<% end %>
+
+						<% if user.user? %>
+							<td><%= 'Usuario' %></td>
+						<% end %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+</div>

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 	devise_for :users
 
 		root to: 'home#index'
+		get 'list', to: 'list#index'
+
 		resources :car_categories
 		resources :manufacturers
 		resources :car_models
