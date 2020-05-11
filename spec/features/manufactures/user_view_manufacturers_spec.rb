@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-feature 'Visitor view manufacturers' do
+feature 'User view manufacturers' do
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
+	end
+
 	scenario 'successfully' do
 		Manufacturer.create!(name: 'Fiat')
 		Manufacturer.create!(name: 'Volkswagen')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'
@@ -19,9 +21,6 @@ feature 'Visitor view manufacturers' do
 		Manufacturer.create!(name: 'Fiat')
 		Manufacturer.create!(name: 'Volkswagen')
 
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
-
 		visit root_path
 		click_on 'Fabricantes'
 		click_on 'Fiat'
@@ -31,8 +30,6 @@ feature 'Visitor view manufacturers' do
 	end
 
 	scenario 'and no manufacturers are created' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'
@@ -41,9 +38,6 @@ feature 'Visitor view manufacturers' do
 	end
 
 	scenario 'and return to home page' do
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'
@@ -54,9 +48,6 @@ feature 'Visitor view manufacturers' do
 
 	scenario 'and return to manufacturers page' do
 		Manufacturer.create!(name: 'Fiat')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Fabricantes'

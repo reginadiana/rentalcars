@@ -35,7 +35,7 @@ feature 'Admin edits manufacturer' do
 		expect(page).to have_content('Nome não pode ficar em branco')
 	end
 
-	scenario 'successfully' do
+	scenario 'must be unique' do
 		Manufacturer.create(name: 'Fiat')
 		Manufacturer.create(name: 'Honda')
 
