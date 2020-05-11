@@ -11,8 +11,10 @@
 			<p><%= @subsidiary.address %></p>
 	</div>
 
-	<div class="buttons-manufacturer">
-		<p class="link-editar"><%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%></p>
-		<p class="link-excluir"><%= link_to 'Excluir', subsidiary_path(@subsidiary), method: :delete %></p>
-	</div>
+	<% if @user.admin? %>
+		<div class="buttons-manufacturer">
+			<p class="link-editar"><%= link_to 'Editar', edit_subsidiary_path(@subsidiary)%></p>
+			<p class="link-excluir"><%= link_to 'Excluir', subsidiary_path(@subsidiary), method: :delete %></p>
+		</div>
+	<% end %>
 </div>

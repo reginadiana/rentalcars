@@ -1,74 +1,72 @@
 require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
-  scenario 'successfully' do
-    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
 
-    visit root_path
-    click_on 'Filiais'
-    click_on 'Paulista'
-    click_on 'Editar'
-    fill_in 'Nome', with: 'ARCOM'
-    click_on 'Enviar'
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user.admin!
 
-    expect(page).to have_content('ARCOM')
-  end
+		login_as user, scope: :user
+	end
 
-  scenario 'cant not to be blank' do
-    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+	scenario 'successfully' do
+		Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
-    visit root_path
-    click_on 'Filiais'
-    click_on 'Paulista'
-    click_on 'Editar'
+		visit root_path
+		click_on 'Filiais'
+		click_on 'Paulista'
+		click_on 'Editar'
+		fill_in 'Nome', with: 'ARCOM'
+		click_on 'Enviar'
 
-    fill_in 'Nome', with: ''
-    fill_in 'Cnpj', with: ''
-    fill_in 'Endereço', with: ''
+		expect(page).to have_content('ARCOM')
+	end
 
-    click_on 'Enviar'
+	scenario 'cant not to be blank' do
+		Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
-    expect(page).to have_content('Nome não pode ficar em branco')
-    expect(page).to have_content('Cnpj não pode ficar em branco')
-    expect(page).to have_content('Endereço não pode ficar em branco')
-  end
+		visit root_path
+		click_on 'Filiais'
+		click_on 'Paulista'
+		click_on 'Editar'
 
-  scenario 'name must be unique' do
-    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
-    Subsidiary.create!(name: 'ACCENTURE', cnpj: '85.171.517/0001-04', address: 'Rua: Brigadeiro, Paulista')
+		fill_in 'Nome', with: ''
+		fill_in 'Cnpj', with: ''
+		fill_in 'Endereço', with: ''
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		click_on 'Enviar'
 
-    visit root_path
-    click_on 'Filiais'
-    click_on 'Paulista'
-    click_on 'Editar'
+		expect(page).to have_content('Nome não pode ficar em branco')
+		expect(page).to have_content('Cnpj não pode ficar em branco')
+		expect(page).to have_content('Endereço não pode ficar em branco')
+	end
 
-    fill_in 'Nome', with: 'ACCENTURE'
+	scenario 'name must be unique' do
+		Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+		Subsidiary.create!(name: 'ACCENTURE', cnpj: '85.171.517/0001-04', address: 'Rua: Brigadeiro, Paulista')
 
-    click_on 'Enviar'
+		visit root_path
+		click_on 'Filiais'
+		click_on 'Paulista'
+		click_on 'Editar'
 
-    expect(page).to have_content('já está em uso')
-  end
+		fill_in 'Nome', with: 'ACCENTURE'
 
-  scenario 'and return to list subsidiaries' do
-    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+		click_on 'Enviar'
 
-    user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-    login_as user, scope: :user
+		expect(page).to have_content('já está em uso')
+	end
 
-    visit root_path
-    click_on 'Filiais'
-    click_on 'Paulista'
-    click_on 'Editar'
+	scenario 'and return to list subsidiaries' do
+		Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
-    click_on 'Voltar'
+		visit root_path
+		click_on 'Filiais'
+		click_on 'Paulista'
+		click_on 'Editar'
 
-    expect(current_path).to eq subsidiaries_path
-  end
+		click_on 'Voltar'
+
+		expect(current_path).to eq subsidiaries_path
+	end
 end
