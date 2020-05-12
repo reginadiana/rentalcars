@@ -1,15 +1,33 @@
-<h1>Locação agendada com sucesso!</h1>
+<h3 class="link-to-back"><%= link_to 'Voltar', rentals_path %></h3>
 
-<% if @rental.car_rental %>
-	<p>Usuario que iniciou: <%= @rental.car_rental.user.email%></p>
-	<p>Data/Hora que iniciou: <%= l(@rental.car_rental.created_at, format: :long) %></p>
-	<p>Placa: <%= @rental.car_rental.car.license_plate %></p>
-	<p>Cliente: <%= @rental.customer.name %></p>
-	<p>Email do Cliente: <%= @rental.customer.email %></p>
+<div class="manufacturers-div">
 
-	<% if @rental.ongoing? %>
-		<p>Status: <%= Rental.human_attribute_name("status.#{@rental.status}") %></p>
-	<% end %>
+<h3 class="title-info-models">Locação agendada com sucesso!</h3>
+
+	<% if @rental.car_rental %>
+		<div class="subsidiary-info">
+			<h4>Usuario que iniciou: </h4>
+			<p><%= @rental.car_rental.user.email%></p>
+
+			<h4>Data/Hora que iniciou: </h4>
+			<p><%= l(@rental.car_rental.created_at, format: :long) %></p>
+
+			<h4>Placa: </h4>
+			<p><%= @rental.car_rental.car.license_plate %></p>
+
+			<h4>Cliente: </h4>
+			<p><%= @rental.customer.name %></p>
+
+			<h4>Email do Cliente: </h4>
+			<p><%= @rental.customer.email %></p>
+
+			<% if @rental.ongoing? %>
+				<h4>Status: </h4>
+				<%= Rental.human_attribute_name("status.#{@rental.status}") %>
+			<% end %>
 	
-	<p>E-mail do contratante: <%= @rental.car_rental.user.email %></p>
-<% end %>
+			<h4>E-mail do contratante: </h4>
+			<p><%= @rental.car_rental.user.email %></p>
+		</div>
+	<% end %>
+</div>
