@@ -10,10 +10,34 @@
 	<% if @cars.empty? %>
 		<%= 'Nenhum carro cadastrado' %>
 	<% end %>
+	<div class="each-photo-car">
+		<% @cars.each do |car| %>
+			<% if car.car_photo.present? %>
+				<div>
+					<p>
+						<%= image_tag(car.car_photo, size: "320x200", alt: "Carro") %>
+					</p>
+					<p>Placa:
+						<%= link_to car.license_plate, car %>
+					</p>
+					<p class="link-show-car">
+						<%= link_to 'Ver carro', car %>
+					</p>
+				</div>
+			<% else %>
 
-	<% @cars.each do |car| %>
-		<div class="each-manufacturer">
-			<%= link_to car.license_plate, car %>
-		</div>
-	<% end %>
+				<div>
+					<p>
+						<%= image_tag("carnotfound.jpg", size: "320x200", alt: "Carro") %>
+					</p>
+					<p>Placa:
+						<%= link_to car.license_plate, car %>
+					</p>
+					<p class="link-show-car">
+						<%= link_to 'Ver carro', car %>
+					</p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 </div>

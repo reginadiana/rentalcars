@@ -4,6 +4,8 @@ class Car < ApplicationRecord
 
 	has_many :car_rentals
 	has_many :rentals, through: :car_rentals
+	
+	has_one_attached :car_photo
 
 	validates :license_plate, :color, :mileage, presence: true
 	validates :license_plate, uniqueness: true

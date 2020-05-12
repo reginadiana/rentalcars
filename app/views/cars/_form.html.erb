@@ -3,26 +3,30 @@
 <% end %>
 
 <div class="form">
-	<%= form_with model: @car, local: true do |f|%>
+	<%= form_with model: @car, local: true do | form |%>
 		<div class="field">
-			<%= f.label :license_plate %>
-			<%= f.text_field :license_plate %>
+			<%= form.label :license_plate %>
+			<%= form.text_field :license_plate %>
 		</div>
 		<div class="field">
-			<%= f.label :color %>
-			<%= f.number_field :color %>
+			<%= form.label :color %>
+			<%= form.text_field :color %>
 		</div>
 		<div class="field">
-			<%= f.label :car_model_id %>
-			<%= f.collection_select :car_model_id, @car_models, :id, :name %>
+			<%= form.label :car_model_id %>
+			<%= form.collection_select :car_model_id, @car_models, :id, :name %>
 		</div>
 		<div class="field">
-			<%= f.label :mileage %>
-			<%= f.number_field :mileage %>
+			<%= form.label :mileage %>
+			<%= form.number_field :mileage %>
 		</div>
 		<div class="field">
-			<%= f.label :subsidiary_id %>
-			<%= f.collection_select :subsidiary_id, @subsidiaries, :id, :name %>
+			<%= form.label :subsidiary_id %>
+			<%= form.collection_select :subsidiary_id, @subsidiaries, :id, :name %>
+		</div>
+		<div class="field">
+			<%= form.label :car_photo %>
+			<%= form.file_field :car_photo %>
 		</div>
 		<button class="button-enviar-form" type="submit">Enviar</button>
 	<% end %>

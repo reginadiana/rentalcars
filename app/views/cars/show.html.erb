@@ -17,6 +17,16 @@
 
 		<h4><%= Car.human_attribute_name(:subsidiary) %></h4>
 		<p><%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></p>
+
+		<% if @car.car_photo.present? %>
+			<p>
+				<h4>Foto do Carro:</h4>
+				<%= image_tag(@car.car_photo, size: "320x200", alt: "Carro") %>
+			</p>
+		<% else %>
+			<h4>Foto do Carro:</h4>
+			<p>Foto não cadastrada</p>
+		<% end %>
 	</div>
 
 	<% if current_user.admin? %>

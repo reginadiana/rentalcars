@@ -10,3 +10,40 @@
 .info-cars p:last-child {
 	margin-bottom: 3%;
 }
+
+/*Todas as fotos*/
+.each-photo-car {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/*Index Car*/
+.link-show-car {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	width: 50%;
+	text-align: center;
+	background-color: #11c76f;
+	border-color: transparent;
+	border-radius: 25px;
+	padding: 1.5%;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 3%; 
+}
+
+.link-show-car:hover {
+	transition: 0.5s;
+	background-color: #0e9f59; 
+	border-radius: 25px;
+}
+
+/*Tablet and Mobile*/
+@media screen and (max-width: 1000px){
+	.each-photo-car {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+
