@@ -1,4 +1,6 @@
 class CarModelsController < ApplicationController
+
+	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy] 
 	
 	def index
 		@car_models = CarModel.all
@@ -54,5 +56,12 @@ class CarModelsController < ApplicationController
 
 	def id
 		params[:id]
+	end
+
+	def authenticate_user
+	    
+	    if current_user.user?
+	      redirect_to car_models_path
+	    end
 	end
 end

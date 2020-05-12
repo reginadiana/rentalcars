@@ -54,9 +54,7 @@ class ManufacturersController < ApplicationController
 	def authenticate_user
 	    
 	    if current_user.user?
-	      # if current_user is not admin redirect to some route
-	      redirect_to root_path
+	      redirect_to manufacturers_path
 	    end
-	    # if current_user is admin he will proceed to edit action
 	end
 end  

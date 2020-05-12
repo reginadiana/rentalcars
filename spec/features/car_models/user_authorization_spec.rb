@@ -7,6 +7,16 @@ feature 'User can not' do
 		login_as user, scope: :user
 	end
 
+	scenario 'to create some car model by route' do
+		visit new_car_model_path
+		expect(current_path).to eq(car_models_path)
+	end
+
+	scenario 'to edit some car model by route' do
+		visit edit_car_model_path(@car_model)
+		expect(current_path).to eq(car_models_path)
+	end
+
 	scenario 'register valid car model' do
 
 		visit root_path

@@ -2,9 +2,19 @@ require 'rails_helper'
 
 feature 'User can not' do
 	before :each do
-		car_category = create(:car_category, name: 'A')
+		@car_category = create(:car_category, name: 'A')
 		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
 		login_as user, scope: :user
+	end
+
+	scenario 'to create some car category by route' do
+		visit new_car_category_path
+		expect(current_path).to eq(car_categories_path)
+	end
+
+	scenario 'to edit some car category by route' do
+		visit edit_car_category_path(@car_category)
+		expect(current_path).to eq(car_categories_path)
 	end
 
 	scenario 'register valid car category' do

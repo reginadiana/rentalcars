@@ -1,5 +1,6 @@
 class SubsidiariesController < ApplicationController
-	# before_action: authorize_admin!
+
+	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy] 
 
 	def index
 		@subsidiaries = Subsidiary.all
@@ -53,6 +54,13 @@ class SubsidiariesController < ApplicationController
 	
 	def authorize_admin
 		redirect_to root_path, notice: 'Não autorizado' unless current_user.admin?
+	end
+
+	def authenticate_user
+	    
+	    if current_user.user?
+	      redirect_to subsidiaries_path
+	    end
 	end
 end
 
