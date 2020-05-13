@@ -39,6 +39,7 @@ User.create!(email: 'dianaregina22@yahoo.com', password: '111111').admin!
 
 # Acessorios para locacao
 
+AddOn.create!(name: 'Nenhum acessório', daily_rate: '0.00')
 AddOn.create!(name: 'Carregador de Celular', daily_rate: '5.00')
 AddOn.create!(name: 'Suporte de Bicicleta', daily_rate: '11.90')
 AddOn.create!(name: 'GPS', daily_rate: '25.99')

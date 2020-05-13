@@ -7,10 +7,12 @@
 	<%= form_with model: [@rental, @car_rental], local: true do |f| %>
 		<div class="field">
 			<%= f.label :car_id, 'Carro' %>
+			<%= f.collection_select :car_id, @cars, :id, :license_plate %>
 		</div>
 
 		<div class="field">
-			<%= f.collection_select :car_id, @cars, :id, :license_plate %>
+			<%= f.label :add_on_id, 'Acessorios' %>
+			<%= f.collection_select :add_on_id, @add_ons, :id, :name %>
 		</div>
 
 		<button class="button-enviar-form" type="submit">Confirmar locação</button>

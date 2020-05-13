@@ -21,6 +21,9 @@
 			<h4>Email do Cliente: </h4>
 			<p><%= @rental.customer.email %></p>
 
+			<h4>Acessorios:</h4>
+			<p><%= @rental.car_rental.add_on.name %></p>
+
 			<% if @rental.ongoing? %>
 				<h4>Status: </h4>
 				<%= Rental.human_attribute_name("status.#{@rental.status}") %>
