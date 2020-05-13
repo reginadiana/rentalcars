@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_005101) do
+ActiveRecord::Schema.define(version: 2020_05_13_010910) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2020_05_12_005101) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "add_ons", force: :cascade do |t|
+    t.string "name"
+    t.decimal "daily_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "admins", force: :cascade do |t|
@@ -73,6 +80,8 @@ ActiveRecord::Schema.define(version: 2020_05_12_005101) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "add_on_id"
+    t.index ["add_on_id"], name: "index_car_rentals_on_add_on_id"
     t.index ["car_id"], name: "index_car_rentals_on_car_id"
     t.index ["rental_id"], name: "index_car_rentals_on_rental_id"
     t.index ["user_id"], name: "index_car_rentals_on_user_id"
@@ -142,6 +151,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_005101) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "car_models", "car_categories"
   add_foreign_key "car_models", "manufacturers"
+  add_foreign_key "car_rentals", "add_ons"
   add_foreign_key "car_rentals", "cars"
   add_foreign_key "car_rentals", "rentals"
   add_foreign_key "car_rentals", "users"
