@@ -2,7 +2,7 @@ class CarRentalsController < ApplicationController
 	def new
 		@rental = Rental.find(params[:rental_id])
 		@car_rental = CarRental.new
-		@cars = Car.all
+		@cars = Car.where.not(status: :unavailable)
 		@add_ons = AddOn.all
 	end
 
@@ -15,7 +15,7 @@ class CarRentalsController < ApplicationController
 
 		@car_rental.save!
 		@rental.ongoing!
-		# @car.unavailable!
+		@car_rental.car.unavailable!
     
 		redirect_to @rental
 	end

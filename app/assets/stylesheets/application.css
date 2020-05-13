@@ -205,6 +205,12 @@ td {
 	color: red;
 }
 
+/*Para deixar alguma info em verde*/
+.alert-green {
+	color: #32cd32;
+}
+
+
 /*Desktop*/
 @media screen and (min-width: 1000px) {
 	/*Entrar*/

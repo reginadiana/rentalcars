@@ -15,9 +15,10 @@ class CarsController < ApplicationController
 	end
 
         def create
-		@car = Car.new(require_params)
+		@car = Car.new(require_params)	
             	if @car.save
-			flash[:notice] = 'Carro criado com sucesso'	
+			flash[:notice] = 'Carro criado com sucesso'
+			@car.available!
 	    		redirect_to @car
 	    	else 
 			@car_models = CarModel.all

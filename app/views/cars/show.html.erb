@@ -3,6 +3,17 @@
 <div class="manufacturers-div">
 	<h2 class="title-info-models">Informações do Carro</h2>
 	<div class="info-cars">
+	
+		<% if @car.available? %>
+			<p class="alert-green">Disponível</p>
+		<% end %>
+		<% if @car.unavailable? %>
+			<p class="alert-red">Indisponível</p>
+		<% end %>
+
+		<h4><%= Car.human_attribute_name(:subsidiary) %></h4>
+		<p><%= link_to @car.subsidiary.name, subsidiary_path(id: @car.subsidiary.id) %></p>
+
 		<h4><%= Car.human_attribute_name(:license_plate) %></h4>
 		<p><%= @car.license_plate %></p>
 

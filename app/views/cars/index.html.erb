@@ -12,32 +12,28 @@
 	<% end %>
 	<div class="each-photo-car">
 		<% @cars.each do |car| %>
-			<% if car.car_photo.present? %>
-				<div>
-					<p>
-						<%= image_tag(car.car_photo, size: "320x200", alt: "Carro") %>
-					</p>
-					<p>Placa:
-						<%= link_to car.license_plate, car %>
-					</p>
-					<p class="link-show-car">
-						<%= link_to 'Ver carro', car %>
-					</p>
-				</div>
-			<% else %>
+	
+			<div>
+				<% if car.car_photo.present? %>
+					<%= image_tag(car.car_photo, size: "320x200", alt: "Carro") %>
+				<% else %>
+					<%= image_tag("carnotfound.jpg", size: "320x200", alt: "Carro") %>
+				<% end %>
 
-				<div>
-					<p>
-						<%= image_tag("carnotfound.jpg", size: "320x200", alt: "Carro") %>
-					</p>
-					<p>Placa:
-						<%= link_to car.license_plate, car %>
-					</p>
-					<p class="link-show-car">
-						<%= link_to 'Ver carro', car %>
-					</p>
-				</div>
-			<% end %>
+				<p>Placa: <%= link_to car.license_plate, car %> </p>
+			
+				<% if car.available? %>
+					<p class="alert-green">Disponível</p>
+				<% end %>
+
+				<% if car.unavailable? %>
+					<p class="alert-red">Indisponível</p>
+				<% end %>
+
+				<p class="link-show-car">
+					<%= link_to 'Ver carro', car %>
+				</p>
+			</div>
 		<% end %>
 	</div>
 </div>

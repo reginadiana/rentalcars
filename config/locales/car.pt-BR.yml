@@ -4,6 +4,9 @@ pt-BR:
     models:
       car: Carro
     attributes:
+      car/status:
+        unavailable: Indisponível no momento
+        available: Disponível
       car:
        license_plate: Placa
        color: Cor

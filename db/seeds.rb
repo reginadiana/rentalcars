@@ -23,20 +23,23 @@ subsidiary_a = Subsidiary.create!(name: 'Hold', cnpj: '35.463.771/0001-08', addr
 subsidiary_b = Subsidiary.create!(name: 'Pics', cnpj: '38.533.249/0001-35', address: 'Rua: Mocca')
 
 # Cars (Carros Default)
-Car.create!(license_plate: '2508ABD', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary_a)
-Car.create!(license_plate: '2708ABD', color: 'Black', car_model: car_model, mileage: 100, subsidiary: subsidiary_b)
+car_a = Car.create!(license_plate: '2508ABD', color: 'Pink', car_model: car_model, mileage: 500, subsidiary: subsidiary_a)
+car_b = Car.create!(license_plate: '2708ABD', color: 'Black', car_model: car_model, mileage: 100, subsidiary: subsidiary_b)
 
+car_a.available!
+car_b.available!
 # Subsidiaries (Locações Default)
 
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_a, car_category: car_category_a)
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_b, car_category: car_category_b)
 
 # Usarios (Users Default)
-User.create!(email: 'dianaregina22@outlook.com.br', password: '123456').user!
+user = User.create!(email: 'dianaregina22@outlook.com.br', password: '123456')
+user.user!
 
 # Admin (Default)
-User.create!(email: 'dianaregina22@yahoo.com', password: '111111').admin!
-
+admin = User.create!(email: 'dianaregina22@yahoo.com', password: '111111')
+admin.admin!
 # Acessorios para locacao
 
 AddOn.create!(name: 'Nenhum acessório', daily_rate: '0.00')

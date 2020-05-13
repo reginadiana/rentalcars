@@ -4,6 +4,8 @@ class Car < ApplicationRecord
 
 	has_many :car_rentals
 	has_many :rentals, through: :car_rentals
+
+	enum status: { unavailable: 0, available: 1 }
 	
 	has_one_attached :car_photo
 
