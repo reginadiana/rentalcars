@@ -37,6 +37,15 @@ User.create!(email: 'dianaregina22@outlook.com.br', password: '123456').user!
 # Admin (Default)
 User.create!(email: 'dianaregina22@yahoo.com', password: '111111').admin!
 
+# Acessorios para locacao
+
+AddOn.create!(name: 'Carregador de Celular', daily_rate: '5.00')
+AddOn.create!(name: 'Suporte de Bicicleta', daily_rate: '11.90')
+AddOn.create!(name: 'GPS', daily_rate: '25.99')
+AddOn.create!(name: 'Suporte para celular', daily_rate: '5.99')
+AddOn.create!(name: 'Porta copo extra', daily_rate: '3.99')
+AddOn.create!(name: 'Tablet para crianças', daily_rate: '100.00')
+
 
 
 
