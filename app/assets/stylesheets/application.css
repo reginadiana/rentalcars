@@ -200,6 +200,11 @@ td {
 	font-size: 30px;
 } 	
 
+/*Para deixar alguma info em vermelho*/
+.alert-red {
+	color: red;
+}
+
 /*Desktop*/
 @media screen and (min-width: 1000px) {
 	/*Entrar*/

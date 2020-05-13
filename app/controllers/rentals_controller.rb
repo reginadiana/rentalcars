@@ -23,6 +23,7 @@ class RentalsController < ApplicationController
 		@rental = Rental.new(require_params)
 		if @rental.save
 			redirect_to rentals_path
+			RentalsMailer.scheduled(@rental).deliver_now
 		else
 			@customers = Customer.all
 			@car_categories = CarCategory.all	

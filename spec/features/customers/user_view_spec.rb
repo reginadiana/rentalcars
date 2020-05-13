@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 feature 'User view customer' do
+
+	before :each do
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		login_as user, scope: :user
+	end
+
 	scenario 'successfully' do
 		customer_a = Customer.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
 		customer_b = Customer.create!(name: 'Sara', document: '452.176.388-00', email: 'sara@gmail.com')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Clientes'
@@ -30,8 +33,6 @@ feature 'User view customer' do
 	end
 
 	scenario 'and no custumers are created' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Clientes'
@@ -41,13 +42,42 @@ feature 'User view customer' do
 
 	scenario 'and return to home page' do
 
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
-
 		visit root_path
 		click_on 'Clientes'
 		click_on 'Voltar'
 
 		expect(current_path).to eq root_path
+	end
+
+	scenario 'and view customer details of rental' do
+		customer = create(:customer)
+		rental = create(:rental, customer: customer, start_date: '22/10/1990', end_date: '22/10/1991')
+	
+		visit root_path
+		click_on 'Clientes'
+
+		within "tr#customer-#{customer.id}" do
+			click_on 'Locações'
+		end
+
+		expect(page).to have_link "Voltar" 
+
+		expect(page).to have_content("#{rental.code}")
+		expect(page).to have_content("22/10/1990")
+		expect(page).to have_content("22/10/1991")
+		expect(page).to have_content('Agendada')
+	end
+
+	scenario 'without rentals' do
+		customer = create(:customer)
+
+		visit root_path
+		click_on 'Clientes'
+
+		within "tr#customer-#{customer.id}" do
+			click_on 'Locações'
+		end
+
+		expect(page).to_not have_link('Iniciar')
 	end
 end

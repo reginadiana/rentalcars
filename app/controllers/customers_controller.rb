@@ -9,6 +9,10 @@ class CustomersController < ApplicationController
 		@customers = Customer.search(@q).or(Customer.search(@q))
 	end
 
+	def show
+		@customer = Customer.find(params[:id])
+	end
+
 	def new
 		@customer = Customer.new
 	end

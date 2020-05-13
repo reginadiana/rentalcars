@@ -68,6 +68,17 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
+
+  config.action_mailer.smtp_settings = {
+    user_name: 'your_sendgrid_username',
+    password: 'your_sendgrid_password',
+    domain: 'yourdomain.com',
+    address: 'smtp.sendgrid.net',
+    port: 465,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.

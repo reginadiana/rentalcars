@@ -12,6 +12,12 @@
 	
 }
 
+/*Show*/
+.title-rental {
+	text-align: center;
+	color: #11c76f;	
+}
+
 /*Lista de Clientes*/
 .customers-div h1 {
 	margin-bottom: 5%;

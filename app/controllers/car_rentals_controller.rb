@@ -16,4 +16,12 @@ class CarRentalsController < ApplicationController
     
 		redirect_to @rental
 	end
+
+	def destroy
+		@rental = Rental.find(params[:rental_id])
+		@rental.closed!
+		
+		redirect_to customer_path(params[:rental_id])
+		flash[:alert] = "Locação encerrada"	
+	end
 end

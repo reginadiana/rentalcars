@@ -6,6 +6,7 @@
 			<th><%= Customer.human_attribute_name(:document) %></th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,6 +15,9 @@
 				<td><%= customer.name %></td>
 				<td><%= customer.email %></td>
 				<td><%= customer.document %></td>
+				<td>
+					<%= link_to 'Locações', customer_path(customer), id: "show-#{customer.id}" %>
+				</td>
 				<td class="link-editar">
 					<%= link_to 'Editar', edit_customer_path(customer), id: "edit-#{customer.id}" %>
 				</td>

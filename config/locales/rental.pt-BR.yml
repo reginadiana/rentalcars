@@ -2,11 +2,14 @@
 pt-BR:
   activerecord:
     models:
-      rental: Locações
+      rental:
+        one: Locação
+        other: Locações
     attributes:
       rental/status:
         scheduled: Agendada
         ongoing: Em progresso
+        closed: Encerrada
       rental:
        code: Código
        start_date: Data de inicio

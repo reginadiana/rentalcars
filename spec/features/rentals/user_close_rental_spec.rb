@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-feature 'User start rental' do
-	scenario 'successfully by search' do
+feature 'User close a rental' do
+
+	# Escrever teste para encerrar locacao
+	xscenario 'successfully by search' do
 		manufacturer = create(:manufacturer)
 		car_category = create(:car_category)
 		car_model = create(:car_model, manufacturer: manufacturer, car_category: car_category)
@@ -31,7 +33,7 @@ feature 'User start rental' do
 		expect(page).to have_content(user.email)
 	end
 
-	scenario 'from customer page' do
+	xscenario 'from customer page' do
 		car_model = create(:car_model)
 		car = create(:car, license_plate: 'ABC1234', car_model: car_model)
 		customer = create(:customer, name: 'Fulano Sicrano', 

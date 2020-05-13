@@ -20,7 +20,7 @@ feature 'Admin register rental' do
 		fill_in 'Data de término', with: '22/03/2000'
 		select customer.name, from: 'Cliente'
 		select car_category.name, from: 'Categoria'
-
+		expect(RentalsMailer).to receive(:scheduled).and_call_original
 		click_on 'Enviar'
 
 		within(".table") do

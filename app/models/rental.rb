@@ -9,7 +9,7 @@ class Rental < ApplicationRecord
 
 	before_create :generate_code
 
-	enum status: { scheduled: 0, ongoing: 5 }
+	enum status: { scheduled: 0, ongoing: 5, closed: 10 }
 	
 	private
 	
