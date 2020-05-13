@@ -10,7 +10,8 @@ class CustomersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.find(params[:id])
+		@customer = Customer.find(id)
+		@rental = Rental.find(id)
 	end
 
 	def new
