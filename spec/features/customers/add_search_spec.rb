@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 feature 'User search customer' do
+
+	before :each do
+
+		user = create(:user)
+		login_as user, scope: :user
+	end
+
 	scenario 'by exact name' do
-		user = User.create!(email: 'email@test.com', password: '12345678')
+
 		customer = Customer.create!(name: 'Fulano Sicrano', 
                                 email: 'fulano@email.com',
                                 document: '116.801.156-69')
@@ -10,7 +17,6 @@ feature 'User search customer' do
                                         email: 'joao@dasilva.com',
                                         document: '581.280.655-13')
 
-		login_as user, scope: :user
 		visit root_path
 		click_on 'Clientes'
 		fill_in 'Busca', with: customer.name
@@ -26,7 +32,7 @@ feature 'User search customer' do
 	end
 
 	scenario 'by exact CPF' do
-		user = User.create!(email: 'email@test.com', password: '12345678')
+
 		customer = Customer.create!(name: 'Fulano Sicrano', 
                                 email: 'fulano@email.com',
                                 document: '116.801.156-69')
@@ -34,7 +40,6 @@ feature 'User search customer' do
                                         email: 'joao@dasilva.com',
                                         document: '581.280.655-13')
 
-		login_as user, scope: :user
 		visit root_path
 		click_on 'Clientes'
 		fill_in 'Busca', with: customer.document
@@ -50,9 +55,6 @@ feature 'User search customer' do
 	end
 
 	scenario 'and cannot be blank' do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-
-		login_as user, scope: :user
 		visit root_path
 		click_on 'Clientes'
 		fill_in 'Busca', with: ''
@@ -63,15 +65,14 @@ feature 'User search customer' do
 	end
 
 	scenario 'by partial name' do
-		user = User.create!(email: 'email@test.com', password: '12345678')
-		customer = Customer.create!(name: 'Fulano Sicrano', 
-		                        email: 'fulano@email.com',
-		                        document: '116.801.156-69')
-		another_customer = Customer.create!(name: 'João da Silva', 
-		                                email: 'joao@dasilva.com',
-		                                document: '581.280.655-13')
 
-		login_as user, scope: :user
+		customer = Customer.create!(name: 'Fulano Sicrano', 
+                                email: 'fulano@email.com',
+                                document: '116.801.156-69')
+		another_customer = Customer.create!(name: 'João da Silva', 
+                                        email: 'joao@dasilva.com',
+                                        document: '581.280.655-13')
+
 		visit root_path
 		click_on 'Clientes'
 		fill_in 'Busca', with: 'fulano'
@@ -87,15 +88,13 @@ feature 'User search customer' do
 	end
 	scenario 'finds nothing' do
 
-		user = User.create!(email: 'email@test.com', password: '12345678')
 		customer = Customer.create!(name: 'Fulano Sicrano', 
-		                        email: 'fulano@email.com',
-		                        document: '116.801.156-69')
+                                email: 'fulano@email.com',
+                                document: '116.801.156-69')
 		another_customer = Customer.create!(name: 'João da Silva', 
-		                                email: 'joao@dasilva.com',
-		                                document: '581.280.655-13')
+                                        email: 'joao@dasilva.com',
+                                        document: '581.280.655-13')
 
-		login_as user, scope: :user
 		visit root_path
 		click_on 'Clientes'
 		fill_in 'Busca', with: 'Larissa'

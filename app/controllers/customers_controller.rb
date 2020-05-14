@@ -11,7 +11,6 @@ class CustomersController < ApplicationController
 
 	def show
 		@customer = Customer.find(id)
-		@rental = Rental.find(id)
 	end
 
 	def new

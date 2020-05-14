@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      add_on: Acessório
+    attributes:
+      add_on:
+       name: Nome
+       daily_rate: Diária
+

@@ -2,8 +2,9 @@ require 'rails_helper'
 
 feature 'Visitor open home page' do
 	scenario 'successfully' do
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		
+		subsidiary = create(:subsidiary)
+		user = User.create!(email: 'teste@teste.com.br', password: '12345678', subsidiary: subsidiary)
 		login_as user, scope: :user
 
 		visit root_path

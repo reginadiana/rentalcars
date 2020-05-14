@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User view rental' do
 	before :each do
-		user = User.create!(email: 'joana@teste.com.br', password: '12345678')
+		user = create(:user)
 		login_as user, scope: :user
 	end
 	scenario 'successfully' do

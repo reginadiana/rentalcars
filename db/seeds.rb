@@ -34,11 +34,11 @@ Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: c
 Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer_b, car_category: car_category_b)
 
 # Usarios (Users Default)
-user = User.create!(email: 'dianaregina22@outlook.com.br', password: '123456')
+user = User.create!(email: 'dianaregina22@outlook.com.br', password: '123456', subsidiary: subsidiary_a)
 user.user!
 
 # Admin (Default)
-admin = User.create!(email: 'dianaregina22@yahoo.com', password: '111111')
+admin = User.create!(email: 'dianaregina22@yahoo.com', password: '111111', subsidiary: subsidiary_b)
 admin.admin!
 # Acessorios para locacao
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin deletes car categories' do
 
 	before :each do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user = create(:user)
 		user.admin!
 		login_as user, scope: :user
 	end

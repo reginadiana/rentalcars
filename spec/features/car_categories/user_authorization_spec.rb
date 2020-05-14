@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User can not' do
 	before :each do
 		@car_category = create(:car_category, name: 'A')
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user = create(:user)
 		login_as user, scope: :user
 	end
 

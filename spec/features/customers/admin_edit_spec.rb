@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 feature 'Admin edits customers' do
+
+	before :each do
+		user = create(:user)
+		login_as user, scope: :user
+	end
+
 	scenario 'successfully' do
 		customer = Customer.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Clientes'
@@ -17,11 +20,9 @@ feature 'Admin edits customers' do
 	end
 
 	scenario 'can not be blank' do
+
 		customer = Customer.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
-
+		
 		visit root_path
 		click_on 'Clientes'
 		find("a#edit-#{customer.id}").click()
@@ -40,9 +41,6 @@ feature 'Admin edits customers' do
 	scenario 'CPF and Email must be unique' do
 		customer_a = Customer.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
 		customer_b = Customer.create!(name: 'Sara', document: '452.176.388-00', email: 'sarinha@gmail.com')
-
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 	
 		visit root_path
 		click_on 'Clientes'
@@ -60,9 +58,6 @@ feature 'Admin edits customers' do
 	scenario 'and return to customers list ' do
 
 		customer_a = Customer.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
-    
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
-		login_as user, scope: :user
 
 		visit root_path
 		click_on 'Clientes'

@@ -13,7 +13,8 @@ RSpec.describe Rental, type: :model do
 		it 'finds nothing' do
 			customer = Customer.create!(name: 'Diana', document: '505.450.444-17', email: 'diana@gmail.com')
 			car_category = CarCategory.create!(name: 'A', daily_rate: 100, car_insurance: 100, third_part_insurance: 100)
-			user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+			subsidiary = create(:subsidiary)
+			user = User.create!(email: 'teste@teste.com.br', password: '12345678', subsidiary: subsidiary)
 
 			rental = Rental.create!(start_date: 1.day.from_now, end_date: 2.day.from_now, customer: customer, car_category: car_category)
 

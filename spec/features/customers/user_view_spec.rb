@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User view customer' do
 
 	before :each do
-		user = User.create!(email: 'teste@teste.com.br', password: '12345678')
+		user = create(:user)
 		login_as user, scope: :user
 	end
 
@@ -78,6 +78,6 @@ feature 'User view customer' do
 			click_on 'Locações'
 		end
 
-		expect(page).to_not have_link('Iniciar')
+		expect(page).to have_content("Sem locações cadastradas")
 	end
 end

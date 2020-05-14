@@ -9,6 +9,8 @@ pt-BR:
         password: Senha
         remember_me: Lembrar senha
         password_confirmation: Confirmação de senha
+        subsidiary: Filial
+        subsidiary_id: Filial
   devise:
     sessions:
       new:
