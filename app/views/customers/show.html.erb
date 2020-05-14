@@ -16,23 +16,29 @@
 
 	 
 		  <% @customer.rentals.each do |rental| %>
+
 		    <tr id="rental-<%= rental.code %>">
 		      <td><%= rental.code %></td>
 		      <td><%= l rental.start_date %></td>
 		      <td><%= l rental.end_date %></td>
 		      <td><%= rental.car_category.name %></td>
 		      <td><%= Rental.human_attribute_name("status.#{rental.status}") %></td>
-		      <td>
-			<% if rental.scheduled? %>
-			  <%= link_to 'Iniciar', new_rental_car_rental_path(rental) %>
+
+			<% if @user.subsidiary.name === rental.car.subsidiary.name %>
+			      <td>
+				<% if rental.scheduled? %>
+				  <%= link_to 'Iniciar', new_rental_car_rental_path(rental) %>
+				<% end %>
+				<% if rental.ongoing? %>
+				  <%= link_to 'Encerrar', rental_car_rental_path(rental), id: "close-rental-#{rental.id}", method: :delete %>
+				<% end %>
+				<% if rental.closed? %>
+				  <p class="alert-red">Locação encerrada</p>
+				<% end %>
+			      </td>
+			<% else %>
+				<td class="alert-red">Sem permissão</td>
 			<% end %>
-			<% if rental.ongoing? %>
-			  <%= link_to 'Encerrar', rental_car_rental_path(rental), id: "close-rental-#{rental.id}", method: :delete %>
-			<% end %>
-			<% if rental.closed? %>
-			  <p class="alert-red">Locação encerrada</p>
-			<% end %>
-		      </td>
 		    </tr>
 		  <% end %>
 	 <% else %>

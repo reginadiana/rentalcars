@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
 
 	def show
 		@customer = Customer.find(id)
+		@user = current_user
 	end
 
 	def new

@@ -5,6 +5,7 @@
 				<tr>
 					<th>Email</th>
 					<th>Status</th>
+					<th>Filial</th>
 				</tr>
 			</thead>
 
@@ -12,6 +13,7 @@
 				<% @users.each do |user| %>
 					<tr>
 						<td><%= user.email %></td>
+
 						<% if user.admin? %>
 							<td><%= 'Administrador' %></td>
 						<% end %>
@@ -19,6 +21,8 @@
 						<% if user.user? %>
 							<td><%= 'Usuario' %></td>
 						<% end %>
+				
+						<td><%= user.subsidiary.name %></td>
 					</tr>
 				<% end %>
 			</tbody>
