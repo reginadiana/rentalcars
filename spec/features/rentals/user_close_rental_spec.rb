@@ -2,56 +2,69 @@ require 'rails_helper'
 
 feature 'User close a rental' do
 
-	# Escrever teste para encerrar locacao
-	xscenario 'successfully by search' do
-		manufacturer = create(:manufacturer)
-		car_category = create(:car_category)
-		car_model = create(:car_model, manufacturer: manufacturer, car_category: car_category)
+	scenario 'successfully' do
+		customer = create(:customer)
+		car = create(:car)
+		car.available!
+		add_on = create(:add_on)
+	    	rental = create(:rental, customer: customer)
 
-	    	car = create(:car, license_plate: 'ABC1234', car_model: car_model)
-	    	customer = create(:customer, name: 'Fulano Sicrano', 
-		                         email: 'teste@teste.com.br')
-
-	    	rental = create(:rental, customer: customer, 
-		                     car_category: car_model.car_category)
-
-	    	user = create(:user, email: 'test@test.com.br')
-
+	    	user = create(:user)
 		login_as user, scope: :user
-		visit search_rentals_path(q: rental.code)
-		click_on 'Iniciar'
-
-		expect(page).to have_link 'Voltar'
-		select car.license_plate, from: 'Carro'
-		click_on 'Confirmar locação'
-
-		expect(page).to have_content(I18n.l(Time.zone.now, format: :long))
-		expect(page).to have_content(car.license_plate)
-		expect(page).to have_content(customer.name)
-		expect(page).to have_content(customer.email)
-		expect(page).to have_content('Em progresso')
-		expect(page).to have_content(user.email)
-	end
-
-	xscenario 'from customer page' do
-		car_model = create(:car_model)
-		car = create(:car, license_plate: 'ABC1234', car_model: car_model)
-		customer = create(:customer, name: 'Fulano Sicrano', 
-		                         email: 'teste@teste.com.br')
-		rental = create(:rental, customer: customer, 
-		                     car_category: car_model.car_category)
-		user = user_login
 
 		visit customer_path(customer)
 		click_on 'Iniciar'
 		select car.license_plate, from: 'Carro'
+		select add_on.name, from: 'Acessório'
+
 		click_on 'Confirmar locação'
 
-		expect(page).to have_content(I18n.l(Time.zone.now, format: :long))
-		expect(page).to have_content(car.license_plate)
-		expect(page).to have_content(customer.name)
-		expect(page).to have_content(customer.email)
-		expect(page).to have_content('Em progresso')
-		expect(page).to have_content(user.email)
+		visit root_path
+		click_on 'Clientes'
+
+		within "tr#customer-#{customer.id}" do
+			click_on 'Locações'
+		end
+
+		within "tr#rental-#{rental.code}" do
+			click_on 'Encerrar'
+		end
+
+		expect(page).to have_content('Locação encerrada')
+		expect(page).not_to have_content('Em progresso')
+
+	end
+
+	scenario 'and car turn a available' do
+		customer = create(:customer)
+		add_on = create(:add_on)
+		car = create(:car, license_plate: 'ABC1234')
+		car.available!
+
+	    	rental = create(:rental, customer: customer)
+
+	    	user = create(:user)
+		login_as user, scope: :user
+
+		visit customer_path(customer)
+		click_on 'Iniciar'
+		select car.license_plate, from: 'Carro'
+		select add_on.name, from: 'Acessório'
+
+		click_on 'Confirmar locação'
+
+		visit root_path
+		click_on 'Clientes'
+
+		within "tr#customer-#{customer.id}" do
+			click_on 'Locações'
+		end
+
+		within "tr#rental-#{rental.code}" do
+			click_on 'Encerrar'
+		end
+
+		visit car_path(car)
+		expect(page).to have_content('Disponível')
 	end
 end 

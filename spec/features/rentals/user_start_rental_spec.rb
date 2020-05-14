@@ -65,4 +65,28 @@ feature 'User start rental' do
 		expect(page).to have_content('Em progresso')
 		expect(page).to have_content(user.email)
 	end
+
+	scenario 'and car is unavailable' do
+	    	user = create(:user)
+		login_as user, scope: :user
+
+		customer = create(:customer)
+		add_on = create(:add_on)
+		car = create(:car, license_plate: 'ABC1234')
+		car.available!
+
+	    	rental = create(:rental, customer: customer)
+
+		visit customer_path(customer)
+		click_on 'Iniciar'
+		select car.license_plate, from: 'Carro'
+		select add_on.name, from: 'Acessório'
+
+		click_on 'Confirmar locação'
+
+		car.unavailable!
+
+		visit car_path(car)
+		expect(page).to have_content('Indisponível')
+	end
 end 

@@ -5,7 +5,7 @@ pt-BR:
       car: Carro
     attributes:
       car/status:
-        unavailable: Indisponível no momento
+        unavailable: Indisponível
         available: Disponível
       car:
        license_plate: Placa

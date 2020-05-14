@@ -27,7 +27,7 @@
 			  <%= link_to 'Iniciar', new_rental_car_rental_path(rental) %>
 			<% end %>
 			<% if rental.ongoing? %>
-			  <%= link_to 'Encerrar', rental_car_rental_path(rental), method: :delete %>
+			  <%= link_to 'Encerrar', rental_car_rental_path(rental), id: "close-rental-#{rental.id}", method: :delete %>
 			<% end %>
 			<% if rental.closed? %>
 			  <p class="alert-red">Locação encerrada</p>
