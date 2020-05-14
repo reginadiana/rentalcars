@@ -8,28 +8,19 @@ feature 'User view ons' do
 	end
 
 	scenario 'successfully' do
-		on_a = AddOn.create!(name: 'Lucas', document: '508.218.249.15', email: 'lucas@gmail.com')
-		on_b = AddOn.create!(name: 'Sara', document: '452.176.388-00', email: 'sara@gmail.com')
+		on_a = AddOn.create!(name: 'Carrinho para pets', daily_rate: '8.99')
+		on_b = AddOn.create!(name: 'GPS', daily_rate: '25.90')
 
 		visit root_path
-		click_on 'Clientes'
+		click_on 'Lista de Acessórios'
 
-		expect(page).to have_content('Cliente')
-		expect(page).to have_content('Email')
-		expect(page).to have_content('CPF')
+		expect(page).to have_content('Acessório')
+		expect(page).to have_content('Diária')
 
-		expect(page).to have_content('Lucas')
-		expect(page).to have_content('508.218.249.15')
-		expect(page).to have_content('lucas@gmail.com')
-		expect(page).to have_content('Sara')
-		expect(page).to have_content('452.176.388-00')
-		expect(page).to have_content('sara@gmail.com')
-
-		expect(page).to have_link "edit-#{customer_a.id}" 
-		expect(page).to have_link "delete-#{customer_a.id}"
-
-		expect(page).to have_link "edit-#{customer_b.id}" 
-		expect(page).to have_link "delete-#{customer_b.id}"
+		expect(page).to have_content('Carrinho para pets')
+		expect(page).to have_content('R$ 8,99')
+		expect(page).to have_content('GPS')
+		expect(page).to have_content('R$ 25,90')
 	end
 
 	scenario 'and no ons are created' do

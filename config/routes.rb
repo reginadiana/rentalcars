@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
 		resources :subsidiaries
 		resources :cars
+		resources :add_ons
 end

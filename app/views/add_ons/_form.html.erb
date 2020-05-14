@@ -1,0 +1,16 @@
+<% @add_on.errors.full_messages.each do |message| %>
+	<p class="msg-error"><%= message %></p>
+<% end %>
+
+<%= form_with model: @add_on, local: true do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :daily_rate %>
+		<%= f.text_field :daily_rate %>
+	</div>
+
+	<button class="button-enviar-form" type="submit">Enviar</button>
+<% end %>
