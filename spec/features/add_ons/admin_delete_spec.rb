@@ -4,6 +4,7 @@ feature 'Admin deletes on' do
 
 	before :each do
 		user = create(:user)
+		user.admin!
 		login_as user, scope: :user
 	end
 
@@ -14,7 +15,7 @@ feature 'Admin deletes on' do
 		click_on 'Lista de Acessórios'
 		find("a#delete-#{add_on.id}").click()
 
-		expect(current_path).to eq customers_path
+		expect(current_path).to eq add_ons_path
 		expect(page).to have_content('Nenhum acessório cadastrado')
 	end
 

@@ -1,5 +1,7 @@
 class AddOnsController < ApplicationController
 	
+	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@add_ons = AddOn.all
 	end
@@ -44,5 +46,12 @@ class AddOnsController < ApplicationController
 
 	def id
 		params[:id]
+	end
+
+	def authenticate_user
+	    
+	    if current_user.user?
+	      redirect_to add_ons_path
+	    end
 	end
 end

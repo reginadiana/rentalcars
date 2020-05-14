@@ -15,7 +15,7 @@ feature 'Admin register valid on' do
 		click_on 'Cadastrar Acessório'
 	
 		fill_in 'Nome', with: 'Carrinho para pets'
-		fill_in 'Diária', with: '8,99'
+		fill_in 'Diária', with: '8.99'
 
 		click_on 'Enviar'
 
@@ -34,11 +34,11 @@ feature 'Admin register valid on' do
 		click_on 'Cadastrar Acessório'
 	
 		fill_in 'Nome', with: 'Carrinho para pets'
-		fill_in 'Diária', with: '10,00'
+		fill_in 'Diária', with: '10.00'
 
 		click_on 'Enviar'
 
-		expect(page).to have_content('Carrinho para pets já está em uso')
+		expect(page).to have_content('Nome já está em uso')
 	end
 
 	scenario 'and daily_rate must be greater than 0' do
@@ -48,11 +48,11 @@ feature 'Admin register valid on' do
 		click_on 'Cadastrar Acessório'
 	
 		fill_in 'Nome', with: 'Carrinho para pets'
-		fill_in 'Diária', with: '-3,60'
+		fill_in 'Diária', with: '-3.60'
 
 		click_on 'Enviar'
 
-		expect(page).to have_content('Diária deve ser maior que zero')
+		expect(page).to have_content('Diária deve ser maior que 0')
 	end
 
 	scenario 'and name and daily_rate can not be blank' do

@@ -3,7 +3,9 @@
 <div class="customers-div">
 	<h1>Lista de Acessórios</h1>
 
-	<h3><%= link_to 'Registrar Acessório', new_add_on_path %></h3>
+	<% if current_user.admin? %>
+		<h3><%= link_to 'Cadastrar Acessório', new_add_on_path %></h3>
+	<% end %>
 
 	<% if @add_ons.empty? %>
 		<%= 'Nenhum acessório cadastrado' %>
@@ -24,8 +26,10 @@
 					<tr>
 						<td><%= on.name %></td>
 						<td><%= number_to_currency on.daily_rate %></td>
-						<td class="link-editar"><%= link_to 'Editar', edit_add_on_path(on), id: "edit-#{on.id}" %></td>
-						<td class="link-excluir"><%= link_to 'Excluir', add_on_path(on), method: :delete, id: "delete-#{on.id}" %></td>
+						<% if current_user.admin? %>
+							<td class="link-editar"><%= link_to 'Editar', edit_add_on_path(on), id: "edit-#{on.id}" %></td>
+							<td class="link-excluir"><%= link_to 'Excluir', add_on_path(on), method: :delete, id: "delete-#{on.id}" %></td>
+						<% end %>
 						
 					</tr>
 					<% end %>

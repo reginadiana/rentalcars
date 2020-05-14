@@ -4,6 +4,7 @@ feature 'Admin edits on' do
 
 	before :each do
 		user = create(:user)
+		user.admin!
 		login_as user, scope: :user
 	end
 
