@@ -16,8 +16,6 @@ gem 'bcrypt', '3.1.12'
 gem 'devise'
 gem 'jquery-rails' 
 
-gem 'pg', '>= 0.18', '< 2.0'
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
@@ -27,7 +25,7 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
-group :development do.
+group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
