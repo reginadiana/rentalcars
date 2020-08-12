@@ -54,6 +54,8 @@ Algumas instalações serão necessárias antes de iniciar o projeto.
 
 :warning: [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#windows-stable) versão >=1.22.4
 
+:warning: [Docker](https://docs.docker.com/engine/install/ubuntu/)
+
 Verifique se as libs foram instaldas e estão na versão correta executando no terminal:
 
 ```
@@ -73,36 +75,17 @@ $ git clone https://github.com/Diana-ops/rental-cars-treina-dev-1
 ```
 $ cd rental-cars-treina-dev-1
 ```
-3. Use a versão correta do Node
+
+3. Agora vamos rodar a aplicação com Docker:
+
+`docker-compose build`
+
+`docker-compose run --service-ports rails bash`
+
+Um novo terminal irá abrir, então, execute:
 
 ```
-$ nvm use node >=10.13.0
-```
-
-4. Check os arquivos 
-```
-$ yarn install --check-files
-```
-
-5. Instale as dependencias do arquivo [Gemfile](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/Gemfile)
-```
-$ bundle install or bin/setup
-```
-
-6. Inicie o database 
-```
-$ rails db:migrate
-```
-
-7. Importe o database default da aplicação
-```
-$ rails db:reset
-```
-
-## Rodando a aplicação
-
-```
-$ rails server or rails s
+$ rails s -b 0.0.0.0
 ```
 
 > Depois, acesse http://localhost:3000 para ver a aplicação
