@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.7.0
 
 ENV NODE_VERSION 12
 ENV INSTALL_PATH /opt/app
@@ -23,5 +23,6 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 RUN gem install bundler
 RUN bundle install
+RUN gem install rails
 
 COPY . $INSTALL_PATH
