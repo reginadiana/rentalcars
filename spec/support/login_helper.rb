@@ -3,4 +3,4 @@ module LoginHelper
     login_as user, scope: :user
     user
   end
-end 
+end

@@ -23,4 +23,4 @@ describe RentalsMailer do
       expect(mail.body.encoded).to match(I18n.l(rental.end_date))
     end
   end
-end 
+end

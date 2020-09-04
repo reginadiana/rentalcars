@@ -11,8 +11,8 @@ module DeviseHelper
       `devise/shared/error_messages` partial.
     DEPRECATION
 
-    return "" if resource.errors.empty?
+    return '' if resource.errors.empty?
 
-    render "devise/shared/error_messages", resource: resource
+    render 'devise/shared/error_messages', resource: resource
   end
 end

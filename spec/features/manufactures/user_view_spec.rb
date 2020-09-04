@@ -1,59 +1,57 @@
 require 'rails_helper'
 
 feature 'User view manufacturers' do
-	before :each do
-		user = create(:user)
-		login_as user, scope: :user
-	end
+  before :each do
+    user = create(:user)
+    login_as user, scope: :user
+  end
 
-	scenario 'successfully' do
-		Manufacturer.create!(name: 'Fiat')
-		Manufacturer.create!(name: 'Volkswagen')
+  scenario 'successfully' do
+    Manufacturer.create!(name: 'Fiat')
+    Manufacturer.create!(name: 'Volkswagen')
 
-		visit root_path
-		click_on 'Fabricantes'
+    visit root_path
+    click_on 'Fabricantes'
 
-		expect(page).to have_content('Fiat')
-		expect(page).to have_content('Volkswagen')
-	end
+    expect(page).to have_content('Fiat')
+    expect(page).to have_content('Volkswagen')
+  end
 
-	scenario 'and view details' do
-		Manufacturer.create!(name: 'Fiat')
-		Manufacturer.create!(name: 'Volkswagen')
+  scenario 'and view details' do
+    Manufacturer.create!(name: 'Fiat')
+    Manufacturer.create!(name: 'Volkswagen')
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Fiat'
-	
-		expect(page).to have_content('Fiat')
-		expect(page).not_to have_content('Volkswagen')
-	end
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Fiat'
 
-	scenario 'and no manufacturers are created' do
+    expect(page).to have_content('Fiat')
+    expect(page).not_to have_content('Volkswagen')
+  end
 
-		visit root_path
-		click_on 'Fabricantes'
+  scenario 'and no manufacturers are created' do
+    visit root_path
+    click_on 'Fabricantes'
 
-		expect(page).to have_content('Nenhum fabricante cadastrado')
-	end
+    expect(page).to have_content('Nenhum fabricante cadastrado')
+  end
 
-	scenario 'and return to home page' do
+  scenario 'and return to home page' do
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Voltar'
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Voltar'
+    expect(current_path).to eq root_path
+  end
 
-		expect(current_path).to eq root_path
-	end
+  scenario 'and return to manufacturers page' do
+    Manufacturer.create!(name: 'Fiat')
 
-	scenario 'and return to manufacturers page' do
-		Manufacturer.create!(name: 'Fiat')
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Fiat'
+    click_on 'Voltar'
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Fiat'
-		click_on 'Voltar'
-
-		expect(current_path).to eq manufacturers_path
-	end
+    expect(current_path).to eq manufacturers_path
+  end
 end

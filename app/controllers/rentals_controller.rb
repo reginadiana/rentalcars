@@ -1,67 +1,66 @@
 class RentalsController < ApplicationController
-	
-	def index
-		@rentals = Rental.all
-	end
-	
-	def show
-		@rental = Rental.find(id)
-	end
+  def index
+    @rentals = Rental.all
+  end
 
-	def search
-		@q = params[:q]
-		@rental = Rental.find_by(code: @q.upcase)
-	end
+  def show
+    @rental = Rental.find(id)
+  end
 
-	def new
-		@rental = Rental.new
-		@customers = Customer.all
-		@car_categories = CarCategory.all
-	end
+  def search
+    @q = params[:q]
+    @rental = Rental.find_by(code: @q.upcase)
+  end
 
-	def create
-		@rental = Rental.new(require_params)
-		if @rental.save
-			redirect_to rentals_path
-			RentalsMailer.scheduled(@rental).deliver_now
-		else
-			@customers = Customer.all
-			@car_categories = CarCategory.all	
-			render :new
-		end
-	end
+  def new
+    @rental = Rental.new
+    @customers = Customer.all
+    @car_categories = CarCategory.all
+  end
 
-	def edit
-		@rental = Rental.find(id)
-		@customers = Customer.all
-		@car_categories = CarCategory.all
-	end
+  def create
+    @rental = Rental.new(require_params)
+    if @rental.save
+      redirect_to rentals_path
+      RentalsMailer.scheduled(@rental).deliver_now
+    else
+      @customers = Customer.all
+      @car_categories = CarCategory.all
+      render :new
+    end
+  end
 
-	def update
-		@rental = Rental.find(id)
-		if @rental.update(require_params)
-			redirect_to rentals_path
-		else
-			@customers = Customer.all
-			@car_categories = CarCategory.all
-			render :edit
-		end
-	end
+  def edit
+    @rental = Rental.find(id)
+    @customers = Customer.all
+    @car_categories = CarCategory.all
+  end
 
-	def destroy
-		@rental = Rental.find(id)
-		@rental.destroy
+  def update
+    @rental = Rental.find(id)
+    if @rental.update(require_params)
+      redirect_to rentals_path
+    else
+      @customers = Customer.all
+      @car_categories = CarCategory.all
+      render :edit
+    end
+  end
 
-		redirect_to rentals_path
-	end
+  def destroy
+    @rental = Rental.find(id)
+    @rental.destroy
 
-	private
-	
-	def require_params
-		params.require(:rental).permit(:start_date, :end_date, :customer_id, :car_category_id)
-	end
+    redirect_to rentals_path
+  end
 
-	def id
-		params[:id]
-	end
+  private
+
+  def require_params
+    params.require(:rental).permit(:start_date, :end_date, :customer_id, :car_category_id)
+  end
+
+  def id
+    params[:id]
+  end
 end

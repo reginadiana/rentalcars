@@ -1,58 +1,53 @@
 require 'rails_helper'
 
 feature 'Admin register valid subsidiary' do
+  before :each do
+    user = create(:user)
+    user.admin!
 
-	before :each do
-		user = create(:user)
-		user.admin!
+    login_as user, scope: :user
+  end
 
-		login_as user, scope: :user
-	end
+  scenario 'and name must be unique' do
+    Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
 
-	scenario 'and name must be unique' do
-		Subsidiary.create!(name: 'Paulista', cnpj: '99.168.496/0001-74', address: 'Rua: Brigadeiro, Paulista')
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Cadastrar uma filial'
 
-		visit root_path
-		click_on 'Filiais'
-		click_on 'Cadastrar uma filial'
+    fill_in 'Nome', with: 'Paulista'
+    fill_in 'Cnpj', with: '99.168.496/0001-74'
+    fill_in 'Endereço', with: 'Rua: Brigadeiro, Paulista'
 
-		fill_in 'Nome', with: 'Paulista'
-		fill_in 'Cnpj', with: '99.168.496/0001-74'
-		fill_in 'Endereço', with: 'Rua: Brigadeiro, Paulista'
+    click_on 'Enviar'
 
-		click_on 'Enviar'
+    expect(page).to have_content('Nome já está em uso')
+    expect(page).to have_content('Cnpj já está em uso')
+  end
 
-		expect(page).to have_content('Nome já está em uso')
-		expect(page).to have_content('Cnpj já está em uso')
-	end
+  scenario 'and name, cnpj and address can not be blank' do
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Cadastrar uma filial'
 
-	scenario 'and name, cnpj and address can not be blank' do
+    fill_in 'Nome', with: ''
+    fill_in 'Cnpj', with: ''
+    fill_in 'Endereço', with: ''
 
-		visit root_path
-		click_on 'Filiais'
-		click_on 'Cadastrar uma filial'
+    click_on 'Enviar'
 
-		fill_in 'Nome', with: ''
-		fill_in 'Cnpj', with: ''
-		fill_in 'Endereço', with: ''
+    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('Cnpj não pode ficar em branco')
+    expect(page).to have_content('Endereço não pode ficar em branco')
+  end
 
-		click_on 'Enviar'
+  scenario 'and return to list subsidiaries' do
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Cadastrar uma filial'
 
-		expect(page).to have_content('Nome não pode ficar em branco')
-		expect(page).to have_content('Cnpj não pode ficar em branco')
-		expect(page).to have_content('Endereço não pode ficar em branco')
+    click_on 'Voltar'
 
-	end
-
-	scenario 'and return to list subsidiaries' do
-
-		visit root_path
-		click_on 'Filiais'
-		click_on 'Cadastrar uma filial'
-
-		click_on 'Voltar'
-
-		expect(current_path).to eq subsidiaries_path
-	end
+    expect(current_path).to eq subsidiaries_path
+  end
 end
-

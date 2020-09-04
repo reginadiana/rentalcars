@@ -1,67 +1,67 @@
 class CarModelsController < ApplicationController
+  before_action :authenticate_user, only: %i[new create edit update destroy]
 
-	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy] 
-	
-	def index
-		@car_models = CarModel.all
-	end
-	def show
-		@car_model = CarModel.find(id)
-	end
-	def new
-		@car_model = CarModel.new
-		@manufacturers = Manufacturer.all
-		@car_categories = CarCategory.all	
-	end
-	def create
-		@car_model = CarModel.create(require_params)
-		if @car_model.save
-			redirect_to @car_model
-		else
-			@manufacturers = Manufacturer.all
-			@car_categories = CarCategory.all
-			render :new
-		end
-	end
-	def edit
-		@car_model = CarModel.find(id)
-		@manufacturers = Manufacturer.all
-		@car_categories = CarCategory.all
-	end
+  def index
+    @car_models = CarModel.all
+  end
 
-	def update
-		@car_model = CarModel.find(id)
-		if @car_model.update(require_params)
-			redirect_to @car_model
-		else
-			@manufacturers = Manufacturer.all
-			@car_categories = CarCategory.all
-			render :edit
-		end
-	end
+  def show
+    @car_model = CarModel.find(id)
+  end
 
-        def destroy
-		@car_model = CarModel.find(id)
-		@car_model.destroy
+  def new
+    @car_model = CarModel.new
+    @manufacturers = Manufacturer.all
+    @car_categories = CarCategory.all
+  end
 
-		redirect_to car_models_path
-	end
+  def create
+    @car_model = CarModel.create(require_params)
+    if @car_model.save
+      redirect_to @car_model
+    else
+      @manufacturers = Manufacturer.all
+      @car_categories = CarCategory.all
+      render :new
+    end
+  end
 
-	private
-	
-	def require_params
-		params.require(:car_model).permit(:name, :year, :manufacturer_id,
-				:motorization, :fuel_type, :car_category_id)
-	end
+  def edit
+    @car_model = CarModel.find(id)
+    @manufacturers = Manufacturer.all
+    @car_categories = CarCategory.all
+  end
 
-	def id
-		params[:id]
-	end
+  def update
+    @car_model = CarModel.find(id)
+    if @car_model.update(require_params)
+      redirect_to @car_model
+    else
+      @manufacturers = Manufacturer.all
+      @car_categories = CarCategory.all
+      render :edit
+    end
+  end
 
-	def authenticate_user
-	    
-	    if current_user.user?
-	      redirect_to car_models_path
-	    end
-	end
+  def destroy
+    @car_model = CarModel.find(id)
+    @car_model.destroy
+
+    redirect_to car_models_path
+  end
+
+  private
+
+  def require_params
+    params.require(:car_model).permit(:name, :year, :manufacturer_id,
+                                      :motorization, :fuel_type, :car_category_id)
+  end
+
+  def id
+    params[:id]
+  end
+
+  def authenticate_user
+    redirect_to car_models_path if current_user.user?
+  end
 end

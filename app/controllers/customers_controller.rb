@@ -1,58 +1,58 @@
 class CustomersController < ApplicationController
-	
-	def index
-		@customers = Customer.all
-	end
+  def index
+    @customers = Customer.all
+  end
 
-	def search
-		@q = params[:q]
-		@customers = Customer.search(@q).or(Customer.search(@q))
-	end
+  def search
+    @q = params[:q]
+    @customers = Customer.search(@q).or(Customer.search(@q))
+  end
 
-	def show
-		@customer = Customer.find(id)
-		@user = current_user
-	end
+  def show
+    @customer = Customer.find(id)
+    @user = current_user
+  end
 
-	def new
-		@customer = Customer.new
-	end
-	def create
-		@customer = Customer.new(require_params)
-		if @customer.save	
-	    		redirect_to customers_path
-	    	else 
-			render :new
-	    	end
-	end
+  def new
+    @customer = Customer.new
+  end
 
-	def edit
-		@customer = Customer.find(id)
-	end
+  def create
+    @customer = Customer.new(require_params)
+    if @customer.save
+      redirect_to customers_path
+    else
+      render :new
+    end
+  end
 
-	def update
-		@customer = Customer.find(id)
-		if @customer.update(require_params)
-			redirect_to customers_path
-		else
-			render :edit
-		end
-	end
+  def edit
+    @customer = Customer.find(id)
+  end
 
-	def destroy
-		@customer = Customer.find(id)
-		@customer.destroy
+  def update
+    @customer = Customer.find(id)
+    if @customer.update(require_params)
+      redirect_to customers_path
+    else
+      render :edit
+    end
+  end
 
-		redirect_to customers_path
-	end
+  def destroy
+    @customer = Customer.find(id)
+    @customer.destroy
 
-	private
-	
-	def require_params
-		params.require(:customer).permit(:name, :document, :email)
-	end
+    redirect_to customers_path
+  end
 
-	def id
-		params[:id]
-	end
+  private
+
+  def require_params
+    params.require(:customer).permit(:name, :document, :email)
+  end
+
+  def id
+    params[:id]
+  end
 end

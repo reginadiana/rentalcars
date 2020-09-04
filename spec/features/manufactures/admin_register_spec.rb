@@ -1,59 +1,54 @@
 require 'rails_helper'
 
 feature 'Admin register valid manufacturer' do
+  before :each do
+    user = create(:user)
+    user.admin!
 
-	before :each do
-		user = create(:user)
-		user.admin!
+    login_as user, scope: :user
+  end
 
-		login_as user, scope: :user
-	end
+  scenario 'successfully' do
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Registrar novo fabricante'
 
-	scenario 'successfully' do
+    fill_in 'Nome', with: 'Fiat'
+    click_on 'Enviar'
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Registrar novo fabricante'
+    expect(page).to have_content('Fiat')
+  end
 
-		fill_in 'Nome', with: 'Fiat'
-		click_on 'Enviar'
+  scenario 'and name must be unique' do
+    Manufacturer.create!(name: 'Fiat')
 
-		expect(page).to have_content('Fiat')
-	end
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Registrar novo fabricante'
 
-	scenario 'and name must be unique' do
-		Manufacturer.create!(name: 'Fiat' )
+    fill_in 'Nome', with: 'Fiat'
+    click_on 'Enviar'
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Registrar novo fabricante'
+    expect(page).to have_content('Nome já está em uso')
+  end
 
-		fill_in 'Nome', with: 'Fiat'
-		click_on 'Enviar'
+  scenario 'and name can not be blank' do
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Registrar novo fabricante'
 
-		expect(page).to have_content('Nome já está em uso')
-	end
+    fill_in 'Nome', with: ''
+    click_on 'Enviar'
 
-	scenario 'and name can not be blank' do
+    expect(page).to have_content('Nome não pode ficar em branco')
+  end
 
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Registrar novo fabricante'
+  scenario 'and return to list manufacturers' do
+    visit root_path
+    click_on 'Fabricantes'
+    click_on 'Registrar novo fabricante'
+    click_on 'Voltar'
 
-		fill_in 'Nome', with: ''
-		click_on 'Enviar'
-
-		expect(page).to have_content('Nome não pode ficar em branco')
-	end
-
-	scenario 'and return to list manufacturers' do
-
-		visit root_path
-		click_on 'Fabricantes'
-		click_on 'Registrar novo fabricante'
-		click_on 'Voltar'
-
-		expect(current_path).to eq manufacturers_path
-	end
+    expect(current_path).to eq manufacturers_path
+  end
 end
-

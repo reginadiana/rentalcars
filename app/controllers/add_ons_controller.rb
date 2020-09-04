@@ -1,57 +1,54 @@
 class AddOnsController < ApplicationController
-	
-	before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user, only: %i[new create edit update destroy]
 
-	def index
-		@add_ons = AddOn.all
-	end
+  def index
+    @add_ons = AddOn.all
+  end
 
-	def new
-		@add_on = AddOn.new
-	end
-	def create
-		@add_on = AddOn.new(require_params)
-		if @add_on.save	
-	    		redirect_to add_ons_path
-	    	else 
-			render :new
-	    	end
-	end
+  def new
+    @add_on = AddOn.new
+  end
 
-	def edit
-		@add_on = AddOn.find(id)
-	end
+  def create
+    @add_on = AddOn.new(require_params)
+    if @add_on.save
+      redirect_to add_ons_path
+    else
+      render :new
+    end
+  end
 
-	def update
-		@add_on = AddOn.find(id)
-		if @add_on.update(require_params)
-			redirect_to add_ons_path
-		else
-			render :edit
-		end
-	end
+  def edit
+    @add_on = AddOn.find(id)
+  end
 
-	def destroy
-		@add_on = AddOn.find(id)
-		@add_on.destroy
+  def update
+    @add_on = AddOn.find(id)
+    if @add_on.update(require_params)
+      redirect_to add_ons_path
+    else
+      render :edit
+    end
+  end
 
-		redirect_to add_ons_path
-	end
+  def destroy
+    @add_on = AddOn.find(id)
+    @add_on.destroy
 
-	private
-	
-	def require_params
-		params.require(:add_on).permit(:name, :daily_rate)
-	end
+    redirect_to add_ons_path
+  end
 
-	def id
-		params[:id]
-	end
+  private
 
-	def authenticate_user
-	    
-	    if current_user.user?
-	      redirect_to add_ons_path
-	    end
-	end
+  def require_params
+    params.require(:add_on).permit(:name, :daily_rate)
+  end
+
+  def id
+    params[:id]
+  end
+
+  def authenticate_user
+    redirect_to add_ons_path if current_user.user?
+  end
 end

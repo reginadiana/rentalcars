@@ -13,10 +13,10 @@ customer_b = Customer.create!(name: 'Diana', document: '408.018.249.90', email: 
 
 # Car models (Modelos de Carro Default)
 car_model = CarModel.create!(name: 'Ferrari', year: 1955, manufacturer: volkswagem,
-					motorization: '5.0', fuel_type: 'Flex', car_category: car_category_a)
+                             motorization: '5.0', fuel_type: 'Flex', car_category: car_category_a)
 
 CarModel.create!(name: 'Porchi', year: 2000, manufacturer: mercedes,
-					motorization: '1.0', fuel_type: 'Flex', car_category: car_category_b)
+                 motorization: '1.0', fuel_type: 'Flex', car_category: car_category_b)
 
 # Subsidiary (Filiais Default)
 subsidiary_a = Subsidiary.create!(name: 'Hold', cnpj: '35.463.771/0001-08', address: 'Rua: Paulista')
