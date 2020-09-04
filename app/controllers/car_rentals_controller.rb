@@ -23,8 +23,8 @@ class CarRentalsController < ApplicationController
 	def destroy
 		@rental = Rental.find(params[:rental_id])
 		@rental.closed!
-
-		@car_rental = CarRental.find(params[:rental_id])
+		
+		@car_rental = CarRental.find_by(rental_id: params[:rental_id])
 		@car_rental.car.available!
 		
 		redirect_to customer_path(params[:rental_id])

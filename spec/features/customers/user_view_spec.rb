@@ -52,14 +52,14 @@ feature 'User view customer' do
 	scenario 'and view customer details of rental' do
 		customer = create(:customer)
 		rental = create(:rental, customer: customer, start_date: '22/10/1990', end_date: '22/10/1991')
-	
+		
 		visit root_path
 		click_on 'Clientes'
-
+		
 		within "tr#customer-#{customer.id}" do
 			click_on 'Locações'
 		end
-
+		
 		expect(page).to have_link "Voltar" 
 
 		expect(page).to have_content("#{rental.code}")

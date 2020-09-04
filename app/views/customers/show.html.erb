@@ -24,7 +24,7 @@
 		      <td><%= rental.car_category.name %></td>
 		      <td><%= Rental.human_attribute_name("status.#{rental.status}") %></td>
 
-			<% if @user.subsidiary.name === rental.car.subsidiary.name %>
+			<% if @user.subsidiary.name %>
 			      <td>
 				<% if rental.scheduled? %>
 				  <%= link_to 'Iniciar', new_rental_car_rental_path(rental) %>

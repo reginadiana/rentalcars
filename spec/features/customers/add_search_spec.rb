@@ -75,7 +75,7 @@ feature 'User search customer' do
 
 		visit root_path
 		click_on 'Clientes'
-		fill_in 'Busca', with: 'fulano'
+		fill_in 'Busca', with: 'Fulano'
 		click_on 'Buscar'
 		
 		expect(page).to have_link 'Voltar'
