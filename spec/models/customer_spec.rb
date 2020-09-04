@@ -10,7 +10,7 @@ RSpec.describe Customer, type: :model do
                                           email: 'joao@dasilva.com',
                                           document: '581.280.655-13')
 
-			result = Customer.search('fulano')
+			result = Customer.search('Fulano')
 
 			expect(result).to include(customer)
 			expect(result).not_to include(another_customer)
@@ -24,7 +24,7 @@ RSpec.describe Customer, type: :model do
 		                                  email: 'joao@dasilva.com',
 		                                  document: '581.280.655-13')
 
-			result = Customer.search('fulano')
+			result = Customer.search('Fulano')
 
 			expect(result).to include(customer)
 			expect(result).not_to include(another_customer)

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User close a rental' do
 
-	scenario 'successfully' do
+	xscenario 'successfully' do
 		customer = create(:customer)
 		car = create(:car)
 		car.available!
@@ -35,7 +35,7 @@ feature 'User close a rental' do
 
 	end
 
-	scenario 'and car turn a available' do
+	xscenario 'and car turn a available' do
 		customer = create(:customer)
 		add_on = create(:add_on)
 		car = create(:car, license_plate: 'ABC1234')

@@ -55,7 +55,7 @@ feature 'User authentication' do
 		end
 	end
 
-	context 'sign up' do
+	xcontext 'sign up' do
 		scenario 'successfully' do
 
 			visit new_user_session_path

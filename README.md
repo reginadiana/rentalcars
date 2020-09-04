@@ -26,7 +26,7 @@
 
 ## Status do Projeto
 
-> Em desenvolvimento :exclamation:
+> Em manutenção :warning:
 
 ## README em Ingles
 
