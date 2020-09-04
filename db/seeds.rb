@@ -48,15 +48,3 @@ AddOn.create!(name: 'GPS', daily_rate: '25.99')
 AddOn.create!(name: 'Suporte para celular', daily_rate: '5.99')
 AddOn.create!(name: 'Porta copo extra', daily_rate: '3.99')
 AddOn.create!(name: 'Tablet para crianças', daily_rate: '100.00')
-
-
-
-
-
-
-
-
-
-
-
-

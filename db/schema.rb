@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_05_13_210946) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -64,23 +67,23 @@ ActiveRecord::Schema.define(version: 2020_05_13_210946) do
   create_table "car_models", force: :cascade do |t|
     t.string "name"
     t.integer "year"
-    t.integer "manufacturer_id", null: false
+    t.bigint "manufacturer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "motorization"
     t.string "fuel_type"
-    t.integer "car_category_id"
+    t.bigint "car_category_id"
     t.index ["car_category_id"], name: "index_car_models_on_car_category_id"
     t.index ["manufacturer_id"], name: "index_car_models_on_manufacturer_id"
   end
 
   create_table "car_rentals", force: :cascade do |t|
-    t.integer "car_id", null: false
-    t.integer "rental_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "rental_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "add_on_id"
+    t.bigint "add_on_id"
     t.index ["add_on_id"], name: "index_car_rentals_on_add_on_id"
     t.index ["car_id"], name: "index_car_rentals_on_car_id"
     t.index ["rental_id"], name: "index_car_rentals_on_rental_id"
@@ -90,9 +93,9 @@ ActiveRecord::Schema.define(version: 2020_05_13_210946) do
   create_table "cars", force: :cascade do |t|
     t.string "license_plate"
     t.string "color"
-    t.integer "car_model_id", null: false
+    t.bigint "car_model_id", null: false
     t.integer "mileage"
-    t.integer "subsidiary_id", null: false
+    t.bigint "subsidiary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status"
@@ -117,8 +120,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_210946) do
   create_table "rentals", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.integer "customer_id", null: false
-    t.integer "car_category_id", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "car_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "code"
@@ -145,7 +148,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_210946) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "admin", default: 0
     t.integer "role"
-    t.integer "subsidiary_id"
+    t.bigint "subsidiary_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["subsidiary_id"], name: "index_users_on_subsidiary_id"
