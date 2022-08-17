@@ -1,6 +1,6 @@
-FROM ruby:2.7.0
+FROM ruby:3.1.2
 
-ENV NODE_VERSION 12
+ENV NODE_VERSION 16
 ENV INSTALL_PATH /opt/app
 
 RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -

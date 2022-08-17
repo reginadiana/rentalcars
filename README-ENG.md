@@ -34,12 +34,12 @@ A backend application with Ruby on Rails for rental cars. The customers can regi
 
 ### Technologies and your Versions
 
-Ruby 2.6.3
+Ruby 3.1.2
 ```
 $ ruby -v 
 ```
 
-Ruby on Rails  6.0.2.2
+Ruby on Rails  7.0.2
 ```
 $ rails -v 
 ```

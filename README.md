@@ -42,9 +42,9 @@ O projeto é uma aplicação backend com Ruby on Rails para um sistema interno d
 
 Algumas instalações serão necessárias antes de iniciar o projeto. 
 
-:warning: [Ruby](https://www.ruby-lang.org/pt/documentation/installation/) versão >=2.6.3
+:warning: [Ruby](https://www.ruby-lang.org/pt/documentation/installation/) versão >=3.1.2
 
-:warning: [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html) versão >=6.0.2.2
+:warning: [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html) versão >=7.0.2
 
 :warning: [Node](https://nodejs.org/en/download/) versão >=12.16.2
 
@@ -67,20 +67,20 @@ $ <nome da lib em minusculo> -v
 1. Clone o projeto
 
 ```
-$ git clone https://github.com/Diana-ops/rental-cars-treina-dev-1
+$ git clone https://github.com/reginadiana/rentalcars
 ```
 
 2. Entre no diretório
 
 ```
-$ cd rental-cars-treina-dev-1
+$ cd rentalcars
 ```
 
 3. Agora vamos rodar a aplicação com Docker:
 
 `docker-compose build`
 
-`docker-compose run --service-ports rails bash`
+`docker-compose run --service-ports web bash`
 
 Um novo terminal irá abrir, então, execute:
 
@@ -94,7 +94,7 @@ $ rails s -b 0.0.0.0
 ### Rodando os testes :memo:
 
 ```
-$ cd rental-cars-treina-dev-1
+$ cd rentalcars
 $ rspec or bundle exec rspec
 ```
 
@@ -120,4 +120,4 @@ Em [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) foram 
 
 The [MIT License](https://github.com/Diana-ops/rental-cars-treina-dev-1/blob/master/LICENSE) (MIT)
 
-Copyright :copyright: 2020 Rental Cars
+Copyright :copyright: 2022 Rental Cars
