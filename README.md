@@ -112,8 +112,7 @@ Para ver as rotas disponíveis na aplicação, execute:
 $ rails routes -g <name of controller>
 ```
 
-## Permissions [:arrow_up:](#lista-de-conteúdos)
-
+## Resolvendo Problemas [:arrow_up:](#lista-de-conteúdos)
 
 Em [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
 
