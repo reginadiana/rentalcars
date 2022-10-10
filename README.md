@@ -20,7 +20,7 @@
 
 :small_orange_diamond: [Rotas](#rotas)
 
-:small_orange_diamond: [Resolvendo Problemas](#resolvendo-problemas-exclamation)
+:small_orange_diamond: [Resolvendo Problemas](#resolvendo-problemas-arrow_up)
 
 :small_orange_diamond: [Licença](#licença-trident)
 
@@ -112,7 +112,8 @@ Para ver as rotas disponíveis na aplicação, execute:
 $ rails routes -g <name of controller>
 ```
 
-## Resolvendo Problemas :exclamation:
+## Permissions [:arrow_up:](#lista-de-conteúdos)
+
 
 Em [issues](https://github.com/Diana-ops/rental-cars-treina-dev-1/issues) foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
 
