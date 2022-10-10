@@ -20,7 +20,7 @@
 
 :small_orange_diamond: [Rotas](#rotas)
 
-:small_orange_diamond: [Resolvendo Problemas](#resolvendo-problemas-arrow-up)
+:small_orange_diamond: [Resolvendo Problemas](#resolvendo-problemas-arrow_up)
 
 :small_orange_diamond: [Licença](#licença-trident)
 
